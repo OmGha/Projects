@@ -8,7 +8,7 @@ import travlerplane from '../../../Assets/img/black-plane.svg';
 class NAVBER extends Component {
     render() {
         return (
-        <nav className="navbar navbar1 navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar1 navbar-expand-lg navbar-light ">
             <a className="navbar-brand" href="#">Getly</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>

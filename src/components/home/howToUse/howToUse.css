@@ -1,0 +1,26 @@
+.how-to-use__title{
+    margin-top: 50px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.how-to-use__title__h1{
+    text-align: center;
+    font-weight: 700 !important;
+    margin-bottom: 0px !important;
+    font-size: 30px !important;
+    line-height: 32px !important;
+    letter-spacing: -0.6px !important;
+    color: #484848 !important;
+}
+
+.how-to-use__steps__img{
+    background-image: url('../../../Assets/img/shopping-bag.svg');
+    height: 180PX;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    width: 120px;
+}
