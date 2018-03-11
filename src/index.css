@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.getly___btn{
+  padding-left: 18px !important;
+  padding-right: 18px !important;
+  border-radius: 4px !important;
+  border: 0px !important;
+  min-height: 48px !important;
+
+}

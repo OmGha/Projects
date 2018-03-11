@@ -1,0 +1,32 @@
+*{
+    
+    color: #484848;
+}
+
+.navbar{
+    min-height: 80px;
+    
+}
+
+.nav-link{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 48px;
+}
+
+.navbar__item__img{
+    height: 20px;
+    
+}
+
+.navbar__item__btn{
+    line-height: 64px;
+}
+
+.navbar__item__btn-create-oreder{
+    background: #008489 ;
+    color: #ffffff;
+    font-weight: 500;
+    
+}
+

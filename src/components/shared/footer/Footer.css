@@ -1,0 +1,37 @@
+
+footer{
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 0.8px solid #e7e7e7;
+}
+
+.footer__download-app{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 0.8px solid #e7e7e7;
+
+}
+.footer__download-app__img{
+    height: 38px;
+    padding:0px 10px;
+    display: inline-block;
+}
+
+ul{
+    list-style-type: none;
+}
+
+
+.footer__find-us{
+    font-size: 25px;
+    
+}
+.footer__find-us__icon{
+    display: inline;
+    margin-right: 10px;
+}
