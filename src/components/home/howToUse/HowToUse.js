@@ -56,9 +56,7 @@ class HowToUse extends Component {
                                 <p>meet your travelerm , to get your item.</p>
                             </div>
                         </div>
-                       
-                       
-                       
+                                  
                         
                     </div>
                 </div>

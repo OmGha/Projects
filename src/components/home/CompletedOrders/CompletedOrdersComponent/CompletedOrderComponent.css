@@ -1,0 +1,94 @@
+.Completed-Order1{
+   background-color: #fff;
+   border-radius: 4px;
+   padding:  15px;
+   margin: 15px;
+   margin-bottom: 30px;
+   
+}
+
+.Completed-Order__parson{
+  text-align: center;  
+  
+}
+
+.Completed-Order__parson__img{ 
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+}
+
+.Completed-Order__parson__name{
+    font-size: 10px;
+    text-align: center;
+    margin-top: 15px;    
+}
+
+.Completed-Order__parson__country{
+    font-size: 8px;
+    color: #8f8f95;
+    text-align: center;
+}
+
+.Completed-Order__trip{
+    margin-top: 12px;
+}
+
+.Completed-Order__trip__img{
+    height: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Completed-Order__trip__date{
+    font-size: 8px;
+    color: #8f8f95;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.Completed-Order__order__name{
+    font-size: 12px;
+    text-align: left;
+    margin-top: 15px;    
+}
+
+.Completed-Order__order__img{
+    height: 70px;
+    border-radius: 4px; 
+    margin-left: auto;
+    display: block;
+
+}
+
+.completed-Order__rate{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.completed-Order__rate img{
+    height: 30px;
+    margin: 5px;
+    margin-bottom: 12px;
+}
+.completed-Order__traveler{
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.completed-Order__traveler__textfee{
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.completed-Order__traveler__textfeemoney{
+    color: #008489;    
+}

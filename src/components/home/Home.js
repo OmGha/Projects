@@ -4,6 +4,10 @@ import Footer from '../shared/footer/Footer';
 import Header from './header/Header';
 import WhyGetly from './whyGetly/whyGetly';
 import HowToUse from './howToUse/HowToUse';
+import PaymentWays from './paymentWays/PaymentWays';
+import EarnMoney from './EarnMoney/EarnMoney';
+import CompletedOrders from './CompletedOrders/CompletedOrders';
+import Community from './community/Community';
 
 class Home extends Component {
     render() {
@@ -13,6 +17,10 @@ class Home extends Component {
                 <Header />
                 <WhyGetly />
                 <HowToUse />
+                <PaymentWays />
+                <EarnMoney />
+                <CompletedOrders />
+                <Community />
                 <Footer />
             </div>
         );
