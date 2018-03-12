@@ -15,8 +15,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "push":"git add . & git commit -m 'hello' & git push origin mster"
-    
+    "eject": "react-scripts eject"    
   }
 }
