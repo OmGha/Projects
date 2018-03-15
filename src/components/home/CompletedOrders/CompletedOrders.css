@@ -1,7 +1,7 @@
 .Completed-Order{
     background-color: #008489;
     margin-top: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .Completed-Order__text{

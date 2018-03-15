@@ -8,6 +8,9 @@ import PaymentWays from './paymentWays/PaymentWays';
 import EarnMoney from './EarnMoney/EarnMoney';
 import CompletedOrders from './CompletedOrders/CompletedOrders';
 import Community from './community/Community';
+import Login from './Login/Login';
+import Signup from './Signup/Signup';
+
 
 class Home extends Component {
     render() {
@@ -22,6 +25,9 @@ class Home extends Component {
                 <CompletedOrders />
                 <Community />
                 <Footer />
+
+                <Login />
+                <Signup />
             </div>
         );
     }

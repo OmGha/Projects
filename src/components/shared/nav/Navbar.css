@@ -1,11 +1,8 @@
-*{
-    
-    color: #484848;
-}
 
 .navbar{
     min-height: 80px;
     background-color: #ffffff;
+    color: #484848;
     
 }
 
@@ -28,6 +25,8 @@
     background: #008489 ;
     color: #ffffff;
     font-weight: 500;
+    margin-left: 15px;
+
     
 }
 

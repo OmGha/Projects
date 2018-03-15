@@ -1,0 +1,66 @@
+.Getly-Ordr{
+    background-color:  #008489;
+}
+
+.Getly-Ordr2{
+    background-color: #57585a;
+
+}
+
+
+
+.Getly-Ordr__title__h1{
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: 700 !important;
+    margin-bottom: 0px !important;
+    font-size: 30px !important;
+    line-height: 32px !important;
+    letter-spacing: -0.6px !important;
+}
+
+.Getly-Ordr__title__h3{
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: 500 !important;
+    margin-bottom: 0px !important;
+    font-size: 25px !important;
+    line-height: 32px !important;
+    letter-spacing: -0.6px !important;
+    
+
+}
+
+.Getly-Ordr__steps{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.Getly-Ordr__steps1{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.Getly-Ordr__steps__img{
+    height: 85px;
+    display: block;
+    margin: 20px auto 5px auto;
+    
+}
+.Getly-Ordr__steps__span{
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 25px;
+    font-size: 16px;
+
+}

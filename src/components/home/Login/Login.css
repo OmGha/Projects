@@ -1,0 +1,61 @@
+.login__facebook{
+    color: #fff;
+    background-color: #48649f;
+    display: block;
+    margin:  10px auto;
+    width: 100%;
+    font-weight: 500;
+}
+
+
+.login__text-or{
+    text-align: center;
+    width: 100%;
+    margin: 10px 0 25px 0;
+    color: gray;
+    font-size: 11px;   
+}
+
+.login__form{
+    width: 100%;
+
+}
+
+.login__inputs{
+    height: 48px;
+    background-color: #f1f1f1;
+    margin-bottom: 20px;
+    
+}
+
+.login__form__btn{
+    color: #fff;
+    background-color: #008489;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin:  10px auto;
+    width: 100%;
+}
+.login__text-Terms{
+    text-align: center;
+    width: 100%;
+    margin: 10px 0 25px 0;
+    color: gray;
+    font-size: 11px;   
+    font-weight: 500;
+}
+
+.login__forgot-passowrd{
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+}
+
+.Login__register-account{
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    color:gray;
+    margin: 20px 0;
+}

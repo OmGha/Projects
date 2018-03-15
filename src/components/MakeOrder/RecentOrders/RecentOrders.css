@@ -1,0 +1,40 @@
+.recent-orders{
+    background-color: #eee;
+}
+
+.recent-orders__tittle__h1{
+    text-align: center;
+    color: #000;
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+    font-weight: 700 !important;
+    margin-bottom: 10px !important;
+    font-size: 30px !important;
+    line-height: 32px !important;
+    letter-spacing: -0.6px !important;
+}
+
+.recent-orders__tittle__h4{
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 400 !important;
+    margin-bottom: 10px !important;
+    font-size: 20px !important;
+    color: #8f8f95;
+    display: block;
+}
+
+.Show-more--order__btn{
+    background: #008489 ;
+    color: #ffffff;
+    font-weight: 500;
+    width: 35%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}

@@ -1,0 +1,48 @@
+.community{
+    background-color: gray;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    height: 370px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.community__itmes{
+    position: absolute;
+    height: 100%;
+    z-index: 10;
+    bottom: 0;
+    background-color: #00848917;
+    width: 100%;
+    display: block;
+    
+}
+
+.community__itmes__h1{
+    color: #fff;
+    text-align: center;
+    margin:  20px auto;
+    display: block;
+}
+
+
+.community__join__facebook{
+    color: #fff;
+    background-color: #48649f;
+    display: block;
+    margin:  10px auto;
+
+    width: 30%;
+}
+
+
+.community__join__email{
+    color: #fff;
+    background-color: #008489;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 30%;
+    margin:  10px auto;
+
+}
