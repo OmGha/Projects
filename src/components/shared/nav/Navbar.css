@@ -3,6 +3,8 @@
     min-height: 80px;
     background-color: #ffffff;
     color: #484848;
+    border-bottom: 1px solid #eee;
+
     
 }
 
@@ -27,6 +29,6 @@
     font-weight: 500;
     margin-left: 15px;
 
-    
 }
+
 

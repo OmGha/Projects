@@ -1,10 +1,29 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './Order.css';
 
 class Order extends Component {
+
+
+    constructor(props) {
+        super(props);
+       
+            this.openOrder = this.openOrder.bind(this);
+
+      }
+    
+      openOrder() {
+       
+         this.props.history.push('/OrderItem');
+         window.scrollTo(0, 0);
+       
+      }
+
     render() {
         return (
-            <div className='Order' >
+            
+            
+            <div className='Order' onClick={this.openOrder} >
                 <div className='row' >
                     <div className='col-md-6' >
                        <img className='Order__maker-img' src= 'https://randomuser.me/api/portraits/men/88.jpg' /> 
@@ -80,8 +99,11 @@ class Order extends Component {
                 </div>
 
             </div>
+            
+            
+         
         );
     }
 }
 
-export default Order;
+export default withRouter(Order) ;

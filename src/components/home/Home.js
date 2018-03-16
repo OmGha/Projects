@@ -8,8 +8,8 @@ import PaymentWays from './paymentWays/PaymentWays';
 import EarnMoney from './EarnMoney/EarnMoney';
 import CompletedOrders from './CompletedOrders/CompletedOrders';
 import Community from './community/Community';
-import Login from './Login/Login';
-import Signup from './Signup/Signup';
+import Login from '../shared/Login/Login';
+import Signup from '../shared/Signup/Signup';
 
 
 class Home extends Component {

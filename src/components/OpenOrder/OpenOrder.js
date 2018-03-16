@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import NAVBER from '../shared/nav/Navbar';
 import Footer from '../shared/footer/Footer';
-import Header from '../home/header/Header';
-import HowToOrder from './HowToOrder/HowToOrder';
-import RecentOrders from './RecentOrders/RecentOrders';
 import Login from '../shared/Login/Login';
 import Signup from '../shared/Signup/Signup';
+import Orderitem from './OrderItem/OrderItem';
+import RecentOrders from '../MakeOrder/RecentOrders/RecentOrders';
 
-class MakeOrder extends Component {
+
+class OpenOrder extends Component {
     render() {
         return (
             <div>
                 <NAVBER />
-                <Header />
-                <HowToOrder />
-                <RecentOrders />
+
+                <Orderitem />
+
+                 <RecentOrders />
+
                 <Footer />
-                
+
                 <Login />
                 <Signup />
             </div>
@@ -24,4 +26,4 @@ class MakeOrder extends Component {
     }
 }
 
-export default MakeOrder;
+export default OpenOrder;

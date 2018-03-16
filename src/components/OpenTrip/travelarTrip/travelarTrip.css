@@ -1,0 +1,78 @@
+.trip-block{
+
+    background-image: url('../../../Assets/img/earth-earth-at-night-night-lights-41949.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position-y: 13%;
+}
+
+.trip-block__traveler{
+    margin: 60px auto 10px auto;
+    display: block;
+}
+
+.trip-block__traveler__img{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    margin-left: 20px;
+   
+}
+.trip-block__traveler__name{
+  color: #fff;
+  margin-left: 20px;
+  font-size: 20px;
+  font-weight: 700; 
+}
+
+.trip__traveler__rete{
+    display: block;
+    margin-left: 25px;
+}
+
+.trip__traveler__rete img{
+    height: 20px;
+}
+
+.trip-block__traveler__request-btn{
+    background: #008489;
+    color: #ffffff;
+    font-weight: 500;
+    margin-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.trip__detailes{
+  
+    border-radius: 4px;
+    padding: 20px 30px;
+    bottom: 0;
+    margin-bottom: 15px;
+    width: 100%;
+    margin-top: 60px;
+
+}
+
+.trip__detailes__tfo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin: 10px 0;
+    
+}
+
+.trip__detailes__tfo div{
+    display: inline;
+    color: #008489;
+}
+
+
+.trip-block__layout{
+    background: #16262d9c;
+    width: 100%;
+    height: 100%;
+
+}
+
