@@ -20,6 +20,7 @@ class Router extends Component {
                     <Route path="/travel" component={MakeMoney}/>
                     <Route path="/OrderItem" component={OpenOrder} />
                     <Route path="/trip" component={OpenTrip} />
+                    
                 </div>
             </BrowserRouter>
 
