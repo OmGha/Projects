@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import $ from "jquery";
 import './Login.css';
+
 
 var firebase = require('firebase');
 
@@ -27,10 +29,13 @@ class Login extends Component {
         }
 
         this.onlogin = this.onlogin.bind(this);
+      
     }
+
     
     onlogin(event){
         
+      
         //get value of email and password
         const email = this.refs.lognInputEmail1.value;
         const passowrd = this.refs.loginInputPassword1.value;
@@ -52,6 +57,19 @@ class Login extends Component {
             
 
         });
+
+        if(this.state.err === '' && email != '' && email != ''){
+          
+
+            localStorage.setItem("userloged", true);
+
+        
+            $('.loged').hide();
+            $('.login').show();
+          
+            $('#closemodel').click();
+  
+        }
         
 
     }
@@ -61,12 +79,13 @@ class Login extends Component {
         return (
             <div>
 
-                <div className="modal fade" id="loginModel" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div className="modal fade" id="loginModel" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
+                     ref={modal => this.modal = modal} >
                 <div className="modal-dialog modal-dialog-centered" role="document">
                     <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title" id="exampleModalLongTitle">Log In</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" className="close" id='closemodel' data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import $ from "jquery";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DatePicker from 'material-ui/DatePicker';
 import moment from 'moment';
@@ -31,7 +33,8 @@ class Signup extends Component {
         super(props);
     
         this.state = {
-          controlledDate: null,
+            BirthdayDate: null,
+            error: '',
         };
 
         this.signUp = this.signUp.bind(this);
@@ -43,7 +46,7 @@ class Signup extends Component {
         const lastName = this.refs.SignupInputLastname.value;
         const email = this.refs.SignupInputEmail1.value;
         const password = this.refs.SignupInputPassword1.value;
-        const Birthday =  moment(this.state.controlledDate).format('ll');   // Mar 21, 2018
+        const Birthday =  moment(this.state.BirthdayDate).format('ll');   // Mar 21, 2018
       
 
         console.log(FirstName , lastName , email , password ,Birthday);
@@ -77,17 +80,33 @@ class Signup extends Component {
             console.log(error);
             this.setState({error : error})
             
-        })
+        });
+
+        if(this.state.error === '' && FirstName != '' && lastName != '' && email != '' && password != '' && Birthday != ''  ){
+
+            localStorage.setItem("userloged", true);
+        
+            $('.loged').hide();
+            $('.login').show();
+          
+            $('#closeSingupModel').click();
+
+            this.props.history.push('/signup');
+            window.scrollTo(0, 0);
+
+
+
+        }
+
 
         
       }
 
 
-
     
-      handleChange = (event, date) => {
+      handleChangeBirthday = (event, date) => {
         this.setState({
-          controlledDate: date,
+            BirthdayDate: date,
         });
       };
     
@@ -101,7 +120,7 @@ class Signup extends Component {
                         <div className="modal-content">
                         <div className="modal-header">
                             <h5 className="modal-title" id="exampleModalLongTitle">Sign Up</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" className="close" id='closeSingupModel' data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
@@ -136,8 +155,8 @@ class Signup extends Component {
                                                 <MuiThemeProvider muiTheme={muiTheme}>
                                                     <DatePicker  className='signup_DatePicker'
                                                         hintText="Birthday"
-                                                        value={this.state.controlledDate}
-                                                        onChange={this.handleChange}
+                                                        value={this.state.BirthdayDate}
+                                                        onChange={this.handleChangeBirthday}
                                                     />
                                                 </MuiThemeProvider>
                                              </div>
@@ -170,4 +189,4 @@ class Signup extends Component {
     }
 }
 
-export default Signup;
+export default withRouter(Signup);

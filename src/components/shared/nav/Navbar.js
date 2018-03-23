@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import $ from "jquery";
 import '../nav/Navbar.css';
 import shoppingbag from '../../../Assets/img/shopping-bag.svg';
 import travlerplane from '../../../Assets/img/black-plane.svg';
@@ -10,6 +11,15 @@ import travlerplane from '../../../Assets/img/black-plane.svg';
 class NAVBER extends Component {
 
 
+  componentDidMount(){
+    console.log(localStorage.getItem("userloged"));
+    
+    if(localStorage.getItem("userloged")){
+        console.log(localStorage.getItem("userloged"));
+        $('.loged').hide();
+        $('.login').show();
+    }
+}
  
 
     render() {
@@ -37,14 +47,27 @@ class NAVBER extends Component {
                   <Link className="nav-link" to={{pathname: '/travel'}}><img className="navbar__item__img" src={travlerplane} /> Make Money</Link>
                 </li>
 
-                <li className="nav-item ">
-                 <a className="nav-link" href="#"  data-toggle="modal" data-target="#SignupModel" >Sign Up</a>
+                <li className="nav-item loged">
+                 <a className="nav-link " href="#"  data-toggle="modal" data-target="#SignupModel" >Sign Up</a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#" data-toggle="modal" data-target="#loginModel" >Log In</a>
+                <li className="nav-item loged">
+                  <a className="nav-link " href="#" data-toggle="modal" data-target="#loginModel" >Log In</a>
+                </li>
+
+                  <li className="nav-item login">
+               
+                  <a className="nav-link " href="#" >Messages</a>
+                 
                 </li>
                 <li className="nav-item navbar__item__btn">
                   <button type="button" className="btn getly___btn navbar__item__btn-create-oreder">Create Order</button>
+                </li>
+              
+
+                <li className="nav-item login">
+                  <a className="nav-link" href="#"  >
+                    <img className='nav__profile__img' src='https://randomuser.me/api/portraits/men/11.jpg' />
+                  </a>
                 </li>
                 
               </ul>
