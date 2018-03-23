@@ -34,7 +34,7 @@ class Signup extends Component {
     
         this.state = {
             BirthdayDate: null,
-            error: '',
+            err: '',
         };
 
         this.signUp = this.signUp.bind(this);
@@ -71,24 +71,26 @@ class Signup extends Component {
 
             console.log(user);
 
-            this.setState({err: err})
+           
             
         });
         promise
         .catch(e => {
-            var error = e.message;
-            console.log(error);
-            this.setState({error : error})
+            var err = e.message;
+            console.log(err);
+            this.setState({err : err})
+
+            localStorage.setItem("userloged", false);
             
         });
 
-        if(this.state.error === '' && FirstName != '' && lastName != '' && email != '' && password != '' && Birthday != ''  ){
+        console.log(this.state.err);
+        
+/* 
+        if(this.state.err === '' ){
 
             localStorage.setItem("userloged", true);
         
-            $('.loged').hide();
-            $('.login').show();
-          
             $('#closeSingupModel').click();
 
             this.props.history.push('/signup');
@@ -97,7 +99,7 @@ class Signup extends Component {
 
 
         }
-
+ */
 
         
       }
@@ -132,6 +134,9 @@ class Signup extends Component {
 
                                     <div className="row">
                                         <span className='Signup__text-or' >Or Sign Up with Email</span>
+                                    </div>
+                                    <div className="row">
+                                        <span className='login__massage' ></span>
                                     </div>
 
                                     <div className='row' >

@@ -58,7 +58,7 @@ class Login extends Component {
 
         });
 
-        if(this.state.err === '' && email != '' && email != ''){
+        if(this.state.err === '' && email !== '' && passowrd !== ''){
           
 
             localStorage.setItem("userloged", true);

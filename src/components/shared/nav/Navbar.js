@@ -11,10 +11,10 @@ import travlerplane from '../../../Assets/img/black-plane.svg';
 class NAVBER extends Component {
 
 
-  componentDidMount(){
+  componentWillMount(){
     console.log(localStorage.getItem("userloged"));
     
-    if(localStorage.getItem("userloged")){
+    if(localStorage.getItem("userloged") == true){
         console.log(localStorage.getItem("userloged"));
         $('.loged').hide();
         $('.login').show();
