@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+
 import './Header.css';
 import styled, { keyframes } from 'styled-components';
 
@@ -7,6 +9,19 @@ import styled, { keyframes } from 'styled-components';
 
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
+       
+            this.crOr = this.crOr.bind(this);
+
+      }
+    
+      crOr() {
+       
+         this.props.history.push('/createOrder');
+         window.scrollTo(0, 0);
+       
+      }
     render() {
        
         return (
@@ -30,7 +45,7 @@ class Header extends Component {
                               <input className="form-control form-control-lg header__box__create-order__input" type="text" placeholder="Paste URL or type what you’re looking for" />
                           </div>
                           <div  className="col-md-2 header__box__create-order__row1">
-                               <button type="button" className="btn getly___btn header__box__create-order__btn">Create Oreder</button>
+                               <button to={{pathname: '/createOrder'}} onClick={this.crOr} type="button" className="btn getly___btn header__box__create-order__btn">Create Oreder</button>
                           </div>
 
                         </div>
@@ -45,4 +60,4 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default withRouter(Header) ;

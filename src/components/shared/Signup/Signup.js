@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DatePicker from 'material-ui/DatePicker';
+import moment from 'moment';
+
 
 import './Signup.css';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { cyan500, red300, white } from 'material-ui/styles/colors';
+
+var firebase = require('firebase');
+
 
 
 
@@ -12,11 +17,11 @@ import { cyan500, red300, white } from 'material-ui/styles/colors';
 const muiTheme = getMuiTheme ({
     datePicker: {
         textColor: white,
+        pickerHeaderColor: '#008489',
 
     },
   });
   
-
 
 
 class Signup extends Component {
@@ -28,7 +33,57 @@ class Signup extends Component {
         this.state = {
           controlledDate: null,
         };
+
+        this.signUp = this.signUp.bind(this);
       }
+
+      signUp(){
+
+        const FirstName = this.refs.SignupInputFirstname.value;
+        const lastName = this.refs.SignupInputLastname.value;
+        const email = this.refs.SignupInputEmail1.value;
+        const password = this.refs.SignupInputPassword1.value;
+        const Birthday =  moment(this.state.controlledDate).format('ll');   // Mar 21, 2018
+      
+
+        console.log(FirstName , lastName , email , password ,Birthday);
+
+        // connect with firebase
+        const auth = firebase.auth();
+
+        //create user
+        var promise = auth.createUserWithEmailAndPassword(email,password);
+
+
+        promise
+        .then(user => {
+            var err = 'welcome'+ user.email;
+            firebase.database().ref('user/'+user.uid).set({
+                FirstName: FirstName,
+                lastName: lastName,
+                email: email,
+                password: password,
+                Birthday: Birthday,
+            });
+
+            console.log(user);
+
+            this.setState({err: err})
+            
+        });
+        promise
+        .catch(e => {
+            var error = e.message;
+            console.log(error);
+            this.setState({error : error})
+            
+        })
+
+        
+      }
+
+
+
     
       handleChange = (event, date) => {
         this.setState({
@@ -64,34 +119,33 @@ class Signup extends Component {
                                                                     
                                         <form className='Signup__form' >
                                         <div className="form-group">
-                                                <input type="text" className="form-control Signup__inputs" id="SignupInputFirstname" aria-describedby="firstnameHelp" placeholder="First name" />
+                                                <input type="text" className="form-control Signup__inputs" id="SignupInputFirstname" ref='SignupInputFirstname' aria-describedby="firstnameHelp" placeholder="First name" />
                                             </div>     
                                         <div className="form-group">
-                                                <input type="text" className="form-control Signup__inputs" id="SignupInputLastname" aria-describedby="LastnameHelp" placeholder="Last name" />
+                                                <input type="text" className="form-control Signup__inputs" id="SignupInputLastname" ref='SignupInputLastname' aria-describedby="LastnameHelp" placeholder="Last name" />
                                             </div>     
                                             <div className="form-group">
-                                                <input type="email" className="form-control Signup__inputs" id="SignupInputEmail1" aria-describedby="emailHelp" placeholder="Email" />
+                                                <input type="email" className="form-control Signup__inputs" id="SignupInputEmail1" ref='SignupInputEmail1' aria-describedby="emailHelp" placeholder="Email" />
                                             </div>
                                             <div className="form-group">
-                                                <input type="password" className="form-control Signup__inputs" id="SignupInputPassword1" placeholder="Password" />
+                                                <input type="password" className="form-control Signup__inputs" id="SignupInputPassword1" ref='SignupInputPassword1' placeholder="Password" />
                                             </div>
 
 
                                              <div className="form-group">
-                                             <MuiThemeProvider muiTheme={muiTheme}>
-                                                <DatePicker className='signup_DatePicker'
-                                                    hintText="Birthday"
-                                                    value={this.state.controlledDate}
-                                                    onChange={this.handleChange}
-                                                />
-                                            </MuiThemeProvider>
-                                           
+                                                <MuiThemeProvider muiTheme={muiTheme}>
+                                                    <DatePicker  className='signup_DatePicker'
+                                                        hintText="Birthday"
+                                                        value={this.state.controlledDate}
+                                                        onChange={this.handleChange}
+                                                    />
+                                                </MuiThemeProvider>
                                              </div>
                                          
 
 
 
-                                            <button type="submit" className="btn getly___btn Signup__form__btn">Sign Up</button>
+                                            <button type='button' className="btn getly___btn Signup__form__btn" onClick={this.signUp} >Sign Up</button>
                                         </form>
 
                                     </div>

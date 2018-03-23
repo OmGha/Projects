@@ -7,6 +7,8 @@ import MakeOrder from './components/MakeOrder/MakeOrder';
 import MakeMoney from './components/MakeMoney/MakeMoney';
 import OpenOrder from './components/OpenOrder/OpenOrder';
 import OpenTrip from './components/OpenTrip/OpenTrip';
+import createOrder from './components/createOrder/createOrder';
+
 
 
 class Router extends Component {
@@ -20,6 +22,9 @@ class Router extends Component {
                     <Route path="/travel" component={MakeMoney}/>
                     <Route path="/OrderItem" component={OpenOrder} />
                     <Route path="/trip" component={OpenTrip} />
+                    <Route path="/createOrder" component={createOrder} />
+
+                    
                 </div>
             </BrowserRouter>
 

@@ -35,6 +35,9 @@ class travelarTrip extends Component {
                                 <button type="button" className="btn getly___btn trip-block__traveler__request-btn">Request delivery</button>
                             </div>
 
+
+
+  
                                 
                     </div>
                     <div className='col-md-6' >
@@ -52,7 +55,7 @@ class travelarTrip extends Component {
                                         </div>
                                        
                                         <div className='trip__detailes__tfo'>
-                                            <div>Traveler before : </div>
+                                            <div>Traveler date : </div>
                                             <span> March 20, 2018</span>
                                         </div>
                                       
