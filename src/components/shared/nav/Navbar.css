@@ -40,5 +40,9 @@
 }
 
 .login{
+    display: block;
+}
+
+.logout{
     display: none;
 }

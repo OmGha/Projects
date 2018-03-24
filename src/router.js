@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter ,Route } from 'react-router-dom';
-import { hashHistory } from 'react-router';
 import $ from "jquery";
 
 import Home from './components/home/Home';
@@ -15,24 +14,27 @@ import createOrder from './components/createOrder/createOrder';
 
 class Router extends Component {
 
-
+   
   
   
+     
 
     render() {
+
+
+        localStorage.setItem("userloged", false);
+
         return (
 
             <BrowserRouter>
                 <div>
-                    <Route exact path="/" component={Home}  />
-                    <Route path="/order" component={MakeOrder}/>
-                    <Route path="/travel" component={MakeMoney}/>
-                    <Route path="/OrderItem" component={OpenOrder}  />
-                    <Route path="/trip" component={OpenTrip}  />
+                    <Route exact path="/" component={Home}   />
+                    <Route path="/order" component={MakeOrder}   />
+                    <Route path="/travel" component={MakeMoney}  />
+                    <Route path="/OrderItem" component={OpenOrder}    />
+                    <Route path="/trip" component={OpenTrip}   />
                     <Route path="/signup" component={uplodeProfilePic}  />
-                    <Route path="/OrderItem" component={OpenOrder} />
-                    <Route path="/trip" component={OpenTrip} />
-                    <Route path="/createOrder" component={createOrder} />
+                    <Route path="/createOrder" component={createOrder}   />
 
                     
                 </div>

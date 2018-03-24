@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import $ from "jquery";
 import './Login.css';
 
-
 var firebase = require('firebase');
-
 
  // Initialize Firebase
  var config = {
@@ -19,7 +17,6 @@ var firebase = require('firebase');
 
 
 class Login extends Component {
-
 
     constructor(props) {
         super(props);
@@ -40,37 +37,68 @@ class Login extends Component {
         const email = this.refs.lognInputEmail1.value;
         const passowrd = this.refs.loginInputPassword1.value;
 
-        console.log(email, passowrd);
+       console.log(email, passowrd);
 
         // connect with firebase
         const auth = firebase.auth();
 
         const promise =  auth.signInWithEmailAndPassword(email,passowrd);
 
+
+       
         // handle the login error
         promise.catch(e => {
 
+            console.log('catch');
+            
+            
             var err = e.message;
             console.log(err);
 
-            this.setState({err: err});
+            this.setState({err: e.message});
+
+            console.log(this.state.err);
+
+            if(this.state.err === '' && email !== '' && passowrd !== ''){
+          
+
+                localStorage.setItem("userloged", true);
+    
+            
+               
+              
+                $('#closemodel').click();
+      
+            }
             
 
         });
 
-        if(this.state.err === '' && email !== '' && passowrd !== ''){
+        promise.then( ()=> {
+           
+            this.setState({err: ''});
+            console.log(this.state.err);
+
+            
+            if(this.state.err === '' && email !== '' && passowrd !== ''){
           
 
-            localStorage.setItem("userloged", true);
+                localStorage.setItem("userloged", true);
+    
+            
+              
+                $('#closemodel').click();
+      
+            }
 
+        })
+    
+      
         
-            $('.loged').hide();
-            $('.login').show();
-          
-            $('#closemodel').click();
-  
-        }
+     
         
+
+
 
     }
 

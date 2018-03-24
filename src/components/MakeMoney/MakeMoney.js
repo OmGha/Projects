@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import $ from "jquery";
 import NAVBER from '../shared/nav/Navbar';
 import Footer from '../shared/footer/Footer';
 import Header from './header/Header2';

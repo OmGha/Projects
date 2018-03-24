@@ -17,6 +17,10 @@ class createOrder extends Component {
               <NAVBER/>
               <Itemcreatecrder/>
               <Itemcreateordermanually/>
+
+              <Login />
+              <Signup />
+              <Footer />
             </div>
 
         );

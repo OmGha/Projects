@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Header2.css';
-import styled, { keyframes } from 'styled-components';
 
 
 

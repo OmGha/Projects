@@ -71,6 +71,25 @@ class Signup extends Component {
 
             console.log(user);
 
+            this.setState({err : ''})
+
+            if(this.state.err === '' ){
+
+                localStorage.setItem("userloged", true);
+            
+                $('#closeSingupModel').click();
+
+             
+    
+                this.props.history.push('/signup');
+                window.scrollTo(0, 0);
+                $('.loged').hide();
+                $('.login').show();
+    
+    
+    
+            }
+
            
             
         });
@@ -80,26 +99,33 @@ class Signup extends Component {
             console.log(err);
             this.setState({err : err})
 
+            console.log(this.state.err)
+
             localStorage.setItem("userloged", false);
+
+            if(this.state.err === '' ){
+
+                localStorage.setItem("userloged", true);
+            
+                $('#closeSingupModel').click();
+
+               
+    
+                this.props.history.push('/signup');
+                window.scrollTo(0, 0);
+                $('.loged').hide();
+                $('.login').show();
+    
+    
+    
+            }
             
         });
 
         console.log(this.state.err);
         
-/* 
-        if(this.state.err === '' ){
 
-            localStorage.setItem("userloged", true);
-        
-            $('#closeSingupModel').click();
-
-            this.props.history.push('/signup');
-            window.scrollTo(0, 0);
-
-
-
-        }
- */
+ 
 
         
       }
@@ -136,7 +162,7 @@ class Signup extends Component {
                                         <span className='Signup__text-or' >Or Sign Up with Email</span>
                                     </div>
                                     <div className="row">
-                                        <span className='login__massage' ></span>
+                                        <span className='login__massage' >{this.state.err}</span>
                                     </div>
 
                                     <div className='row' >

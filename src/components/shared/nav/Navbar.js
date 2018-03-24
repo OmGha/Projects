@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import $ from 'jquery'
+import { withRouter } from 'react-router-dom';
 import {Link} from 'react-router-dom';
-import $ from "jquery";
 import '../nav/Navbar.css';
 import shoppingbag from '../../../Assets/img/shopping-bag.svg';
 import travlerplane from '../../../Assets/img/black-plane.svg';
@@ -10,19 +11,14 @@ import travlerplane from '../../../Assets/img/black-plane.svg';
 
 class NAVBER extends Component {
 
+  
 
-  componentWillMount(){
-    console.log(localStorage.getItem("userloged"));
-    
-    if(localStorage.getItem("userloged") == true){
-        console.log(localStorage.getItem("userloged"));
-        $('.loged').hide();
-        $('.login').show();
-    }
-}
- 
+
 
     render() {
+
+      var userloged = localStorage.getItem("userloged");
+    
         return (
         <nav className="navbar navbar1 navbar-expand-lg navbar-light ">
             <Link className="navbar-brand" to='/'>Getly</Link>
@@ -35,7 +31,6 @@ class NAVBER extends Component {
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                
-                
               </ul>
 
               <ul className="navbar-nav  mt-2 mt-lg-0">
@@ -47,16 +42,16 @@ class NAVBER extends Component {
                   <Link className="nav-link" to={{pathname: '/travel'}}><img className="navbar__item__img" src={travlerplane} /> Make Money</Link>
                 </li>
 
-                <li className="nav-item loged">
-                 <a className="nav-link " href="#"  data-toggle="modal" data-target="#SignupModel" >Sign Up</a>
+                <li className="nav-item " >
+                 <a className= 'nav-link' href="#"  data-toggle="modal" data-target="#SignupModel" >Sign Up</a>
                 </li>
-                <li className="nav-item loged">
-                  <a className="nav-link " href="#" data-toggle="modal" data-target="#loginModel" >Log In</a>
+                <li className="nav-item ">
+                  <a  className= 'nav-link' href="#" data-toggle="modal" data-target="#loginModel" >Log In</a>
                 </li>
 
-                  <li className="nav-item login">
+                  <li  className="nav-item ">
                
-                  <a className="nav-link " href="#" >Messages</a>
+                  <a  className= 'nav-link' href="#" >Messages</a>
                  
                 </li>
                 <li className="nav-item navbar__item__btn">
@@ -64,8 +59,8 @@ class NAVBER extends Component {
                 </li>
               
 
-                <li className="nav-item login">
-                  <a className="nav-link" href="#"  >
+                <li className="nav-item ">
+                  <a className= 'nav-link ' href="#"  >
                     <img className='nav__profile__img' src='https://randomuser.me/api/portraits/men/11.jpg' />
                   </a>
                 </li>
@@ -79,4 +74,4 @@ class NAVBER extends Component {
     }
 }
 
-export default NAVBER;
+export default withRouter(NAVBER);

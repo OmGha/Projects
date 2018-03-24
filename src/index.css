@@ -11,3 +11,6 @@ body {
   min-height: 48px !important;
 
 }
+
+.hideelnav{display: none}
+.showelnav{display: block;}
