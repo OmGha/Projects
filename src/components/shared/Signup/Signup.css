@@ -28,7 +28,10 @@
     background-color: #f1f1f1;
     margin-bottom: 20px;
 }
+.Signup__inputs:focus{
+    border: 1px solid #999;   
 
+}
 .Signup__form__btn{
     color: #fff;
     background-color: #008489;

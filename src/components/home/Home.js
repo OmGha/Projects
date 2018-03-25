@@ -12,7 +12,8 @@ import CompletedOrders from './CompletedOrders/CompletedOrders';
 import Community from './community/Community';
 import Login from '../shared/Login/Login';
 import Signup from '../shared/Signup/Signup';
-
+import MenueSetting from '../shared/MenuSetting/MenuSetting'
+import Message_notification from '../shared/message/message_notification';
 
 
 class Home extends Component {

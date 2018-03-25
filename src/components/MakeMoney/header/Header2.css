@@ -277,8 +277,8 @@
 .header__boxMM{
     z-index: 20 !important;
     position: absolute !important;
-    height: 300px !important;
-    top: 50% !important;
+    height: 400px !important;
+    top: 35% !important;
     width: 100% !important;
     margin: 0 auto !important;
     -webkit-transform: translateY(-126px) !important;
@@ -295,10 +295,20 @@
 }
 .header__box__textMM{
     color: #fff;
-    width: 65%;
+    width: 100%;
+    text-align: center;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+#scndTitle{
+  font-size: 24px !important;
+  font-weight: 200 !important;
+}
+.search__City{
+  position: relative;
+  top:30%;
 }
 
 
@@ -306,9 +316,8 @@
 .header__box__text__h1MM{
     font-weight: 900 !important;
     text-shadow: 1px 1px 40px rgba(22, 28, 31, 0.626) !important;
-    font-size: 30px;
-
-
+    font-size: 56px;
+    font-family: 'Roboto', sans-serif;
 }
 
 

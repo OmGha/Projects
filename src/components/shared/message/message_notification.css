@@ -1,0 +1,64 @@
+.Message__Notify{
+    width: 400px;
+    z-index: 10;
+    min-height: 60px;
+    min-width: 280px;
+    left: auto;
+    bottom: auto;
+    right: 220px;
+    top: 84px;
+    position: absolute;
+    margin-bottom: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    border:1px solid #f2f2f2;
+    border-top:0 !important;
+    border-radius:0 0 4px 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display:none;
+}
+.Message__sub{
+    display: block;
+    margin: 0 5%;
+    padding: 16px 0;
+    border-bottom: 1px solid #f2f2f2;
+    cursor: pointer;
+    color: grey;
+}
+.Message__sub:hover{
+    border-bottom: 1px solid #1d1d1d;
+
+}
+.Message__Element{
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 500;
+
+}
+.Message__viewAll{
+    display: inline-block;
+    text-align: right;
+    float: right;
+    vertical-align: middle;
+}
+.not__element{
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 15px;
+    word-wrap: break-word;
+    line-height: 1.2;
+}
+.not__element__cross{
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0;
+}
+.not__photo{
+    width: 48px;
+    background: #eee;
+}
+.Cross__img{
+    width: 12px;
+    margin-left: 16px;
+}

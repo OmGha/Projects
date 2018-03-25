@@ -4,6 +4,46 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    margin-top: 30px;
     
 }
+.imagePreview{
+    width: 160px;
+    height: 160px;
+    margin-top: 30px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
 
+}
+.profilImg__Icon,.profilImg{
+    width: 100%;
+    height: 100%;
+}
+.btn__uploade{
+    margin-top: 30px;
+    width: 350px;
+
+}
+.btn__uploade>input{
+    display: none;
+
+}
+.upload__img_blocl__skip{
+margin-top: 10px;
+}
+.upload__img_blocl__skip>a{
+    color: #008489;
+}
+.btn__finish{
+    width: 350px;
+   background-color: #17a2b8;
+   color: #fff;
+
+}
+.btn__finish:hover{
+    background-color: #008489;
+}
+.profilImg{
+    border-radius: 50%;
+}
