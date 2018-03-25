@@ -19,17 +19,17 @@ class Header extends Component {
                 </div>
                 <div className="header__layerMM">
                     <div className="header__boxMM">
-                        <div className="header__box__textMM">
+                        <div className="header__box__textMM" >
                             <h1 className="header__box__text__h1MM">
                                 Earn Money while traveling 
                             </h1>
-                            <h1 className="header__box__text__h1MM">
-                                Join Getly community and help shopper
+                            <h1 className="header__box__text__h1MM" id='scndTitle'>
+                                Join Getly community and help shoppers across MENA
                             </h1>
                             
                         </div>
 
-                        <div className='container' > 
+                        <div className='container search__City' > 
                          <form  className="header__box__search row">
                            
 
