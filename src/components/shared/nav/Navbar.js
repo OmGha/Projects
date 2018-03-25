@@ -23,6 +23,8 @@ class NAVBER extends Component {
   showMessage() {
        
     $('.Message__Notify').toggle();
+    $('.Menu__Container').hide();
+
   
  }
 
@@ -30,7 +32,8 @@ class NAVBER extends Component {
   showMenu() {
        
     $('.Menu__Container').toggle();
-  
+    $('.Message__Notify').hide();
+
  }
 
 

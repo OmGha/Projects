@@ -12,6 +12,7 @@ import createOrder from './components/createOrder/createOrder';
 import editProfile from './components/editProfile/editProfile';
 
 
+import Deliveries from './components/Deliveries/Deliveries';
 
 
 class Router extends Component {
@@ -38,6 +39,7 @@ class Router extends Component {
                     <Route path="/signup" component={uplodeProfilePic}  />
                     <Route path="/createOrder" component={createOrder}   />
                     <Route path="/editProfile" component={editProfile}   />
+                    <Route path="/Deliveries" component={Deliveries}   />
 
 
                     
