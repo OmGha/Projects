@@ -8,7 +8,7 @@ class HowToUse extends Component {
                 <hr />
                 <div className="container">
                     <div className="row">
-                       <div className="how-to-use__title">
+                        <div className="how-to-use__title">
                             <h1 className="how-to-use__title__h1">How to get your items on Getly?</h1>
                         </div>
                     </div>

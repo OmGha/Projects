@@ -15,10 +15,6 @@ import Signup from '../shared/Signup/Signup';
 
 
 
-
-
-
-
 class Home extends Component {
 
     constructor(props) {
@@ -27,11 +23,9 @@ class Home extends Component {
 
         }
 
-
     
     render() {
       
-
         return (
             <div>
                 <NAVBER/>
