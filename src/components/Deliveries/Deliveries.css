@@ -1,0 +1,48 @@
+.Deliveries__Container{
+    background-image: url('../../../src/Assets/img/earth-earth-at-night-night-lights-41949.jpeg');
+background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position-y: 13%;
+    height: 300px;
+}
+
+.Deliveries__Container2{
+    width: 100%;
+    height: 100%;
+    background: #16262d9c;
+    text-align: center;
+}
+.Deliveries__Container__btn{
+height: 50px;
+    margin-top:110px;
+    position: relative;
+    max-width: 200px;
+    background-color: #008489;
+    color: #fff;
+    margin-left: 90px;
+    cursor: pointer;
+    
+}
+.Deliveries__Container__Elment{
+    color: #fff;
+    line-height:1.3;
+    font-size: 2.75rem;
+    box-sizing: border-box;
+    margin-top:100px;
+
+}
+
+.display__dilev{
+    background-color: #eee;
+    height: 100px;
+}
+.display__dilev__cont{
+ 
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+.display__dilev__cont>span{
+    top: 200px
+}

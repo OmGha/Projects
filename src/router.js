@@ -9,7 +9,7 @@ import OpenOrder from './components/OpenOrder/OpenOrder';
 import OpenTrip from './components/OpenTrip/OpenTrip';
 import uplodeProfilePic from './components/shared/Signup/uplodeProfilePic/uplodeProfilePic';
 import createOrder from './components/createOrder/createOrder';
-
+import Deliveries from './components/Deliveries/Deliveries';
 
 
 class Router extends Component {
@@ -35,6 +35,8 @@ class Router extends Component {
                     <Route path="/trip" component={OpenTrip}   />
                     <Route path="/signup" component={uplodeProfilePic}  />
                     <Route path="/createOrder" component={createOrder}   />
+                    <Route path="/Deliveries" component={Deliveries}   />
+
 
                     
                 </div>
