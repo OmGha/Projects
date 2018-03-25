@@ -1,0 +1,33 @@
+.Menu__Container{
+    width: 280px;
+    z-index: 10;
+    left: auto;
+    bottom: auto;
+    right: 5px;
+    top: 84px;
+    position: absolute;
+    margin-bottom: 5px;
+    font-weight: 300;
+    font-size: 16px;
+    background-color: #fff;
+    border:1px solid #f2f2f2;
+    border-top:0 !important;
+    border-radius:0 0 4px 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.Menu__Profile{
+    display: block;
+    margin: 0 5%;
+    padding: 16px 0;
+    border-bottom: 1px solid #f2f2f2;
+    cursor: pointer;
+}
+.Menu__Profile >span{
+    font-weight: 400;
+    color: grey;
+}
+.Menu__Profile:hover{
+    border-bottom: 1px solid #1d1d1d;
+}

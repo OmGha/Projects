@@ -35,6 +35,10 @@
     margin-bottom: 20px;
     
 }
+.login__inputs:focus{
+border: 1px solid #999;   
+    
+}
 
 .login__form__btn{
     color: #fff;

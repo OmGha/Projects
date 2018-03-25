@@ -5,14 +5,33 @@ import {Link} from 'react-router-dom';
 import '../nav/Navbar.css';
 import shoppingbag from '../../../Assets/img/shopping-bag.svg';
 import travlerplane from '../../../Assets/img/black-plane.svg';
-
+import MenueSetting from '../MenuSetting/MenuSetting'
+import Message_notification from '../message/message_notification';
 
 
 
 class NAVBER extends Component {
 
-  
+  constructor(props) {
+    super(props);
+   
+        this.showMenu = this.showMenu.bind(this);
+        this.showMessage = this.showMessage.bind(this);
 
+  }
+
+  showMessage() {
+       
+    $('.Message__Notify').toggle();
+  
+ }
+
+
+  showMenu() {
+       
+    $('.Menu__Container').toggle();
+  
+ }
 
 
     render() {
@@ -51,7 +70,7 @@ class NAVBER extends Component {
 
                   <li  className="nav-item ">
                
-                  <a  className= 'nav-link' href="#" >Messages</a>
+                  <a  className= 'nav-link' href="#" onClick={this.showMessage} >Messages</a>
                  
                 </li>
                 <li className="nav-item navbar__item__btn">
@@ -60,7 +79,7 @@ class NAVBER extends Component {
               
 
                 <li className="nav-item ">
-                  <a className= 'nav-link ' href="#"  >
+                  <a className= 'nav-link ' href="#"  onClick={this.showMenu} >
                     <img className='nav__profile__img' src='https://randomuser.me/api/portraits/men/11.jpg' />
                   </a>
                 </li>
@@ -68,6 +87,8 @@ class NAVBER extends Component {
               </ul>
              
             </div>
+            <MenueSetting/>
+            <Message_notification/>
           </nav>
           
         );
