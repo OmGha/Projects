@@ -1,0 +1,56 @@
+#conCoupon{
+    background: #fff;
+    padding: 30px 60px;
+
+}
+.Coupon__Conatiner{
+    background: #fff;
+    margin:0 10%;
+    box-shadow: 0 2px 6px #888888;
+    height: auto;
+    padding-bottom: 12px; 
+    border-radius: 5px;
+}
+.Coupon__Section{
+    margin: 5px 60px;
+    border-radius: 4px;
+}
+
+.Coupon__Header{
+    margin:10px 0;
+    border-bottom: 1px solid #f2f2f2;
+    font-size: 36px;
+    padding: 10px 30px 20px 30px;
+}
+#btn__Submit__Coupon{
+    width: 100%;
+    height: 48px;
+    background: #008489;
+    border:1px solid #008489;
+}
+#inlineFormInputGroup{
+    height: 48px;
+}
+.Coupon__img{
+    float: right;
+    width: 48px;
+    height: auto;
+}
+.Coupon__Conatiner>label{
+    margin: 5px 50px 0 50px;
+    color:#ccc;
+}
+#elementContainer{
+    border: 1px solid #dddddd;
+    background: #F5F5F5;
+    display: block;
+    padding: 6px;
+}
+.Coupon__Element{
+    padding: 12px;
+    background: #fff;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin: 6px;
+    color: #6d6d6d;
+}

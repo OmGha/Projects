@@ -10,16 +10,13 @@ import OpenTrip from './components/OpenTrip/OpenTrip';
 import uplodeProfilePic from './components/shared/Signup/uplodeProfilePic/uplodeProfilePic';
 import createOrder from './components/createOrder/createOrder';
 import editProfile from './components/editProfile/editProfile';
+import Copouns from './components/Copouns/Copouns';
 
 
 import Deliveries from './components/Deliveries/Deliveries';
 
 
 class Router extends Component {
-
-   
-  
-  
      
 
     render() {
@@ -40,7 +37,7 @@ class Router extends Component {
                     <Route path="/createOrder" component={createOrder}   />
                     <Route path="/editProfile" component={editProfile}   />
                     <Route path="/Deliveries" component={Deliveries}   />
-
+                    <Route path="/Copouns" component={Copouns}   />
 
                     
                 </div>
