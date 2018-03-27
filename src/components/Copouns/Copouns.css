@@ -1,15 +1,16 @@
 #conCoupon{
-    background: #fff;
+    background: #eee;
     padding: 30px 60px;
 
 }
 .Coupon__Conatiner{
     background: #fff;
     margin:0 10%;
-    box-shadow: 0 2px 6px #888888;
+    /* box-shadow: 0 2px 6px #888888; */
     height: auto;
     padding-bottom: 12px; 
     border-radius: 5px;
+    border: 1px solid #e8e0e0;
 }
 .Coupon__Section{
     margin: 5px 60px;
@@ -41,14 +42,14 @@
     color:#ccc;
 }
 #elementContainer{
-    border: 1px solid #dddddd;
-    background: #F5F5F5;
+    background: #eee;
     display: block;
     padding: 6px;
 }
 .Coupon__Element{
     padding: 12px;
     background: #fff;
+    border: 1px solid #e8e0e0;
     border-radius: 4px;
     vertical-align: middle;
     margin: 6px;

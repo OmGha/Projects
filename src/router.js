@@ -9,7 +9,7 @@ import OpenOrder from './components/OpenOrder/OpenOrder';
 import OpenTrip from './components/OpenTrip/OpenTrip';
 import uplodeProfilePic from './components/shared/Signup/uplodeProfilePic/uplodeProfilePic';
 import createOrder from './components/createOrder/createOrder';
-import editProfile from './components/editProfile/editProfile';
+import editNavigate from './components/editNavigate/editNavigate';
 import Copouns from './components/Copouns/Copouns';
 
 
@@ -35,11 +35,11 @@ class Router extends Component {
                     <Route path="/trip" component={OpenTrip}   />
                     <Route path="/signup" component={uplodeProfilePic}  />
                     <Route path="/createOrder" component={createOrder}   />
-                    <Route path="/editProfile" component={editProfile}   />
+                    <Route path="/editNavigate" component={editNavigate}   />
                     <Route path="/Deliveries" component={Deliveries}   />
                     <Route path="/Copouns" component={Copouns}   />
-
                     
+                                        
                 </div>
             </BrowserRouter>
 
