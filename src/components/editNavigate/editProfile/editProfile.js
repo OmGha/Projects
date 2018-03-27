@@ -4,7 +4,7 @@ import './editProfile.css';
 class editProfile extends Component {
     render() {
         return (                    
-            <div className='col-md-9'>
+            <div className='col-md-9 Display__Class'>
                 <form className='editProfile__Form'>
                     <div className="form-row">
                         <div className="form-group col-md-6">
