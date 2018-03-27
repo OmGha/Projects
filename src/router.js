@@ -13,6 +13,7 @@ import editProfile from './components/editProfile/editProfile';
 
 
 import Deliveries from './components/Deliveries/Deliveries';
+import AddTrip from './components/Deliveries/AddTrip/AddTrip';
 
 
 class Router extends Component {
@@ -40,6 +41,7 @@ class Router extends Component {
                     <Route path="/createOrder" component={createOrder}   />
                     <Route path="/editProfile" component={editProfile}   />
                     <Route path="/Deliveries" component={Deliveries}   />
+                    <Route path="/AddTrip" component={AddTrip}   />
 
 
                     
