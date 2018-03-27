@@ -10,159 +10,16 @@ import OpenTrip from './components/OpenTrip/OpenTrip';
 import uplodeProfilePic from './components/shared/Signup/uplodeProfilePic/uplodeProfilePic';
 import createOrder from './components/createOrder/createOrder';
 import editProfile from './components/editProfile/editProfile';
+import Copouns from './components/Copouns/Copouns';
 
 
 import Deliveries from './components/Deliveries/Deliveries';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 import AddTrip from './components/Deliveries/AddTrip/AddTrip';
 
 
 class Router extends Component {
-
-   
-  
-  
      
 
     render() {

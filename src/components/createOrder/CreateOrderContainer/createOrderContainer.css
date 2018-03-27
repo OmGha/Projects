@@ -1,0 +1,101 @@
+.createOrder__container{
+    width: 45%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.createOrder__steps{
+    background-color: #008489;
+    border-radius: 4px;
+    padding: 15px 10px;
+    
+}
+
+.createOrder__steps__step{
+
+}
+
+.createOrder__step__img{
+    height: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
+.createOrder__step__text{
+    text-align: center;
+    color: #ddd;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.createOrder__step__text__active{
+    text-align: center;
+    color: #fff !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-create-oreder{
+    background: #008489;
+    color: #ffffff;
+    font-weight: 500;
+    margin-left: 15px;
+    width: 100%;
+}
+
+.create-oreder__inputs{
+    height: 48px;
+    background-color: #f1f1f1;
+    margin-bottom: 20px;
+    
+}
+
+.create-oreder__inputs_col{
+    padding-left: 0;
+}
+
+.btn__upload-img{
+    background: #008489;
+    color: #ffffff;
+    font-weight: 500;
+    width: 100%;   
+}
+
+.create-oreder__form{
+    width: 100%;
+}
+
+.btn__create-order-next1{
+    background: #008489;
+    color: #ffffff;
+    font-weight: 500;
+    width: 100%;   
+}
+
+.create-oreder__inputs{
+    height: 48px;
+    background-color: #f1f1f1;
+    margin-bottom: 20px;
+    
+}
+.create-oreder__textarea{
+    background-color: #f1f1f1;
+    margin-bottom: 20px;
+    
+}
+
+.input_doller__char{
+    background-color: #f1f1f1;
+}
+
+.create-oreder__inputs__price{
+    height: 48px;
+    background-color: #f1f1f1;
+    margin-bottom: 20px;
+    border-left: 0;
+}
+

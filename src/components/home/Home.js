@@ -16,10 +16,6 @@ import MenueSetting from '../shared/MenuSetting/MenuSetting'
 import Message_notification from '../shared/message/message_notification';
 
 
-
-
-
-
 class Home extends Component {
 
     constructor(props) {
@@ -28,11 +24,9 @@ class Home extends Component {
 
         }
 
-
     
     render() {
       
-
         return (
             <div>
                 <NAVBER/>
