@@ -1,0 +1,67 @@
+.Addtrip__Cont{
+    margin: auto;
+    margin-top: 50px;
+    width: 400px;
+}
+.Addtrip__Cont__Icon{
+margin: auto
+
+}
+._plane{
+text-align: center;
+font-size: 70px;
+margin: auto;
+margin-left: 40%;
+color: #008489;
+}
+.Addtrip__Cont__tex{
+    margin-top: 30px;
+    text-align: center;
+}
+.Addtrip__Cont__tex1{
+    display: block;
+    text-align: center;
+    font-size: 1.875rem;
+    font-weight: 320;
+
+}
+.Addtrip__Cont__tex2{
+    margin-top: 20px;
+    color: #8f8f95;
+    text-align: center;
+    line-height: 1.5;
+
+}
+.Addtrip__Cont__Form{
+    margin-top: 30px;
+
+}
+.Addtrip__Cont__Form__Div{
+   margin-bottom: 15px;
+   overflow: hidden;
+    
+}
+.Addtrip__Cont__Form__Span{
+    background: #f8f8f8;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    padding-top: 10px;
+}
+.Addtrip__Cont__Form__Input{
+    width: 280px;
+    background-color: #f8f8f8;
+    border-width: 0px;
+    border-radius: 5px;
+    border-style: solid;
+    height: 45px;
+    font-size: 13px;
+    
+}
+.Add__btn{
+    margin: auto;
+    margin-top: 20px;
+    background: #008489;
+    width: 100%;
+    color: #fff;
+}

@@ -35,7 +35,8 @@ height: 50px;
 
 .display__dilev{
     background-color: #eee;
-    height: 100px;
+    height: auto;
+    overflow: auto;
 }
 .display__dilev__cont{
  
@@ -44,5 +45,151 @@ height: 50px;
     text-align: center;
 }
 .display__dilev__cont>span{
-    top: 200px
+    top: 200px;
+    display: none;
+}
+
+
+.typeOfTrips__Cont{
+    box-sizing: border-box;
+    display: block;
+    line-height: 1.5;
+    font-weight: 300;
+    font-size: 16px;
+    width: fit-content;
+    margin: auto;
+    width: 700px;
+    overflow: hidden;
+}
+.typeOfTrips__Cont__UpcomingTitle{
+    padding-left:0;
+    padding-right: 0;
+    padding-top: 30px;
+    box-sizing: border-box;
+    width: fit-content;
+    height: fit-content;
+    overflow: hidden;
+
+}
+.typeOfTrips__Cont{
+    overflow: hidden;
+
+}
+.a{
+   margin: auto;
+   margin-left: 0;
+    
+    margin-top: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-sizing: border-box;
+   height: 100%;
+   overflow: hidden;
+    
+}
+.Upcoming__Cont__Photo{
+    background-color: #326e80;
+    width: 100%;
+}
+.Upcoming__Cont__Content{
+    padding: 20px;
+    width: 100%;
+    background: #fff;
+
+}
+.Upcoming__Cont__Content__Info{
+    text-align: left;
+}
+.Upcoming__Cont__Content__Info__Place>span{
+    font-size: 1.875rem;
+    color: black;
+
+}
+.Upcoming__Cont__Content__Info__Date>span{
+    font-size: 1.475rem;
+    color: #777;;
+
+}
+.Upcoming__Cont__Content__Details{
+    Padding-top: 20px;
+}
+.Upcoming__Cont__Content__Details__Divs__Div2__Orders,.Upcoming__Cont__Content__Details__Divs__Div2__ToDeliver,.Upcoming__Cont__Content__Details__Divs__Div2__Earnings{
+float: left;
+text-align: left;
+}
+.num>span{
+    color: black;
+    padding-bottom: 5px;
+    line-height: 1.5;
+    font-weight: 300;
+    font-size: 20px
+}
+.tex{
+    color: #777;
+    padding-top: 5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #008489;
+}
+
+
+.Coming__Trip{
+    width: 500px;
+    height: 320px;
+    background: #fff;
+    margin: auto;
+    margin-top: 30px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.Place__Info{
+    padding-top: 20px;
+}
+.Place__Info__Arow{
+    margin-top: 5px;
+}
+.arow{
+    font-size:40px;
+    margin-top: 10px;
+    color: #008489;
+}
+.Place__Info__From1{
+    color: #666;
+    font-size: 18px;
+}
+.Place__Info__From2{
+    color: #008489;
+    font-size: 30px;
+    font-weight: bold;
+}
+.Date__Info{
+    background: #008489;
+    width: 250px;
+    height: 35px;
+    margin: auto;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-top: 50px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.Date__Info>span{
+        font-weight: 400;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    margin: auto;
+
+}
+.More__Info{
+    margin-top: 50px;
+   
+        
+}
+.More__Info__d{
+     
+}
+
+.More__Info>div>span{
+margin-top: 5px;
 }

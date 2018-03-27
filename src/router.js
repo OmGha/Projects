@@ -16,6 +16,9 @@ import Copouns from './components/Copouns/Copouns';
 import Deliveries from './components/Deliveries/Deliveries';
 
 
+import AddTrip from './components/Deliveries/AddTrip/AddTrip';
+
+
 class Router extends Component {
      
 
@@ -37,7 +40,9 @@ class Router extends Component {
                     <Route path="/createOrder" component={createOrder}   />
                     <Route path="/editNavigate" component={editNavigate}   />
                     <Route path="/Deliveries" component={Deliveries}   />
-                    <Route path="/Copouns" component={Copouns}   />
+                    <Route path="/AddTrip" component={AddTrip}   />
+
+
                     
                                         
                 </div>
