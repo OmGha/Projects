@@ -85,6 +85,7 @@ height: 50px;
     box-sizing: border-box;
    height: 100%;
    overflow: hidden;
+   cursor: pointer;
     
 }
 .Upcoming__Cont__Photo{
@@ -134,38 +135,43 @@ text-align: left;
 
 .Coming__Trip{
     width: 500px;
-    height: 320px;
+    height: 250px;
     background: #fff;
     margin: auto;
     margin-top: 30px;
     border: 1px solid #fff;
     border-radius: 5px;
     box-sizing: border-box;
+    cursor: pointer;
 }
 .Place__Info{
-    padding-top: 20px;
+    padding-top: 10px;
+    margin-left: 0;
 }
 .Place__Info__Arow{
     margin-top: 5px;
+   
 }
 .arow{
     font-size:40px;
     margin-top: 10px;
     color: #008489;
+    
 }
 .Place__Info__From1{
     color: #666;
-    font-size: 18px;
+    font-size: 15px;
+    
 }
 .Place__Info__From2{
     color: #008489;
-    font-size: 30px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 600;
 }
 .Date__Info{
     background: #008489;
-    width: 250px;
-    height: 35px;
+    width: 300px;
+    height: 40px;
     margin: auto;
     border: 1px solid #eee;
     border-radius: 5px;
@@ -178,16 +184,12 @@ text-align: left;
     text-align: center;
     color: #fff;
     font-size: 18px;
-    margin: auto;
 
 }
 .More__Info{
-    margin-top: 50px;
+    margin-top: 20px;
    
         
-}
-.More__Info__d{
-     
 }
 
 .More__Info>div>span{

@@ -59,7 +59,6 @@ class UploadProfilePicComponent extends Component {
                         </label>
                         <div className="buttonFinish">
                         {$buttonFinish}
-
                         </div>
                     </div>
                     <div className='upload__img_blocl__skip'>
