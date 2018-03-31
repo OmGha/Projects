@@ -1,0 +1,104 @@
+.Deliveries__Container{
+    height: 200px;
+}
+.Info__Cont{
+    height: 50%;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+
+}
+.Place__Text{
+left: 0;
+display: inline;
+}
+
+.Salar__Text{
+    display: block;
+   text-align: right;
+}
+.Salar__Text__Info{
+    float: right;
+    font-size: 16px;
+    font-weight: 100;
+}
+.Share__Cont{
+
+}
+.Setteng__Cont{
+    float: right;
+}
+.fa__btn{
+    height: 35px;
+    background: #3d5586;
+    border:1px;
+    border-radius: 5px;
+    color: #fff;
+    overflow: hidden;
+    width: 120px;
+    font-size: 15px;
+}
+.tw__btn{
+    height: 35px;
+    background: #2f9deb;
+    border:1px;
+    border-radius: 5px;
+    color: #fff;
+    overflow: hidden;
+    margin-left: 10px;
+    width: 120px;
+    font-size: 15px;
+
+
+}
+.setting__btn{
+    height: 35px;
+    background: #e0e0e0;
+    border:1px;
+    border-radius: 5px;
+    color: black;
+    overflow: hidden;
+    width: fit-content;
+    font-size: 15px;
+    padding-right: 10px;
+
+}
+.Nav__Cont{
+    width: fit-content;
+    
+}
+.Nav__Cont nav div a{
+    color: black;
+    
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
+        color: #008489;
+
+}
+
+.tab-content{
+    background: #eee;
+    min-height:100px;
+}
+.Facebook__Logo{
+    width: 30px;
+    height: 20px;
+    float: left;
+    margin-top: 0
+}
+.Twitter__Logo{
+    width: 30px;
+    height: 20px;
+    float: left;
+    margin-top: 0;
+    
+}
+.Setting__Logo{
+    width: 40px;
+    height: 25px;
+    float: left;
+    margin-top: 0;
+    margin-right: 2px;
+
+}

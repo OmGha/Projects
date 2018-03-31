@@ -13,7 +13,7 @@ class Deliveries extends Component {
         super(props);
        
             this.trip = this.trip.bind(this);
-
+            this.openInfo=this.openInfo.bind(this);
 
       }
     
@@ -22,6 +22,10 @@ class Deliveries extends Component {
          this.props.history.push('/AddTrip');
          window.scrollTo(0, 0);
        
+      }
+      openInfo(){
+        this.props.history.push('/AddTrip_Info');
+        window.scrollTo(0, 0);
       }
 
     render() {
@@ -45,7 +49,7 @@ class Deliveries extends Component {
                           <div className='typeOfTrips__Cont__UpcomingTitle'>
                               <span>Upcoming Trips</span>
                           </div>
-                            <div className='a' >
+                            <div className='a 'onClick={this.openInfo} >
                                 <div className='Upcoming__Cont row'>
                                     <div className='Upcoming__Cont__Photo col-4'></div>
                                     <div className='Upcoming__Cont__Content col-8 '>
@@ -82,12 +86,11 @@ class Deliveries extends Component {
                                     </div>
                                 </div>
                         </div>
-                       <div className='Coming__Trip'>
-                           <div className='Place__Info row'>
+                       <div className='Coming__Trip row' onClick={this.openInfo}>
+                           <div className='Place__Info row offset-1 col-11 '>
                               <div className='Place__Info__From col-4'>
-                              <span className='Place__Info__From1'>Egypt</span><br/>
-                              <span className='Place__Info__From2'>Cairo</span>
-
+                                <span className='Place__Info__From1'>Egypt</span><br/>
+                                <span className='Place__Info__From2'>Cairo</span>
                               </div>
                               <div className='Place__Info__Arow col-4'><i class="arow fas fa-caret-right"></i></div>
                               <div className='Place__Info__To col-4'>
@@ -95,10 +98,10 @@ class Deliveries extends Component {
                               <span className='Place__Info__From2'>New York</span>
                               </div>
                            </div>
-                           <div className='Date__Info'>
+                           <div className='Date__Info offset-1 col-10 '>
                               <span>March 23, 2018</span>
                            </div>
-                           <div className='More__Info row'>
+                           <div className='More__Info row offset-1 col-10 '>
                               <div className='More__Info__d col-4'>
                                   <span className='num'>1</span><br/>
                                   <span className='tex'>Orders</span>
@@ -126,5 +129,5 @@ class Deliveries extends Component {
     }
 }
 
-export default Deliveries;
+export default withRouter(Deliveries) ;
 
