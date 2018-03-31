@@ -16,4 +16,4 @@ class SideBar extends Component {
     }
 }
 
-export default SideBar;  
+export default SideBar; 
