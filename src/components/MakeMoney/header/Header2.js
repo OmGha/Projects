@@ -24,7 +24,7 @@ class Header extends Component {
                                 Earn Money while traveling 
                             </h1>
                             <h1 className="header__box__text__h1MM" id='scndTitle'>
-                                Join Getly community and help shoppers across MENA
+                                Join Getly community and help shoppers across the WORLD
                             </h1>
                             
                         </div>

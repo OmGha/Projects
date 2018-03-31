@@ -14,8 +14,8 @@ class createOrder extends Component {
         return(
             <div>
               <NAVBER/>
-                <CreateOrderContainer />
-              <Footer />
+                 <CreateOrderContainer   />
+              <Footer />    
 
                <Login />
               <Signup />

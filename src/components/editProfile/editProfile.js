@@ -21,40 +21,30 @@ class editProfile extends Component {
                         </div>
                         <div className='col-md-9'>
                         <form className='editProfile__Form'>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                <label for="fName4">First Name</label>
-                                <input type="fName" class="form-control" id="fName4" placeholder="Jane"/>
+                            <div className="form-row">
+                                <div className="form-group col-md-6">
+                                <label htmlFor="fName4">First Name</label>
+                                <input type="fName" className="form-control" id="fName4" placeholder="Jane"/>
                                 </div>
-                                <div class="form-group col-md-6">
-                                <label for="lName4">Last Name</label>
-                                <input type="text" class="form-control" id="lName4" placeholder="Doe"/>
+                                <div className="form-group col-md-6">
+                                <label htmlFor="lName4">Last Name</label>
+                                <input type="text" className="form-control" id="lName4" placeholder="Doe"/>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="inputEmail4">E-Mail</label>
-                                <input type="text" class="form-control" id="inputEmail4" placeholder="name@example.com"/>
+                            <div className="form-group">
+                                <label htmlFor="inputEmail4">E-Mail</label>
+                                <input type="text" className="form-control" id="inputEmail4" placeholder="name@example.com"/>
                             </div>
-                            <div class="form-group">
-                                <label for="inputAddress2">Phone Number</label>
-                                <input type="text" class="form-control" id="inputAddress2" placeholder="(+20)-000-000-0000"/>
+                            <div className="form-group">
+                                <label htmlFor="inputAddress2">Phone Number</label>
+                                <input type="text" className="form-control" id="inputAddress2" placeholder="(+20)-000-000-0000"/>
                             </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                <label for="inputCity">City</label>
-                                <input type="text" class="form-control" id="inputCity"/>
+                            <div className="form-row">
+                                <div className="form-group col-md-12">
+                                <label htmlFor="inputCity">City</label>
+                                <input type="text" className="form-control" id="inputCity"/>
                                 </div>
-                                <div class="form-group col-md-4">
-                                <label for="inputState">State</label>
-                                <select id="inputState" class="form-control">
-                                    <option selected>Choose...</option>
-                                    <option>...</option>
-                                </select>
-                                </div>
-                                <div class="form-group col-md-2">
-                                <label for="inputZip">Zip</label>
-                                <input type="text" class="form-control" id="inputZip"/>
-                                </div>
+                             
                             </div>
                         </form>
                         </div>

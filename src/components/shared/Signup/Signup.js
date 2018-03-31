@@ -171,7 +171,7 @@ class Signup extends Component {
                                         <div className="form-group">
                                                 <input type="text" className="form-control Signup__inputs" id="SignupInputFirstname" ref='SignupInputFirstname' aria-describedby="firstnameHelp" placeholder="First name" />
                                             </div>     
-                                        <div className="form-group">
+                                         <div className="form-group">
                                                 <input type="text" className="form-control Signup__inputs" id="SignupInputLastname" ref='SignupInputLastname' aria-describedby="LastnameHelp" placeholder="Last name" />
                                             </div>     
                                             <div className="form-group">

@@ -13,6 +13,8 @@ import editProfile from './components/editProfile/editProfile';
 
 
 import Deliveries from './components/Deliveries/Deliveries';
+import MakeTravelerOffer from './components/MakeTravelerOffer/MakeTravelerOffer';
+import CreatedOrder from './components/createOrder/CreatedOrder/CreatedOrder'
 
 
 class Router extends Component {
@@ -31,7 +33,7 @@ class Router extends Component {
 
             <BrowserRouter>
                 <div>
-                    <Route exact path="/" component={Home}   />
+                    <Route exact path="/" component={Home}  />
                     <Route path="/order" component={MakeOrder}   />
                     <Route path="/travel" component={MakeMoney}  />
                     <Route path="/OrderItem" component={OpenOrder}    />
@@ -39,7 +41,9 @@ class Router extends Component {
                     <Route path="/signup" component={uplodeProfilePic}  />
                     <Route path="/createOrder" component={createOrder}   />
                     <Route path="/editProfile" component={editProfile}   />
-                    <Route path="/Deliveries" component={Deliveries}   />
+                    <Route path="/travelerTrip" component={Deliveries}   />
+                    <Route path="/TravelerOffer" component={MakeTravelerOffer}   />
+                    <Route path='/getly' component={CreatedOrder}    />
 
 
                     
