@@ -27,8 +27,9 @@ class CreatedOrderComponent extends Component {
                                 </div>
                             </div>
                         </div>
-                        <hr />
-                        <div className='row' >
+                        
+                        <div className='row createOrder__container' >
+                            <hr />
                             <div className='col-md-12' >
                                 <h1 className='treveler-offer__title__h1' >Your order has been posted to our traveler feed and is now awaiting delivery offers.</h1>
                             </div>
@@ -39,7 +40,7 @@ class CreatedOrderComponent extends Component {
                 </div>
 
                     <div className='orederdetails'>
-                            <div className='container'>
+                            <div className='container createOrder__container'>
                             <div className='getly-details'>
 
                             <div className='row ' >
@@ -83,43 +84,43 @@ class CreatedOrderComponent extends Component {
                         </div>
 
                             <div className='row' >
-                                <div className='col-md-8' >
+                                <div className='col-md-11' >
                                     <span>Item Price</span>
                                 </div>
-                                <div className='col-md-4' >
+                                <div className='col-md-1' >
                                     <span>$<span>20</span></span>
                                 </div>
                             </div>
                             <div className='row' >
-                                <div className='col-md-8' >
+                                <div className='col-md-11' >
                                     <span>Sale tax</span>
                                 </div>
-                                <div className='col-md-4' >
+                                <div className='col-md-1' >
                                     <span>$<span>3</span></span>
                                 </div>
                             </div>
                             <div className='row' >
-                                <div className='col-md-8' >
+                                <div className='col-md-11' >
                                     <span>Coustom tax</span>
                                 </div>
-                                <div className='col-md-4' >
+                                <div className='col-md-1' >
                                     <span>$<span>0</span></span>
                                 </div>
                             </div>
                             <div className='row' >
-                                <div className='col-md-8' >
+                                <div className='col-md-11' >
                                     <span>Your delivery fee</span>
                                 </div>
-                                <div className='col-md-4' >
+                                <div className='col-md-1' >
                                     <span>$<span>5</span></span>
                                 </div>
                             </div>
                             <hr />
                             <div className='row' >
-                                <div className='col-md-8' >
+                                <div className='col-md-11' >
                                     <span>Total</span>
                                 </div>
-                                <div className='col-md-4' >
+                                <div className='col-md-1' >
                                     <span>$<span>28</span></span>
                                 </div>
                             </div>
