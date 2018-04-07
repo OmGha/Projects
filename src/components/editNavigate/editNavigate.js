@@ -16,9 +16,7 @@ class editNavigate extends Component {
                 <div className='container'>
                     <div className='row whole__Container'>
                         <SideBar/>
-                        <EditProfile/>
-                        <Photo/>
-                        <PaymentNPayouts/>
+                       
                     </div>
                 </div>
                 <Footer/>
