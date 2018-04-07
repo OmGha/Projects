@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import { withRouter } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+
 import AutoComplete from 'material-ui/AutoComplete';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DatePicker from 'material-ui/DatePicker';
@@ -89,7 +92,13 @@ class createOrderContainer extends Component {
     
 
 
+
     // ------------------------------------------------------------
+
+    gocreatedorder = () =>{
+        this.props.history.push('/getly');
+        window.scrollTo(0, 0);
+    }
 
 
     tostep2 = () => {
@@ -518,7 +527,7 @@ class createOrderContainer extends Component {
                                                     </div>
 
                                                      <div className='form-group'>
-                                                            <button type="button" className="btn getly___btn btn__create-order-next3"  >publish my order</button>
+                                                            <button type="button" className="btn getly___btn btn__create-order-next3" onClick={this.gocreatedorder}  >publish my order</button>
                                                       </div>
                                                    
                                                    
@@ -542,4 +551,4 @@ class createOrderContainer extends Component {
     }
 }
 
-export default createOrderContainer;
+export default withRouter(createOrderContainer);

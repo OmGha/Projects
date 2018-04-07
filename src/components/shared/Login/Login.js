@@ -26,7 +26,6 @@ class Login extends Component {
         }
 
         this.onlogin = this.onlogin.bind(this);
-      
     }
 
     
@@ -64,8 +63,6 @@ class Login extends Component {
 
                 localStorage.setItem("userloged", true);
     
-            
-               
               
                 $('#closemodel').click();
       
@@ -85,8 +82,7 @@ class Login extends Component {
 
                 localStorage.setItem("userloged", true);
     
-            
-              
+                      
                 $('#closemodel').click();
       
             }
@@ -95,13 +91,9 @@ class Login extends Component {
     
       
         
-     
-        
-
-
-
     }
 
+    
   
     render() {
         return (

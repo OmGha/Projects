@@ -15,11 +15,14 @@ import Copouns from './components/Copouns/Copouns';
 
 import Deliveries from './components/Deliveries/Deliveries';
 import MakeTravelerOffer from './components/MakeTravelerOffer/MakeTravelerOffer';
-import CreatedOrder from './components/createOrder/CreatedOrder/CreatedOrder'
 
 
 import AddTrip from './components/Deliveries/AddTrip/AddTrip';
 import AddTrip_Info from './components/Deliveries/AddTrip_Info/AddTrip_Info';
+import orders from './components/Orders/orders';
+import CreatedOrderRequested from './components/createOrder/CreatedOrder/CreatedOrderState/CreatedOrderRequested';
+import CreatedOrderReceived from './components/createOrder/CreatedOrder/CreatedOrderState/CreatedOrderReceived';
+import CreatedOrderOntheway from './components/createOrder/CreatedOrder/CreatedOrderState/CreatedOrderOntheway';
 
 
 class Router extends Component {
@@ -37,18 +40,19 @@ class Router extends Component {
                     <Route exact path="/" component={Home}  />
                     <Route path="/order" component={MakeOrder}   />
                     <Route path="/travel" component={MakeMoney}  />
-                    <Route path="/OrderItem" component={OpenOrder}    />
-                    <Route path="/trip" component={OpenTrip}   />
+                    <Route path="/Orderdetail" component={OpenOrder}    />
+                    <Route path="/tripdetail" component={OpenTrip}   />
                     <Route path="/signup" component={uplodeProfilePic}  />
                     <Route path="/createOrder" component={createOrder}   />
-                    <Route path="/travelerTrip" component={Deliveries}   />
-                    <Route path="/TravelerOffer" component={MakeTravelerOffer}   />
-                    <Route path='/getly' component={CreatedOrder}    />
+                    <Route path="/deliveries" component={Deliveries}   />
+                    <Route path="/makeoffer" component={MakeTravelerOffer}   />
+                    <Route path='/getlyrequested' component={CreatedOrderRequested}/>
+                    <Route path='/getlyreceived' component={CreatedOrderReceived}/>
+                    <Route path='/getlyontheway' component={CreatedOrderOntheway}/>
                     <Route path="/editNavigate" component={editNavigate}   />
-                    <Route path="/Deliveries" component={Deliveries}   />
                     <Route path="/AddTrip" component={AddTrip}   />
                     <Route path="/AddTrip_Info" component={AddTrip_Info}   />
-
+                    <Route path="/requestsorder" component={orders}   />
 
                                                             
                 </div>

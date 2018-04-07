@@ -20,6 +20,12 @@ class NAVBER extends Component {
 
   }
 
+  gocreateorder = () => {
+             
+    this.props.history.push('/createOrder');
+    window.scrollTo(0, 0);
+  }
+
   showMessage() {
        
     $('.Message__Notify').toggle();
@@ -77,7 +83,7 @@ class NAVBER extends Component {
                  
                 </li>
                 <li className="nav-item navbar__item__btn">
-                  <button type="button" className="btn getly___btn navbar__item__btn-create-oreder">Create Order</button>
+                  <button type="button" className="btn getly___btn navbar__item__btn-create-oreder" onClick={this.gocreateorder} >Create Order</button>
                 </li>
               
 

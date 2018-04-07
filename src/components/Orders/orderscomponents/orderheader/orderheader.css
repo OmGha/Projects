@@ -1,0 +1,24 @@
+.order__header{
+    background-image: url('../../../../Assets/img/267.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position-y: 13%;
+    height: 300px;
+}
+
+.order__header__layout{
+    width: 100%;
+    height: 100%;
+    background: #16262d9c;
+    text-align: center;
+}
+
+.order__header__Elment{
+    color: #fff;
+    line-height:1.3;
+    font-size: 2.75rem;
+    box-sizing: border-box;
+    margin-top:100px;
+
+}

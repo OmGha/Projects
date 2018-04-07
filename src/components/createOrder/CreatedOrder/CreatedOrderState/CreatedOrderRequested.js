@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './CreatedOrder.css';
 
-class CreatedOrderComponent extends Component {
+
+
+class CreatedOrderRequested extends Component {
     render() {
         return (
             <div>
@@ -28,10 +30,11 @@ class CreatedOrderComponent extends Component {
                             </div>
                         </div>
                         
-                        <div className='row createOrder__container' >
-                            <hr />
+                        <hr />
+
+                        <div className='row' >
                             <div className='col-md-12' >
-                                <h1 className='treveler-offer__title__h1' >Your order has been posted to our traveler feed and is now awaiting delivery offers.</h1>
+                                <h1 className='getly__title__h1' >Your order has been posted to our traveler feed and is now awaiting delivery offers.</h1>
                             </div>
                         </div>
                        
@@ -208,4 +211,6 @@ class CreatedOrderComponent extends Component {
     }
 }
 
-export default CreatedOrderComponent;
+export default CreatedOrderRequested;
+
+

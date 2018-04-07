@@ -14,7 +14,7 @@ class Trip extends Component {
     
       openTrip() {
        
-         this.props.history.push('/trip');
+         this.props.history.push('/tripdetail');
          window.scrollTo(0, 0);
        
       }

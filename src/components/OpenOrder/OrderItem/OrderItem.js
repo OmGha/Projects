@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import './OrderItem.css';
+import { withRouter } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+
 
 class Orderitem extends Component {
+
+    gomakeoffer = () =>{
+        this.props.history.push('/makeoffer');
+        window.scrollTo(0, 0);
+      }    
+
     render() {
         return (
             <section>
@@ -70,7 +79,7 @@ class Orderitem extends Component {
                                     </div>
 
                             <div className='row'>
-                                <button type="button" className="btn getly___btn make-offer-btn">Make Offer</button>
+                                <button type="button" className="btn getly___btn make-offer-btn" onClick={this.gomakeoffer} >Make Offer</button>
                             </div>
 
                             <hr/>
@@ -120,4 +129,4 @@ class Orderitem extends Component {
     }
 }
 
-export default Orderitem;
+export default withRouter(Orderitem);

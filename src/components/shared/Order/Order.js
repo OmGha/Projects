@@ -11,10 +11,11 @@ class Order extends Component {
             this.openOrder = this.openOrder.bind(this);
 
       }
-    
+
+
       openOrder() {
        
-         this.props.history.push('/OrderItem');
+         this.props.history.push('/Orderdetail');
          window.scrollTo(0, 0);
        
       }
@@ -90,7 +91,7 @@ class Order extends Component {
                     </div>
                     <div className='col-md-5'>
                         <div>
-                             <button type="button" className="btn getly___btn make-offer-btn">Make Offer</button>
+                             <button type="button" className="btn getly___btn make-offer-btn" onClick={this.gomakeoffer} >Make Offer</button>
                         </div>
                         <div>
                             <span>2 offers</span>
