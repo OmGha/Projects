@@ -49,7 +49,6 @@ class Signup extends Component {
         var Birthday =  moment(this.state.BirthdayDate).format('ll');   // Mar 21, 2018
       
   
-
         console.log(FirstName , lastName , email , password ,Birthday);
         var thisself  = this;
 
@@ -121,6 +120,8 @@ class Signup extends Component {
         this.setState({
             BirthdayDate: date,
         });
+        console.log( this.state.BirthdayDate);
+        
       };
     
 

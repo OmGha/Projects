@@ -77,7 +77,7 @@ class Login extends Component {
                     console.log("data sign in :"+ data.success , data.resulit.token  );
 
                     // Store
-                localStorage.setItem("usertoken", data.resulit.token );
+                   localStorage.setItem("usertoken", data.resulit.token );
 
 
                     $('#closeSingupModel').click();

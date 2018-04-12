@@ -114,10 +114,6 @@ class createOrderContainer extends Component {
 
     // ------------------------------------------------------------
 
-    gocreatedorder = () =>{
-        this.props.history.push('/getly');
-        window.scrollTo(0, 0);
-    }
 
 
     tostep2 = () => {
@@ -223,6 +219,22 @@ class createOrderContainer extends Component {
                  this.setState({ Quantity: this.state.Quantity + 1 });
             }
     
+    
+     createOrder = () => {
+        const itemName = "";
+        const itemeImg= "";
+        const itemDescription = "";
+        const itemURL = "";
+        const itemPrice = "";
+        const itemQuantity = "";
+        const fromWhereCity = "";
+        const DeliverToCity = "";
+        const DeliverBeforeDate = "";
+        const noteToTraviler = "";
+
+       // this.props.history.push('/getly');
+      //  window.scrollTo(0, 0);
+     }
 
           
 
@@ -248,6 +260,7 @@ class createOrderContainer extends Component {
                         <div className='col-md-4 createOrder__steps_col' >
                             <div className='createOrder__steps__step' >
                                 <img className='createOrder__step__img'  src={require('../../../Assets/img/shopping-bag.svg')} />
+
                                 <span className='createOrder__step__text' >from where do you wanna get your item</span>
                             </div>
                         </div>
@@ -547,7 +560,7 @@ class createOrderContainer extends Component {
                                                     </div>
 
                                                      <div className='form-group'>
-                                                            <button type="button" className="btn getly___btn btn__create-order-next3" onClick={this.gocreatedorder}  >publish my order</button>
+                                                            <button type="button" className="btn getly___btn btn__create-order-next3" onClick={this.createOrder}  >publish my order</button>
                                                       </div>
                                                    
                                                    
@@ -555,12 +568,6 @@ class createOrderContainer extends Component {
 
                                                     
                                                 </div>
-
-
-                    
-
-
-
 
 
                   </div>

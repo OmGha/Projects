@@ -197,15 +197,7 @@ class CreatedOrderRequested extends Component {
                             </div>
 
                            
-
-
-
                         </div>
-
-
-
-
-
 
 
                     </div>

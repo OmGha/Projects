@@ -49,7 +49,6 @@ class Router extends Component {
                     <Route path="/AddTrip" component={AddTrip}   />
                     <Route path="/AddTrip_Info" component={AddTrip_Info}   />
                     <Route path="/requestsorder" component={orders}   />
-
                                                             
                 </div>
             </BrowserRouter>
