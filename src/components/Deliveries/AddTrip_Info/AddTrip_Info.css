@@ -79,7 +79,8 @@ display: inline;
 
 .tab-content{
     background: #eee;
-    min-height:100px;
+    height:auto;
+    padding: 15px;
 }
 .Facebook__Logo{
     width: 30px;

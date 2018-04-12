@@ -11,6 +11,8 @@ import DatePicker from 'material-ui/DatePicker';
 import moment from 'moment';
 
 
+import styled from 'styled-components';
+
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { cyan500, red300, white } from 'material-ui/styles/colors';
@@ -41,6 +43,8 @@ class createOrderContainer extends Component {
             Quantity : 1,
             Deliverbefore: null,
             dataSource: [],
+            file: '',imagePreviewUrl: '',
+            
         };
 
         
@@ -49,8 +53,28 @@ class createOrderContainer extends Component {
       this.showAboutItemForm = this.showAboutItemForm.bind(this);
       this.hideAboutItemForm = this.hideAboutItemForm.bind(this);
     }
+//----------------------------uploade image----------------------------------------
+_handleSubmit(e) {
+    e.preventDefault();
+    // TODO: do something with -> this.state.file
+    console.log('handle uploading-', this.state.file);
+  }
 
+  _handleImageChange(e) {
+    e.preventDefault();
 
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      this.setState({
+        file: file,
+        imagePreviewUrl: reader.result
+      });
+    }
+
+    reader.readAsDataURL(file)
+  }
 
     // ------------------------------------------------------------
 
@@ -151,6 +175,8 @@ class createOrderContainer extends Component {
                     $('#item-name').val( data.title);
                     $('#Description-item').val( Description);
                     $('#itemPrice').val( data.price);
+                    $('#vImg').show();
+                    $('#vImg').attr("src",`${data.image}`);
                     console.log(data.url);
                     
                     $('#itemURL').val(data.url);
@@ -205,10 +231,20 @@ class createOrderContainer extends Component {
             }
     
 
-          
+        
 
 
     render() {
+
+        let {imagePreviewUrl} = this.state;
+        let $vImg = null;
+        let $buttonFinish=null;
+        if (imagePreviewUrl) {
+            $('#vImg').show();
+        $vImg =imagePreviewUrl;
+        } else {
+        }
+
         return (
             <div> 
            <section className='createOrder__container'>
@@ -281,9 +317,18 @@ class createOrderContainer extends Component {
                     </div>
 
                     <div className='row'>
-                      <form className='create-oreder__form' >
-                            <div className='form-group'>
-                               <button type="button" className="btn getly___btn btn__upload-img">Upload image</button>
+                      <form className='create-oreder__form ' >  
+                       <img id='vImg' src={$vImg}/>
+                       
+                    
+                            
+                            <div className='form-group ' onSubmit={(e)=>this._handleSubmit(e)}>
+                               <label className=" btn__uploade btn btn-outline-info btn getly___btn btn__upload-img">
+                                   <input type="file" multiple accept="image/gif, image/jpeg, image/png" onChange={(e)=>this._handleImageChange(e)}  className="btn getly___btn btn__upload-img" />
+                                   <span>Uploade Image</span>
+                               </label>
+                               
+                            
                             </div>
                             <div className="form-group">
                                 <label htmlFor="item-name">Item Name</label>
@@ -381,7 +426,9 @@ class createOrderContainer extends Component {
                                                  fullWidth={true}
                                                  openOnFocus={false}
                                                  disableFocusRipple={false}
+
                                                             />
+                                                            
                                                 </MuiThemeProvider>
                                          </div>
                                        
@@ -401,7 +448,7 @@ class createOrderContainer extends Component {
                                              <div className='form-group'>
                                                 <button type="button" className="btn getly___btn btn__create-order-next2" onClick={this.tostep3} >Next</button>
                                              </div>
-                                  
+                                       
                                 </form>
                                 
                             </div>

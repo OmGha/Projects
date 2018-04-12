@@ -8,6 +8,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DatePicker from 'material-ui/DatePicker';
 import moment from 'moment';
 
+import AutoComplete from 'material-ui/AutoComplete';
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { cyan500, red300, white } from 'material-ui/styles/colors';
@@ -22,6 +23,7 @@ const muiTheme = getMuiTheme ({
     },
   });
   
+  var predictionss=[];
 
 class AddTrip extends Component {
 
@@ -32,6 +34,9 @@ class AddTrip extends Component {
         this.state = {
             TravilDate: null,
             err: '',
+            dataSource: [],
+            cityOfTravilingFrom: '',
+            cityOfTravilingTo:''
         };
 
       }
@@ -40,8 +45,60 @@ class AddTrip extends Component {
         this.setState({
             TravilDate: date,
         });
+        console.log(this.state.TravilDate)
       };
 
+      handleUpdateInput = (value) => {
+
+       
+        var self = this;
+        $.post( "https://getlynow.herokuapp.com/scrap/Search_cities",
+                        
+            { "text":value}
+
+                 )
+            .done(function( data ) {
+
+                console.log(JSON.parse(data))
+
+                data = JSON.parse(data);
+                predictionss=[];
+                data.predictions.forEach(element => {
+                    
+           //        console.log(element);
+
+                   predictionss.push(element.description);
+                              
+                });
+
+                self.setState({dataSource:predictionss})
+                console.log(predictionss);
+               
+             
+            });
+                      
+              console.log('===============');
+              console.log(self.state.dataSource);
+                   
+      };
+  
+      cityOfTravilingFrom=(value)=>{
+        this.setState({
+                cityOfTravilingFrom : value,
+        }
+        )
+        console.log(this.state.cityOfTravilingFrom);
+       }
+
+       cityOfTravilingTo=(value)=>{
+        this.setState({
+                cityOfTravilingTo : value,
+        }
+        )
+        console.log(this.state.cityOfTravilingTo);
+       }
+
+      
     render() {
         return (
            
@@ -49,21 +106,46 @@ class AddTrip extends Component {
             <div>
                 <NAVBER/>
                  <div className='Addtrip__Cont'>
-                     <div className='Addtrip__Cont__Icon'><img class="_plane " src={Trip_Image}/> </div>
+                     <div className='Addtrip__Cont__Icon'><img className="_plane " src={Trip_Image}/> </div>
                      <div className='Addtrip__Cont__tex'>
                          <h1><span className='Addtrip__Cont__tex1'>Add new trip</span></h1>
                          <span className='Addtrip__Cont__tex2'>With a trip added, you can make multiple offers and make more money.</span>
                          </div>
                          <div className='Addtrip__Cont__Form '>
                              <form>
-                                <div className='Addtrip__Cont__Form__Div row'>
-                                    <span className='Addtrip__Cont__Form__Span col-4'>Traviling from</span>
-                                    <input className='Addtrip__Cont__Form__Input col-8' placeholder='City'/>
-                                </div>
-                                <div className='Addtrip__Cont__Form__Div row'>
-                                    <span className='Addtrip__Cont__Form__Span col-4'>Traviling to</span>
-                                    <input className='Addtrip__Cont__Form__Input col-8' placeholder='City'/>
-                                </div>
+                             <div className='form-group' >
+                                    
+
+                                    <MuiThemeProvider muiTheme={muiTheme}>
+                                         <AutoComplete
+                                           hintText="Traviling From (select form options)"
+                                           className='create-order__city__input'
+                                            dataSource={this.state.dataSource}
+                                            onUpdateInput={this.handleUpdateInput}
+                                            filter={AutoComplete.caseInsensitiveFilter}
+                                            fullWidth={true}
+                                            openOnFocus={false}
+                                            disableFocusRipple={false}
+                                            onNewRequest={this.cityOfTravilingFrom}
+                                                       />
+                                           </MuiThemeProvider>
+                                    </div>
+                                    
+                                    <div className='form-group' >
+                                    <MuiThemeProvider muiTheme={muiTheme}>
+                                         <AutoComplete
+                                           hintText="Traviling To (select form options)"
+                                           className='create-order__city__input'
+                                            dataSource={this.state.dataSource}
+                                            onUpdateInput={this.handleUpdateInput}
+                                            filter={AutoComplete.caseInsensitiveFilter}
+                                            fullWidth={true}
+                                            openOnFocus={false}
+                                            disableFocusRipple={false}
+                                            onNewRequest={this.cityOfTravilingTo}
+                                                       />
+                                           </MuiThemeProvider>
+                                    </div>
 
                                     <div className=" Date_Div row  ">
                                                 <MuiThemeProvider muiTheme={muiTheme}>

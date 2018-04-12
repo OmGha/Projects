@@ -92,7 +92,7 @@ class Deliveries extends Component {
                                 <span className='Place__Info__From1'>Egypt</span><br/>
                                 <span className='Place__Info__From2'>Cairo</span>
                               </div>
-                              <div className='Place__Info__Arow col-4'><i class="arow fas fa-caret-right"></i></div>
+                              <div className='Place__Info__Arow col-4'><i className="arow fas fa-caret-right"></i></div>
                               <div className='Place__Info__To col-4'>
                               <span className='Place__Info__From1'>American</span><br/>
                               <span className='Place__Info__From2'>New York</span>
