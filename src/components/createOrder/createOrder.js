@@ -18,7 +18,7 @@ class createOrder extends Component {
               <Footer />    
 
                <Login />
-              <Signup />
+               <Signup />
             </div>
 
         );

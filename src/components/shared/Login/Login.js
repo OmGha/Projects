@@ -49,8 +49,7 @@ class Login extends Component {
         promise.catch(e => {
 
             console.log('catch');
-            
-            
+    
             var err = e.message;
             console.log(err);
 
@@ -58,38 +57,40 @@ class Login extends Component {
 
             console.log(this.state.err);
 
-            if(this.state.err === '' && email !== '' && passowrd !== ''){
-          
-
-                localStorage.setItem("userloged", true);
-    
-              
-                $('#closemodel').click();
-      
-            }
-            
-
         });
 
         promise.then( ()=> {
            
             this.setState({err: ''});
             console.log(this.state.err);
-
             
             if(this.state.err === '' && email !== '' && passowrd !== ''){
           
+                $.post("https://getlynow.herokuapp.com/auth/login",
+                     {
+                      "Email": email,
+                      "Password": passowrd 
+                     }
+                 )
+                .done(function( data ) {
 
-                localStorage.setItem("userloged", true);
-    
+                    console.log("data sign in :"+ data.success , data.resulit.token  );
+
+                    // Store
+                localStorage.setItem("usertoken", data.resulit.token );
+
+
+                    $('#closeSingupModel').click();
+
+                            
+                });
+
                       
                 $('#closemodel').click();
       
             }
 
         })
-    
-      
         
     }
 

@@ -6,17 +6,40 @@ import RecentOrders from '../MakeOrder/RecentOrders/RecentOrders';
 import RecentlyTrips from './RecentlyTrips/RecentlyTrips';
 import Login from '../shared/Login/Login';
 import Signup from '../shared/Signup/Signup';
+import Serarchorders from './search/serarchorders';
 
 
 class MakeOrder extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            Serarchsow: false,
+          };
+    }
+    
+    Serarchsowhandler = ()=>{
+        this.setState({
+            Serarchsow: true
+        });
+        console.log('clicked');
+        
+    }
 
 
     render() {
         return (
             <div>
                 <NAVBER />
-                <Header />
+                <Header Serarchsowaction={this.Serarchsowhandler} />
+
+                {this.state.Serarchsow ?
+                    <Serarchorders/>  :
+                    null
+                    }
+                   
+              
+
                 <RecentOrders />
                 <RecentlyTrips />
 

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './CreatedOrder.css';
+import Navbar from '../../../shared/nav/Navbar';
+import Footer from '../../../shared/footer/Footer';
+
 
 
 
@@ -7,6 +10,7 @@ class CreatedOrderRequested extends Component {
     render() {
         return (
             <div>
+                <Navbar />
                 <div className='CreatedOrderComponent' >
                     <div className='container' >
                         <div className='row getly-step'>
@@ -206,6 +210,8 @@ class CreatedOrderRequested extends Component {
 
                     </div>
                 </div>
+
+                <Footer />
             </div>
         );
     }

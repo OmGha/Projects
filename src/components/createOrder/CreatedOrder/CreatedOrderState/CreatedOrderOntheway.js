@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './CreatedOrder.css';
+import Navbar from '../../../shared/nav/Navbar';
+import Footer from '../../../shared/footer/Footer';
 
 
 
@@ -7,25 +9,32 @@ class CreatedOrderOntheway extends Component {
     render() {
         return (
             <div>
+            <Navbar />
             <div className='CreatedOrderComponent' >
                 <div className='container' >
                     <div className='row getly-step'>
-                        <div className='col-md-4'>
+                        <div className='col-md-3'>
                             <div>
                                 <img className='getly-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                <span className='getly-step-text' >Order Published</span>
+                                <span className='getly-step-text' >Order accepted</span>
                             </div>
                         </div>
-                        <div className='col-md-4'>
+                        <div className='col-md-3'>
                             <div>
                                 <img className='getly-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                <span className='getly-step-text' >Receive offers</span>
+                                <span className='getly-step-text' >Bought the piece</span>
                             </div>
                         </div>
-                        <div className='col-md-4'>
+                        <div className='col-md-3'>
                             <div>
                                 <img className='getly-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                <span className='getly-step-text' >Accept One</span>
+                                <span className='getly-step-text' >Take off the plane</span>
+                            </div>
+                        </div>
+                        <div className='col-md-3'>
+                            <div>
+                                <img className='getly-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
+                                <span className='getly-step-text' >Receive the order</span>
                             </div>
                         </div>
                     </div>
@@ -187,6 +196,8 @@ class CreatedOrderOntheway extends Component {
 
                 </div>
             </div>
+
+            <Footer />
         </div>
         );
     }

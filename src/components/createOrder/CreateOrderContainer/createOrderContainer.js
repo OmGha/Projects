@@ -41,6 +41,8 @@ class createOrderContainer extends Component {
             Quantity : 1,
             Deliverbefore: null,
             dataSource: [],
+            fromWhereCity: '',
+            DeliverToCity: '',
         };
 
         
@@ -54,9 +56,27 @@ class createOrderContainer extends Component {
 
     // ------------------------------------------------------------
 
+    fromWhereCity = (value) => {
+            this.setState({
+                fromWhereCity: value,
+            });
+            console.log(this.state.fromWhereCity);
+            
+      }
+
+    DeliverToCity = (value) =>{
+        this.setState({
+            DeliverToCity: value,
+        });
+
+        console.log(this.state.DeliverToCity);
+
+    }
+
 
     handleUpdateInput = (value) => {
 
+        console.log(value)
        
         var self = this;
         $.post( "https://getlynow.herokuapp.com/scrap/Search_cities",
@@ -80,8 +100,7 @@ class createOrderContainer extends Component {
 
                 self.setState({dataSource:predictionss})
                 console.log(predictionss);
-               
-             
+                            
             });
                       
               console.log('===============');
@@ -283,7 +302,7 @@ class createOrderContainer extends Component {
                     <div className='row'>
                       <form className='create-oreder__form' >
                             <div className='form-group'>
-                               <button type="button" className="btn getly___btn btn__upload-img">Upload image</button>
+                               <button type="file" className="btn getly___btn btn__upload-img" >Upload image</button>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="item-name">Item Name</label>
@@ -354,7 +373,6 @@ class createOrderContainer extends Component {
                                       
 
                                        <div className='form-group' >
-                                    
 
                                          <MuiThemeProvider muiTheme={muiTheme}>
                                               <AutoComplete
@@ -365,6 +383,7 @@ class createOrderContainer extends Component {
                                                  filter={AutoComplete.caseInsensitiveFilter}
                                                  fullWidth={true}
                                                  openOnFocus={false}
+                                                 onNewRequest={this.fromWhereCity }
                                                  disableFocusRipple={false}
                                                             />
                                                 </MuiThemeProvider>
@@ -379,6 +398,7 @@ class createOrderContainer extends Component {
                                                  onUpdateInput={this.handleUpdateInput}
                                                  filter={AutoComplete.caseInsensitiveFilter}
                                                  fullWidth={true}
+                                                 onNewRequest={this.DeliverToCity}
                                                  openOnFocus={false}
                                                  disableFocusRipple={false}
                                                             />
