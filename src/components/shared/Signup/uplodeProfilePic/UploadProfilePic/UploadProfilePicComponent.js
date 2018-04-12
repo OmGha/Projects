@@ -52,9 +52,10 @@ class UploadProfilePicComponent extends Component {
                         {$imagePreview}
                        
                     </div>
+                    
                     <div className="div__btn__uploade">
                         <label className=" btn__uploade btn btn-outline-info" onSubmit={(e)=>this._handleSubmit(e)}>
-                            <input id="userImage" type="file" accept="image/gif, image/jpeg, image/png" onChange={(e)=>this._handleImageChange(e)} />
+                            <input id="userImage" type="file" multiple accept="image/gif, image/jpeg, image/png" onChange={(e)=>this._handleImageChange(e)} />
                             <span>Select image to uploade</span>
                         </label>
                         <div className="buttonFinish">

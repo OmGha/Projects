@@ -8,6 +8,9 @@ import '../AddTrip_Info/AddTrip_Info.css';
 import FacebookLogo from '../../../Assets/img/facebook-logo.svg';
 import TwitterLogo from '../../../Assets/img/twitter-logo.svg';
 import SettingLogo from '../../../Assets/img/settings-logo.svg';
+import Offers from '../Offers/Offers';
+import To_Delivers from '../To_Delivers/To_Delivers';
+import Delivered from '../Delivered/Delivered';
 
 
 
@@ -66,9 +69,6 @@ class AddTrip_Info extends Component {
                  <div className='Nav__Cont offset-2 col-8'>
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-Order" role="tab" aria-controls="nav-Order" aria-selected="true">                
-                        <span>0</span>  Order
-                            </a>
                             <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-Offers" role="tab" aria-controls="nav-Offers" aria-selected="false">
                             <span>0</span> Offers</a>
                             <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-To_delivers" role="tab" aria-controls="nav-To_delivers" aria-selected="false">
@@ -80,10 +80,10 @@ class AddTrip_Info extends Component {
                     </nav>
                     
                  </div>
-                 <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
-                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+                 <div className="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-Offers" role="tabpanel" aria-labelledby="nav-home-tab"><Offers/></div>
+                        <div class="tab-pane fade" id="nav-To_delivers" role="tabpanel" aria-labelledby="nav-profile-tab"><To_Delivers/></div>
+                        <div class="tab-pane fade" id="nav-Delivered" role="tabpanel" aria-labelledby="nav-contact-tab"><Delivered/></div>
                     </div>
                   
                
