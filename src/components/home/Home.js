@@ -15,16 +15,12 @@ import Signup from '../shared/Signup/Signup';
 import MenueSetting from '../shared/MenuSetting/MenuSetting'
 import Message_notification from '../shared/message/message_notification';
 
-
 class Home extends Component {
 
     constructor(props) {
         super(props);
-   
+        }    
 
-        }
-
-    
     render() {
       
         return (

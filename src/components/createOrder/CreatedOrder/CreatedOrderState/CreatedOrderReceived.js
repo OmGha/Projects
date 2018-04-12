@@ -1,31 +1,27 @@
 import React, { Component } from 'react';
 import './CreatedOrder.css';
+import Navbar from '../../../shared/nav/Navbar';
+import Footer from '../../../shared/footer/Footer';
 
 
 class CreatedOrderReceived extends Component {
     render() {
         return (
             <div>
+            <Navbar />
             <div className='CreatedOrderComponent' >
                 <div className='container' >
                     <div className='row getly-step'>
                         <div className='col-md-4'>
-                            <div>
+                        </div>
+                        <div className='col-md-4'>
+                         <div>
                                 <img className='getly-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                <span className='getly-step-text' >Order Published</span>
+                                <span className='getly-step-text' >Order Received</span>
                             </div>
                         </div>
                         <div className='col-md-4'>
-                            <div>
-                                <img className='getly-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                <span className='getly-step-text' >Receive offers</span>
-                            </div>
-                        </div>
-                        <div className='col-md-4'>
-                            <div>
-                                <img className='getly-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                <span className='getly-step-text' >Accept One</span>
-                            </div>
+                           
                         </div>
                     </div>
                     
@@ -77,12 +73,9 @@ class CreatedOrderReceived extends Component {
                     <hr/>
                     <div className='row'>
                         <div className='col-md-12' >
-                            <span>Estimated total</span>
+                            <span> total price</span>
                         </div>
 
-                        <div className='col-md-12' >
-                            <p>Final price will be calculated based on your traveler's requested delivery fee.</p>
-                        </div>
                     </div>
 
                         <div className='row' >
@@ -111,7 +104,7 @@ class CreatedOrderReceived extends Component {
                         </div>
                         <div className='row' >
                             <div className='col-md-11' >
-                                <span>Your delivery fee</span>
+                                <span>traveler fee</span>
                             </div>
                             <div className='col-md-1' >
                                 <span>$<span>5</span></span>
@@ -131,7 +124,7 @@ class CreatedOrderReceived extends Component {
 
                     <div className='row' >
                         <div className='col-md-12' >
-                             <h3>Delivery offers</h3>
+                             <h3>Delivered by</h3>
                         </div>
                       
                     </div>
@@ -152,44 +145,30 @@ class CreatedOrderReceived extends Component {
                             </div>
                             </div>
                         </div>
-                        <div className="row">
-                                    <div className="trip__traveler__rete" >
-                                        <img src={require('../../../../Assets/img/star.svg')}/>
-                                        <img src={require('../../../../Assets/img/star.svg')}/>
-                                        <img src={require('../../../../Assets/img/star.svg')}/>
-                                        <img src={require('../../../../Assets/img/star.svg')}/>
-                                        <img src={require('../../../../Assets/img/star.svg')}/>
-                                       
-                                    </div>
-                        </div>
                         <hr />
 
                         <div className='row' >
                           <div className='traveler__details' >
                                 <div className='oreder__details__tfb' >
-                                    <div>Deliver to </div>
-                                    <span> Cairo, EG</span>
+                                    <div>Feedback </div>
+                                    <span>Order received. Nice guy to deal with.</span>
                                 </div>
-                                <div className='oreder__details__tfb'>
-                                    <div>Deliver from </div>
-                                    <span> New York,US </span>
+                                <div className='oreder__details__tfb' >
+                                    <div>Rate </div>
+                                    <span>
+                                            <div className="trip__traveler__rete" >
+                                                <img src={require('../../../../Assets/img/star.svg')}/>
+                                                <img src={require('../../../../Assets/img/star.svg')}/>
+                                                <img src={require('../../../../Assets/img/star.svg')}/>
+                                                <img src={require('../../../../Assets/img/star.svg')}/>
+                                                <img src={require('../../../../Assets/img/star.svg')}/>
+                                            
+                                            </div>
+                                    </span>
                                 </div>
-                                <div className='oreder__details__tfb'>
-                                    <div>Deliver before </div>
-                                    <span> March 20, 2018</span>
-                                </div>
-
                             </div>
                         </div>
 
-                        <div className='row' >
-                            <div className='col-md-6' >
-                                  <button type="button" className="btn getly___btn send-message__btn"  >Send Message</button>
-                            </div>
-                            <div className='col-md-6' >
-                                  <button type="button" className="btn getly___btn  accept-offer__btn"  > Accept Offer</button>
-                            </div>
-                        </div>
 
                        
 
@@ -205,6 +184,7 @@ class CreatedOrderReceived extends Component {
 
                 </div>
             </div>
+            <Footer />
         </div>
         );
     }

@@ -42,22 +42,25 @@ class Signup extends Component {
 
       signUp(){
 
-        const FirstName = this.refs.SignupInputFirstname.value;
-        const lastName = this.refs.SignupInputLastname.value;
-        const email = this.refs.SignupInputEmail1.value;
-        const password = this.refs.SignupInputPassword1.value;
-        const Birthday =  moment(this.state.BirthdayDate).format('ll');   // Mar 21, 2018
+        var FirstName = this.refs.SignupInputFirstname.value;
+        var lastName = this.refs.SignupInputLastname.value;
+        var email = this.refs.SignupInputEmail1.value;
+        var password = this.refs.SignupInputPassword1.value;
+        var Birthday =  moment(this.state.BirthdayDate).format('ll');   // Mar 21, 2018
       
+  
 
         console.log(FirstName , lastName , email , password ,Birthday);
+        var thisself  = this;
+
+
+
 
         // connect with firebase
         const auth = firebase.auth();
 
         //create user
         var promise = auth.createUserWithEmailAndPassword(email,password);
-
-
         promise
         .then(user => {
             var err = 'welcome'+ user.email;
@@ -75,58 +78,40 @@ class Signup extends Component {
 
             if(this.state.err === '' ){
 
-                localStorage.setItem("userloged", true);
-            
+                    $.post( "https://getlynow.herokuapp.com/auth/singup",
+                            
+                    {
+                        "First_Name": FirstName,
+                        "Email": email,
+                        "Last_Name": lastName,
+                        "Password": password,
+                        "Phone_number":" ",
+                        "Reat": " ",
+                        "City":" ",
+                        "Birthday": Birthday,
+                        "Personal_Info":" ",
+                        "Gender":" "  
+                    }
+                
+                )
+            .done(function( data ) {
+
+                console.log("data sign in :"+ data.success , data.auth , data.user);
+
                 $('#closeSingupModel').click();
 
-             
+             //    this.props.history.push('/signup');
+             //    window.scrollTo(0, 0);
+                        
+            });
+                  
+         }
     
-                this.props.history.push('/signup');
-                window.scrollTo(0, 0);
-                $('.loged').hide();
-                $('.login').show();
-    
-    
-    
-            }
-
-           
-            
         });
-        promise
-        .catch(e => {
-            var err = e.message;
-            console.log(err);
-            this.setState({err : err})
-
-            console.log(this.state.err)
-
-            localStorage.setItem("userloged", false);
-
-            if(this.state.err === '' ){
-
-                localStorage.setItem("userloged", true);
-            
-                $('#closeSingupModel').click();
-
-               
-    
-                this.props.history.push('/signup');
-                window.scrollTo(0, 0);
-                $('.loged').hide();
-                $('.login').show();
-    
-    
-    
-            }
-            
-        });
+        
 
         console.log(this.state.err);
         
-
- 
-
         
       }
 
@@ -192,9 +177,6 @@ class Signup extends Component {
                                                 </MuiThemeProvider>
                                              </div>
                                          
-
-
-
                                             <button type='button' className="btn getly___btn Signup__form__btn" onClick={this.signUp} >Sign Up</button>
                                         </form>
 

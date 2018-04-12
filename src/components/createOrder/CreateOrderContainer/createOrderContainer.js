@@ -43,8 +43,13 @@ class createOrderContainer extends Component {
             Quantity : 1,
             Deliverbefore: null,
             dataSource: [],
+<<<<<<< HEAD
             file: '',imagePreviewUrl: '',
             
+=======
+            fromWhereCity: '',
+            DeliverToCity: '',
+>>>>>>> 2dd834cfb7e847a06cbbbdd575828d7d9b8003a2
         };
 
         
@@ -78,9 +83,27 @@ _handleSubmit(e) {
 
     // ------------------------------------------------------------
 
+    fromWhereCity = (value) => {
+            this.setState({
+                fromWhereCity: value,
+            });
+            console.log(this.state.fromWhereCity);
+            
+      }
+
+    DeliverToCity = (value) =>{
+        this.setState({
+            DeliverToCity: value,
+        });
+
+        console.log(this.state.DeliverToCity);
+
+    }
+
 
     handleUpdateInput = (value) => {
 
+        console.log(value)
        
         var self = this;
         $.post( "https://getlynow.herokuapp.com/scrap/Search_cities",
@@ -104,8 +127,7 @@ _handleSubmit(e) {
 
                 self.setState({dataSource:predictionss})
                 console.log(predictionss);
-               
-             
+                            
             });
                       
               console.log('===============');
@@ -399,7 +421,6 @@ _handleSubmit(e) {
                                       
 
                                        <div className='form-group' >
-                                    
 
                                          <MuiThemeProvider muiTheme={muiTheme}>
                                               <AutoComplete
@@ -410,6 +431,7 @@ _handleSubmit(e) {
                                                  filter={AutoComplete.caseInsensitiveFilter}
                                                  fullWidth={true}
                                                  openOnFocus={false}
+                                                 onNewRequest={this.fromWhereCity }
                                                  disableFocusRipple={false}
                                                             />
                                                 </MuiThemeProvider>
@@ -424,6 +446,7 @@ _handleSubmit(e) {
                                                  onUpdateInput={this.handleUpdateInput}
                                                  filter={AutoComplete.caseInsensitiveFilter}
                                                  fullWidth={true}
+                                                 onNewRequest={this.DeliverToCity}
                                                  openOnFocus={false}
                                                  disableFocusRipple={false}
 

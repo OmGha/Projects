@@ -11,12 +11,8 @@ import uplodeProfilePic from './components/shared/Signup/uplodeProfilePic/uplode
 import createOrder from './components/createOrder/createOrder';
 import editNavigate from './components/editNavigate/editNavigate';
 import Copouns from './components/Copouns/Copouns';
-
-
 import Deliveries from './components/Deliveries/Deliveries';
 import MakeTravelerOffer from './components/MakeTravelerOffer/MakeTravelerOffer';
-
-
 import AddTrip from './components/Deliveries/AddTrip/AddTrip';
 import AddTrip_Info from './components/Deliveries/AddTrip_Info/AddTrip_Info';
 import orders from './components/Orders/orders';

@@ -1,11 +1,83 @@
 import React, { Component } from 'react';
 import './Header2.css';
+import $ from 'jquery';
+import AutoComplete from 'material-ui/AutoComplete';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { cyan500, red300, white } from 'material-ui/styles/colors';
 
 
 
+
+const muiTheme = getMuiTheme ({
+    datePicker: {
+        textColor: white,
+        pickerHeaderColor: '#008489',
+       
+
+    },
+  });
+
+
+  
+
+
+  var predictionss=[];
 
 
 class Header extends Component {
+
+    constructor(props, context) {
+        super(props, context);
+        
+        this.state={
+            dataSource: [],
+        };
+    }
+    
+
+    Serarchsowhandler =()=>{
+
+    }
+    
+    handleUpdateInput = (value) => {
+
+       
+        var self = this;
+        $.post( "https://getlynow.herokuapp.com/scrap/Search_cities",
+                        
+            { "text":value}
+
+                 )
+            .done(function( data ) {
+
+                console.log(JSON.parse(data))
+
+                data = JSON.parse(data);
+                predictionss=[];
+                data.predictions.forEach(element => {
+                    
+           //        console.log(element);
+
+                   predictionss.push(element.description);
+                              
+                });
+
+                self.setState({dataSource:predictionss})
+                console.log(predictionss);
+               
+             
+            });
+                      
+              console.log('===============');
+              console.log(self.state.dataSource);
+                   
+      };
+
+    
+
+
     render() {
        
         return (
@@ -33,20 +105,40 @@ class Header extends Component {
                          <form  className="header__box__search row">
                            
 
-                            <div className="input-group header__box__search__input  mb-3 col-md-5">
-                                <div className="input-group-prepend">
-                                    <span className="input-group-text" id="basic-addon1">From</span>
-                                </div>
-                                <input type="text" className="form-control"  placeholder=" City or Country" aria-label="fromcity" aria-describedby="basic-addon1"/>
+                            <div className="  mb-3 col-md-5">
+                                 <div className='form-group' >
+                                    <MuiThemeProvider muiTheme={muiTheme}>
+                                         <AutoComplete
+                                           hintText="from city (select form options)"
+                                           className='create-order__city__input'
+                                            dataSource={this.state.dataSource}
+                                            onUpdateInput={this.handleUpdateInput}
+                                            filter={AutoComplete.caseInsensitiveFilter}
+                                            fullWidth={true}
+                                            openOnFocus={false}
+                                            disableFocusRipple={false}
+                                                       />
+                                           </MuiThemeProvider>
+                                    </div>
                             </div>
-                            <div className="input-group header__box__search__input mb-3 col-md-5">
-                                <div className="input-group-prepend">
-                                    <span className="input-group-text" id="basic-addon1">To</span>
-                                </div>
-                                <input type="text" className="form-control"  placeholder=" City or Country" aria-label="fromcity" aria-describedby="basic-addon1"/>
+                            <div className=" mb-3 col-md-5">
+                                     <div className='form-group' >
+                                         <MuiThemeProvider muiTheme={muiTheme}>
+                                              <AutoComplete
+                                                hintText="to city (select form options)"
+                                                 className='create-order__city__input'
+                                                 dataSource={this.state.dataSource}
+                                                 onUpdateInput={this.handleUpdateInput}
+                                                 filter={AutoComplete.caseInsensitiveFilter}
+                                                 fullWidth={true}
+                                                 openOnFocus={false}
+                                                 disableFocusRipple={false}
+                                                   />
+                                                </MuiThemeProvider>
+                                         </div>
                             </div>
                             
-                            <button type="button" className="btn getly___btn header__box__Shearch__btn col-md-2">Search</button>
+                            <button type="button" className="btn getly___btn header__box__Shearch__btn col-md-2" onClick={this.Serarchsowhandler} >Search</button>
 
                         </form>
 
