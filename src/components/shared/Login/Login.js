@@ -64,7 +64,7 @@ class Login extends Component {
             this.setState({err: ''});
             console.log(this.state.err);
             
-            if(this.state.err === '' && email !== '' && passowrd !== ''){
+          if(this.state.err === '' && email !== '' && passowrd !== ''){
           
                 $.post("https://getlynow.herokuapp.com/auth/login",
                      {
@@ -80,13 +80,12 @@ class Login extends Component {
                    localStorage.setItem("usertoken", data.resulit.token );
 
 
-                    $('#closeSingupModel').click();
 
-                            
+                   $('#closemodel').click();
+
                 });
 
                       
-                $('#closemodel').click();
       
             }
 

@@ -2,22 +2,18 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import { withRouter } from 'react-router-dom';
 import {Link} from 'react-router-dom';
-
 import AutoComplete from 'material-ui/AutoComplete';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DatePicker from 'material-ui/DatePicker';
-
-
 import moment from 'moment';
-
-
 import styled from 'styled-components';
-
-
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { cyan500, red300, white } from 'material-ui/styles/colors';
-
 import './createOrderContainer.css';
+import firebase from 'firebase'
+
+
+
 
 
 const muiTheme = getMuiTheme ({
@@ -43,13 +39,11 @@ class createOrderContainer extends Component {
             Quantity : 1,
             Deliverbefore: null,
             dataSource: [],
-<<<<<<< HEAD
-            file: '',imagePreviewUrl: '',
-            
-=======
+            file: '',
+            imagePreviewUrl: '',
             fromWhereCity: '',
             DeliverToCity: '',
->>>>>>> 2dd834cfb7e847a06cbbbdd575828d7d9b8003a2
+            imgUrl: '',
         };
 
         
@@ -144,6 +138,23 @@ _handleSubmit(e) {
 
 
     tostep2 = () => {
+        console.log('FIRED');
+        const ref = firebase.storage().ref();
+        const file = document.querySelector('#orderIMG').files[0]
+        const name = (+new Date()) + '-' + file.name;
+        const metadata = {
+        contentType: file.type
+        };
+        const task = ref.child(name).put(file, metadata);
+        task.then((snapshot) => {
+        const url = snapshot.downloadURL;
+        this.setState({imgUrl: url});
+        console.log(this.state.imgUrl);
+        }).catch((error) => {
+        console.error(error);
+        });
+
+
         $('.create-order__step1').fadeOut(300); 
         $('.create-order__step2').fadeIn(300);
     }
@@ -250,19 +261,47 @@ _handleSubmit(e) {
     
     
      createOrder = () => {
-        const itemName = "";
-        const itemeImg= "";
-        const itemDescription = "";
-        const itemURL = "";
-        const itemPrice = "";
-        const itemQuantity = "";
-        const fromWhereCity = "";
-        const DeliverToCity = "";
-        const DeliverBeforeDate = "";
-        const noteToTraviler = "";
 
-       // this.props.history.push('/getly');
-      //  window.scrollTo(0, 0);
+        const itemName = $('#item-name').val();
+        const itemeImg= this.state.imgUrl;
+        const itemDescription = $('#Description-item').val();
+        const itemURL =  $('#itemURL').val();
+        const itemPrice =  $('#itemPrice').val();
+        const itemQuantity =  this.state.Quantity;
+        const fromWhereCity =  this.state.fromWhereCity;
+        const DeliverToCity =  this.state.DeliverToCity;
+        const DeliverBeforeDate = this.state.Deliverbefore;
+        const noteToTraviler =  $('#notr-to-traveler').val();
+        const usertoken =  localStorage.getItem("usertoken");
+
+        $.post("https://getlynow.herokuapp.com/CreateItem",
+        {
+            "token": usertoken,
+            "Item_name": itemName,
+            "Item_photo": itemeImg ,
+            "Getly_from": fromWhereCity,
+            "Getly_to": DeliverToCity,
+            "Getly_date":DeliverBeforeDate,
+            "Getly_time":1,
+            "Description_item": itemDescription,
+            "itemPrice": itemPrice,
+            "itemQuantity": itemQuantity,
+            "noteToTraviler": noteToTraviler,
+            "orderstate": "1"
+
+        }
+            )
+        .done(function( data ) {
+
+            console.log("data sign in :"+ data.success);
+       
+        });
+
+
+        console.log(usertoken , itemName , itemDescription , itemeImg, itemURL , itemPrice ,itemQuantity , fromWhereCity ,DeliverToCity ,DeliverBeforeDate, noteToTraviler);
+        
+        this.props.history.push('/getly');
+         window.scrollTo(0, 0);
      }
 
         
@@ -359,7 +398,7 @@ _handleSubmit(e) {
                             
                             <div className='form-group ' onSubmit={(e)=>this._handleSubmit(e)}>
                                <label className=" btn__uploade btn btn-outline-info btn getly___btn btn__upload-img">
-                                   <input type="file" multiple accept="image/gif, image/jpeg, image/png" onChange={(e)=>this._handleImageChange(e)}  className="btn getly___btn btn__upload-img" />
+                                   <input type="file" multiple accept="image/gif, image/jpeg, image/png" id='orderIMG' onChange={(e)=>this._handleImageChange(e)}  className="btn getly___btn btn__upload-img" />
                                    <span>Uploade Image</span>
                                </label>
                                
