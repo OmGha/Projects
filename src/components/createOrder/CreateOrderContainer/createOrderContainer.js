@@ -43,13 +43,10 @@ class createOrderContainer extends Component {
             Quantity : 1,
             Deliverbefore: null,
             dataSource: [],
-<<<<<<< HEAD
             file: '',imagePreviewUrl: '',
             
-=======
             fromWhereCity: '',
             DeliverToCity: '',
->>>>>>> 2dd834cfb7e847a06cbbbdd575828d7d9b8003a2
         };
 
         

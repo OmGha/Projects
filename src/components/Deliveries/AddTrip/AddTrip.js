@@ -14,6 +14,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { cyan500, red300, white } from 'material-ui/styles/colors';
 import '../AddTrip/AddTrip.css';
 import Trip_Image from '../../../Assets/img/plane4.svg';
+import { type } from 'os';
 
 const muiTheme = getMuiTheme ({
     datePicker: {
@@ -32,12 +33,13 @@ class AddTrip extends Component {
         super(props);
     
         this.state = {
-            TravilDate: null,
             err: '',
             dataSource: [],
-            cityOfTravilingFrom: '',
-            cityOfTravilingTo:''
+            TravilingFrom: "",
+            TravilingTo:"",
+            TravilDate: null
         };
+        this.addingTrip = this.addingTrip.bind(this);
 
       }
 
@@ -46,6 +48,7 @@ class AddTrip extends Component {
             TravilDate: date,
         });
         console.log(this.state.TravilDate)
+
       };
 
       handleUpdateInput = (value) => {
@@ -84,20 +87,59 @@ class AddTrip extends Component {
   
       cityOfTravilingFrom=(value)=>{
         this.setState({
-                cityOfTravilingFrom : value,
+            TravilingFrom : value,
         }
         )
-        console.log(this.state.cityOfTravilingFrom);
+        console.log(this.state.TravilingFrom );
        }
 
        cityOfTravilingTo=(value)=>{
         this.setState({
-                cityOfTravilingTo : value,
+            TravilingTo: value,
         }
         )
-        console.log(this.state.cityOfTravilingTo);
+        console.log(this.state.TravilingTo);
        }
 
+       addingTrip(event){
+           const travilfrom =  this.state.TravilingFrom;
+           // Get Token
+         const    Travilto =  this.state.TravilingTo;
+           const travilDate =   moment(this.state.travilDate).format('ll');
+
+      const userToken=  localStorage.getItem("usertoken");
+
+          console.log(travilfrom,Travilto,travilDate);
+
+         // if(this.state.cityOfTravilingFrom !== '' && this.cityOfTravilingTo !== '' && travilDate !== null ){
+ 
+            $.post("https://getlynow.herokuapp.com/auth/Createtrip",
+            {
+             
+
+            
+                "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NTQsIm5hbWUiOiJBaG1lZCIsImlhdCI6MTUyMjg4NjM5Nn0.zDPaiky5g85c8HaaxaYRrf7XuLUdDFgbJ212p-SLxz4",
+                "Fly_num":"58073572",
+                "Current_city":travilfrom,
+                "Destination_city":Travilto,
+                "Date":travilDate,
+                "Time":"02:55",
+                "Description":"dfdgfdgfdgfdgf",
+                "Waight":"2"
+            }
+        )
+       .done(function( data ) {
+
+           console.log(data.success ,"data add trip :"+  data , 'token : '+ userToken ,'travil from : '+travilfrom,'travil to : '+Travilto);
+
+        
+             });
+
+         // }
+
+          this.props.history.push('/AddTrip_Info');
+
+       }
       
     render() {
         return (
@@ -158,7 +200,7 @@ class AddTrip extends Component {
                                              </div>
                                 
                                                                 
-                                <button type='button' className='Add__btn'>Add</button>
+                                <button type='button' className='Add__btn' onClick={this.addingTrip}>Add</button>
 
                              </form>
                          </div>
