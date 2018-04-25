@@ -19,20 +19,23 @@ import orders from './components/Orders/orders';
 import CreatedOrderRequested from './components/createOrder/CreatedOrder/CreatedOrderState/CreatedOrderRequested';
 import CreatedOrderReceived from './components/createOrder/CreatedOrder/CreatedOrderState/CreatedOrderReceived';
 import CreatedOrderOntheway from './components/createOrder/CreatedOrder/CreatedOrderState/CreatedOrderOntheway';
-
+import OfferState from './components/Deliveries/Offers/OfferState/OfferState';
+import To_Delivers_State from './components/Deliveries/To_Delivers/To_Delivers_State/To_Delivers_State';
+import Navbar from './components/shared/nav/Navbar';
+import Footer from './components/shared/footer/Footer';
+      
 
 class Router extends Component {
      
 
     render() {
 
-
-        localStorage.setItem("userloged", false);
-
         return (
 
             <BrowserRouter>
-                <div>
+             <div>
+                <Navbar />
+               
                     <Route exact path="/" component={Home}  />
                     <Route path="/order" component={MakeOrder}   />
                     <Route path="/travel" component={MakeMoney}  />
@@ -49,8 +52,12 @@ class Router extends Component {
                     <Route path="/AddTrip" component={AddTrip}   />
                     <Route path="/AddTrip_Info" component={AddTrip_Info}   />
                     <Route path="/requestsorder" component={orders}   />
-                                                            
+                    <Route path="/OfferState" component={OfferState}   />
+                    
+                    <Route path="/ToDeliverState" component={To_Delivers_State}   />
+                    <Footer />
                 </div>
+              
             </BrowserRouter>
 
         );

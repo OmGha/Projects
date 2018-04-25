@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import '../To_Delivers/To_Delivers.css';
+import { withRouter } from 'react-router-dom';
 
 class To_Delivers extends Component {
+
+    openTo_Delivers=()=>{
+        this.props.history.push('/ToDeliverState');
+    }
+
     render() {
         return (
             
@@ -72,4 +78,4 @@ class To_Delivers extends Component {
     }
 }
 
-export default To_Delivers;
+export default withRouter(To_Delivers) ;

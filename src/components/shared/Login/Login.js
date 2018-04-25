@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from "jquery";
+import { connect } from 'react-redux';
 import './Login.css';
 
 var firebase = require('firebase');
@@ -28,7 +29,18 @@ class Login extends Component {
         this.onlogin = this.onlogin.bind(this);
     }
 
-    
+
+    componentWillMount(){
+        console.log("componentWillMount");
+        console.log( this.props.loged);
+    }
+
+
+    fun = () =>{
+        this.props.dispatch({type: "LOGED"});
+        console.log( this.props.loged);
+    }
+
     onlogin(event){
         
       
@@ -79,8 +91,8 @@ class Login extends Component {
                     // Store
                    localStorage.setItem("usertoken", data.resulit.token );
 
-
-
+                    $('#firefunction').click();
+                
                    $('#closemodel').click();
 
                 });
@@ -98,6 +110,7 @@ class Login extends Component {
     render() {
         return (
             <div>
+                <button id="firefunction" onClick={this.fun} >hello</button>
 
                 <div className="modal fade" id="loginModel" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
                      ref={modal => this.modal = modal} >
@@ -158,4 +171,11 @@ class Login extends Component {
     }
 }
 
-export default Login;
+
+const mapStateToProps = state =>(
+    {
+        loged: state.loged 
+    }
+)
+
+export default connect(mapStateToProps)(Login) ;

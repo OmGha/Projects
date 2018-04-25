@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import NAVBER from '../shared/nav/Navbar';
-import Footer from '../shared/footer/Footer';
 import Discount from '../../Assets/img/discount.svg';
 import '../Copouns/Copouns.css'
 
@@ -8,7 +6,6 @@ class Copouns extends Component{
     render() {
         return (
             <div>
-                <NAVBER/>
                 <div className='Container' id='conCoupon'>
                     <div className='Coupon__Conatiner'>
                         <div className='Coupon__Header'>Coupon<span><img className='Coupon__img' src={Discount}/></span></div>
@@ -39,7 +36,7 @@ class Copouns extends Component{
                         </div>
                     </div>
                 </div>
-                <Footer/>
+               
             </div>
         );
     }

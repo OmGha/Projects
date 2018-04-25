@@ -95,6 +95,9 @@ _handleSubmit(e) {
     }
 
 
+
+    //--------------------------get citys from api  
+
     handleUpdateInput = (value) => {
 
         console.log(value)
@@ -133,9 +136,7 @@ _handleSubmit(e) {
 
 
 
-    // ------------------------------------------------------------
-
-
+    // -----------------------upload img to firebase-------------------------------
 
     tostep2 = () => {
         console.log('FIRED');
@@ -158,6 +159,10 @@ _handleSubmit(e) {
         $('.create-order__step1').fadeOut(300); 
         $('.create-order__step2').fadeIn(300);
     }
+
+
+
+
     
     tostep3 = () => {
         $('.create-order__step2').fadeOut(300); 

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import NAVBER from '../shared/nav/Navbar';
-import Footer from '../shared/footer/Footer';
 import $ from 'jquery'
 import { withRouter } from 'react-router-dom';
 import {Link} from 'react-router-dom';
@@ -31,7 +29,7 @@ class Deliveries extends Component {
     render() {
         return (
             <div>
-                               <NAVBER/>
+                             
                 <div className='Deliveries__Container'>
                 <div  className='Deliveries__Container2'>
                 <div className='row'>
@@ -120,7 +118,6 @@ class Deliveries extends Component {
                     
                 </div>
             </div>   
-                     <Footer/>
 
             </div>
             </div>

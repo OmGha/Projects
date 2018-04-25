@@ -1,0 +1,71 @@
+.offer-step-img{
+    height: 50px;
+    display: block;
+    margin: auto;
+}
+.offer-step-text{
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.offer-step{
+    margin-top: 50px;
+}
+
+.CreatedOfferComponent{
+    background-color: #fff;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.offerdetails{
+    background-color: #eee;
+    padding: 20px;
+}
+
+.offer-details{
+    background-color: #fff;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.shopper__details {
+    background-color: #eee;
+    border-radius: 4px;
+    padding: 10px 15px;
+    bottom: 0;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 100%;
+}
+
+.offer__title__h1{
+    text-align: center;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.edit-offer__btn{
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: #008489;
+    color: #ffffff;
+    font-weight: 500;
+
+}
+.send-message__btn{
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+
+}

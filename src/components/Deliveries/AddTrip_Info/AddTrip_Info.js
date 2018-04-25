@@ -17,7 +17,7 @@ import Delivered from '../Delivered/Delivered';
 class AddTrip_Info extends Component {
     render() {
         return (
-            <div row>
+            <div >
                 <NAVBER/>
                <div className='row'>
 
@@ -68,12 +68,12 @@ class AddTrip_Info extends Component {
                  
                  <div className='Nav__Cont offset-2 col-8'>
                     <nav>
-                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-Offers" role="tab" aria-controls="nav-Offers" aria-selected="false">
+                        <div className="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a className="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-Offers" role="tab" aria-controls="nav-Offers" aria-selected="false">
                             <span>0</span> Offers</a>
-                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-To_delivers" role="tab" aria-controls="nav-To_delivers" aria-selected="false">
+                            <a className="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-To_delivers" role="tab" aria-controls="nav-To_delivers" aria-selected="false">
                             <span>0</span> To delivers</a>
-                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-Delivered" role="tab" aria-controls="nav-Delivered" aria-selected="false">
+                            <a className="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-Delivered" role="tab" aria-controls="nav-Delivered" aria-selected="false">
                             <span>0</span> Delivered</a>
 
                         </div>
@@ -81,9 +81,9 @@ class AddTrip_Info extends Component {
                     
                  </div>
                  <div className="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="nav-Offers" role="tabpanel" aria-labelledby="nav-home-tab"><Offers/></div>
-                        <div class="tab-pane fade" id="nav-To_delivers" role="tabpanel" aria-labelledby="nav-profile-tab"><To_Delivers/></div>
-                        <div class="tab-pane fade" id="nav-Delivered" role="tabpanel" aria-labelledby="nav-contact-tab"><Delivered/></div>
+                        <div className="tab-pane fade show active"  id="nav-Offers" role="tabpanel" aria-labelledby="nav-home-tab"><Offers/></div>
+                        <div className="tab-pane fade" id="nav-To_delivers" role="tabpanel" aria-labelledby="nav-profile-tab"><To_Delivers/></div>
+                        <div className="tab-pane fade" id="nav-Delivered" role="tabpanel" aria-labelledby="nav-contact-tab"><Delivered/></div>
                     </div>
                   
                

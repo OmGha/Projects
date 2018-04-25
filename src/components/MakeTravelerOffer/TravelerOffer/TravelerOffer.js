@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import $ from 'jquery'; 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DatePicker from 'material-ui/DatePicker';
 import moment from 'moment';
@@ -17,6 +18,13 @@ const muiTheme = getMuiTheme ({
     },
   });
 
+  var shopperid;
+  var itemPrice;
+  var Service_fee;
+  var Pick_up_location;
+  var Fly_number;
+  var Item_number;
+  var Category_number;
 
 
 class TravelerOffer extends Component {
@@ -37,11 +45,39 @@ class TravelerOffer extends Component {
             TravelDate: date,
         });
       };
-
     handlerTravelerfee= ()=>{
     }
 
     Coustomtax= ()=>{
+    }
+
+    makeOfferHandler= ()=>{
+        var traverlerFee = $('#traverlerFee').val();
+        var Coustomtax = $('#Coustomtax').val();
+        var TravelDate = this.state.TravelDate;
+        const usertoken =  localStorage.getItem("usertoken");
+        
+        $.post("https://getlynow.herokuapp.com/auth/Create_Deal",
+            {
+  
+                "token": usertoken,
+                "token1":shopperid,
+                "Price_of_object":itemPrice,
+                "Price_of_ship":traverlerFee,
+                "Service_feare":Service_fee,
+                "Tax":Coustomtax,
+                "Delevery_date": TravelDate,
+                "Pick_up_location":Pick_up_location,
+                "Fly_number":Fly_number,
+                "Item_number":Item_number,
+                "Category_number":Category_number,
+              }
+        
+            )
+        .done(function( data ) {
+            console.log("data sign in :"+ data.success);
+        });
+
     }
 
     render() {
@@ -147,7 +183,7 @@ class TravelerOffer extends Component {
 
                         <div className='row'>
                             <div className='col-md-12'>
-                                  <button type='button' className="btn getly___btn Signup__form__btn"  >Make delivery offer</button>
+                                  <button type='button' className="btn getly___btn Signup__form__btn" onclick={this.makeOfferHandler} >Make delivery offer</button>
                             </div>
                         </div>
 

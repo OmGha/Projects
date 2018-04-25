@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import $ from 'jquery'
+import $ from 'jquery';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import '../MenuSetting/MenuSetting.css';
@@ -11,7 +12,6 @@ class MenuSetting extends Component {
        
             this.deliv = this.deliv.bind(this);
             this.profile = this.profile.bind(this);
-
 
       }
 
@@ -34,6 +34,15 @@ class MenuSetting extends Component {
       
      }
 
+     funlogout = () =>{
+        this.props.dispatch({type: "LOGOUT"});
+        console.log( this.props.loged);
+        $('.Menu__Container').hide();
+        localStorage.removeItem("usertoken");
+        localStorage.removeItem('loged');
+     }
+ 
+
     render() {
         return (
             <div className='Menu__Container'>
@@ -44,12 +53,19 @@ class MenuSetting extends Component {
                    <a className='Menu__Profile'><span>Account Setting</span> <img/> </a>
                    <a className='Menu__Profile'><span>My Guidebook</span> <img/> </a>
                    <a className='Menu__Profile'><span>Gift Cards</span> <img/> </a>
-                   <a className='Menu__Profile'><span>Log Out</span> <img/> </a>
+                   <a className='Menu__Profile' onClick={this.funlogout}  ><span>Log Out</span> <img/> </a>
                 </div>
             </div>
         );
     }
 }
 
-export default withRouter(MenuSetting);
+const mapStateToProps = state =>(
+    {
+        loged: state.loged 
+    }
+  )
+  
+
+export default withRouter(connect(mapStateToProps)(MenuSetting));
 

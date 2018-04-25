@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import '../Offers/Offers.css';
+import { withRouter } from 'react-router-dom';
 
 class Offers extends Component {
+
+    openOffer=()=>{
+        this.props.history.push('/OfferState');
+    }
+
     render() {
         return (
             
@@ -72,4 +78,4 @@ class Offers extends Component {
     }
 }
 
-export default Offers;
+export default withRouter(Offers) ;

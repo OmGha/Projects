@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import NAVBER from '../shared/nav/Navbar';
-import Footer from '../shared/footer/Footer';
 import Header from './header/Header2';
 import RecentOrders from '../MakeOrder/RecentOrders/RecentOrders';
 import RecentlyTrips from './RecentlyTrips/RecentlyTrips';
@@ -30,7 +28,7 @@ class MakeOrder extends Component {
     render() {
         return (
             <div>
-                <NAVBER />
+             
                 <Header Serarchsowaction={this.Serarchsowhandler} />
 
                 {this.state.Serarchsow ?
@@ -43,7 +41,7 @@ class MakeOrder extends Component {
                 <RecentOrders />
                 <RecentlyTrips />
 
-                <Footer />
+               
 
                 <Login />
                 <Signup />
