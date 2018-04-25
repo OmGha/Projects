@@ -582,18 +582,18 @@ _handleSubmit(e) {
                                                     <hr/>
                                                    
                                                     <div className='row'>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-11' >
                                                                 <span>Item price</span>
                                                         </div>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-1' >
                                                                 <span>$<span>6</span></span>
                                                         </div>
                                                     </div>
                                                     <div className='row'>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-11' >
                                                                 <span>Sales Tax (estimated)</span>
                                                         </div>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-1' >
                                                                 <span>$<span>0</span></span>
                                                         </div>
                                                         <div className='col-md-12' >
@@ -604,10 +604,10 @@ _handleSubmit(e) {
 
                                                     </div>
                                                     <div className='row'>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-11' >
                                                                 <span>Traveler Fee</span>
                                                         </div>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-1' >
                                                                 <span>$<span>10</span></span>
                                                         </div>
                                                         <div className='col-md-12' >
@@ -618,10 +618,10 @@ _handleSubmit(e) {
 
                                                     </div>
                                                     <div className='row'>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-11' >
                                                                 <span>Service Fee</span>
                                                         </div>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-1' >
                                                                 <span>$<span>2</span></span>
                                                         </div>
                                                         <div className='col-md-12' >
@@ -632,10 +632,10 @@ _handleSubmit(e) {
 
                                                     </div>
                                                     <div className='row'>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-11' >
                                                                 <span>Estimated Total</span>
                                                         </div>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-1' >
                                                                 <span>$<span>10</span></span>
                                                         </div>
                                                         <div className='col-md-12' >
