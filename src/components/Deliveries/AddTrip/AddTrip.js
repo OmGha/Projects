@@ -102,12 +102,12 @@ class AddTrip extends Component {
        }
 
        addingTrip(event){
+           
            const travilfrom =  this.state.TravilingFrom;
-           // Get Token
-         const    Travilto =  this.state.TravilingTo;
+           const Travilto =  this.state.TravilingTo;
            const travilDate =   moment(this.state.travilDate).format('ll');
-
-      const userToken=  localStorage.getItem("usertoken");
+           // Get Token
+          const userToken=  localStorage.getItem("usertoken");
 
           console.log(travilfrom,Travilto,travilDate);
 
@@ -118,7 +118,7 @@ class AddTrip extends Component {
              
 
             
-                "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6NTQsIm5hbWUiOiJBaG1lZCIsImlhdCI6MTUyMjg4NjM5Nn0.zDPaiky5g85c8HaaxaYRrf7XuLUdDFgbJ212p-SLxz4",
+                "token":userToken,
                 "Fly_num":"58073572",
                 "Current_city":travilfrom,
                 "Destination_city":Travilto,

@@ -8,7 +8,7 @@ class editProfile extends Component {
     render() {
         return (
             <div>
-                <NAVBER/>
+              
                 <div className='container'>
                     <div className='row whole__Container'>
                         <div className='col-md-3'>
@@ -50,7 +50,7 @@ class editProfile extends Component {
                         </div>
                     </div>
                 </div>
-                <Footer/>
+               
             </div>
         );
     }

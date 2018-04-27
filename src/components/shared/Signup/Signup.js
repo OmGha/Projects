@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import $ from "jquery";
+import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DatePicker from 'material-ui/DatePicker';
 import moment from 'moment';
-
 
 import './Signup.css';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -40,6 +40,12 @@ class Signup extends Component {
         this.signUp = this.signUp.bind(this);
       }
 
+
+      funSING = () =>{
+        this.props.dispatch({type: "LOGED"});
+        console.log( this.props.loged);
+     }
+
       signUp(){
 
         var FirstName = this.refs.SignupInputFirstname.value;
@@ -49,7 +55,6 @@ class Signup extends Component {
         var Birthday =  moment(this.state.BirthdayDate).format('ll');   // Mar 21, 2018
       
   
-
         console.log(FirstName , lastName , email , password ,Birthday);
         var thisself  = this;
 
@@ -98,6 +103,7 @@ class Signup extends Component {
 
                 console.log("data sign in :"+ data.success , data.auth , data.user);
 
+                $('#firefunSING').click();
                 $('#closeSingupModel').click();
 
              //    this.props.history.push('/signup');
@@ -121,12 +127,15 @@ class Signup extends Component {
         this.setState({
             BirthdayDate: date,
         });
+        console.log( this.state.BirthdayDate);
+        
       };
     
 
     render() {
         return (
             <div>
+                <button id="firefunSING" onClick={this.funSING} >hello</button>
 
                     <div className="modal fade" id="SignupModel" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered" role="document">
@@ -202,4 +211,11 @@ class Signup extends Component {
     }
 }
 
-export default withRouter(Signup);
+const mapStateToProps = state =>(
+    {
+        loged: state.loged 
+    }
+)
+
+
+export default withRouter(connect(mapStateToProps) (Signup));

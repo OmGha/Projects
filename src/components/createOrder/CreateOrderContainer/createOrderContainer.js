@@ -2,22 +2,18 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import { withRouter } from 'react-router-dom';
 import {Link} from 'react-router-dom';
-
 import AutoComplete from 'material-ui/AutoComplete';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DatePicker from 'material-ui/DatePicker';
-
-
 import moment from 'moment';
-
-
 import styled from 'styled-components';
-
-
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { cyan500, red300, white } from 'material-ui/styles/colors';
-
 import './createOrderContainer.css';
+import firebase from 'firebase'
+
+
+
 
 
 const muiTheme = getMuiTheme ({
@@ -43,10 +39,11 @@ class createOrderContainer extends Component {
             Quantity : 1,
             Deliverbefore: null,
             dataSource: [],
-            file: '',imagePreviewUrl: '',
-            
+            file: '',
+            imagePreviewUrl: '',
             fromWhereCity: '',
             DeliverToCity: '',
+            imgUrl: '',
         };
 
         
@@ -98,6 +95,9 @@ _handleSubmit(e) {
     }
 
 
+
+    //--------------------------get citys from api  
+
     handleUpdateInput = (value) => {
 
         console.log(value)
@@ -136,18 +136,33 @@ _handleSubmit(e) {
 
 
 
-    // ------------------------------------------------------------
-
-    gocreatedorder = () =>{
-        this.props.history.push('/getly');
-        window.scrollTo(0, 0);
-    }
-
+    // -----------------------upload img to firebase-------------------------------
 
     tostep2 = () => {
+        console.log('FIRED');
+        const ref = firebase.storage().ref();
+        const file = document.querySelector('#orderIMG').files[0]
+        const name = (+new Date()) + '-' + file.name;
+        const metadata = {
+        contentType: file.type
+        };
+        const task = ref.child(name).put(file, metadata);
+        task.then((snapshot) => {
+        const url = snapshot.downloadURL;
+        this.setState({imgUrl: url});
+        console.log(this.state.imgUrl);
+        }).catch((error) => {
+        console.error(error);
+        });
+
+
         $('.create-order__step1').fadeOut(300); 
         $('.create-order__step2').fadeIn(300);
     }
+
+
+
+
     
     tostep3 = () => {
         $('.create-order__step2').fadeOut(300); 
@@ -249,6 +264,50 @@ _handleSubmit(e) {
                  this.setState({ Quantity: this.state.Quantity + 1 });
             }
     
+    
+     createOrder = () => {
+
+        const itemName = $('#item-name').val();
+        const itemeImg= this.state.imgUrl;
+        const itemDescription = $('#Description-item').val();
+        const itemURL =  $('#itemURL').val();
+        const itemPrice =  $('#itemPrice').val();
+        const itemQuantity =  this.state.Quantity;
+        const fromWhereCity =  this.state.fromWhereCity;
+        const DeliverToCity =  this.state.DeliverToCity;
+        const DeliverBeforeDate = this.state.Deliverbefore;
+        const noteToTraviler =  $('#notr-to-traveler').val();
+        const usertoken =  localStorage.getItem("usertoken");
+
+        $.post("https://getlynow.herokuapp.com/CreateItem",
+        {
+            "token": usertoken,
+            "Item_name": itemName,
+            "Item_photo": itemeImg ,
+            "Getly_from": fromWhereCity,
+            "Getly_to": DeliverToCity,
+            "Getly_date":DeliverBeforeDate,
+            "Getly_time":1,
+            "Description_item": itemDescription,
+            "itemPrice": itemPrice,
+            "itemQuantity": itemQuantity,
+            "noteToTraviler": noteToTraviler,
+            "orderstate": "1"
+
+        }
+            )
+        .done(function( data ) {
+
+            console.log("data sign in :"+ data.success);
+       
+        });
+
+
+        console.log(usertoken , itemName , itemDescription , itemeImg, itemURL , itemPrice ,itemQuantity , fromWhereCity ,DeliverToCity ,DeliverBeforeDate, noteToTraviler);
+        
+        this.props.history.push('/getly');
+         window.scrollTo(0, 0);
+     }
 
         
 
@@ -284,6 +343,7 @@ _handleSubmit(e) {
                         <div className='col-md-4 createOrder__steps_col' >
                             <div className='createOrder__steps__step' >
                                 <img className='createOrder__step__img'  src={require('../../../Assets/img/shopping-bag.svg')} />
+
                                 <span className='createOrder__step__text' >from where do you wanna get your item</span>
                             </div>
                         </div>
@@ -343,7 +403,7 @@ _handleSubmit(e) {
                             
                             <div className='form-group ' onSubmit={(e)=>this._handleSubmit(e)}>
                                <label className=" btn__uploade btn btn-outline-info btn getly___btn btn__upload-img">
-                                   <input type="file" multiple accept="image/gif, image/jpeg, image/png" onChange={(e)=>this._handleImageChange(e)}  className="btn getly___btn btn__upload-img" />
+                                   <input type="file" multiple accept="image/gif, image/jpeg, image/png" id='orderIMG' onChange={(e)=>this._handleImageChange(e)}  className="btn getly___btn btn__upload-img" />
                                    <span>Uploade Image</span>
                                </label>
                                
@@ -522,18 +582,18 @@ _handleSubmit(e) {
                                                     <hr/>
                                                    
                                                     <div className='row'>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-11' >
                                                                 <span>Item price</span>
                                                         </div>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-1' >
                                                                 <span>$<span>6</span></span>
                                                         </div>
                                                     </div>
                                                     <div className='row'>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-11' >
                                                                 <span>Sales Tax (estimated)</span>
                                                         </div>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-1' >
                                                                 <span>$<span>0</span></span>
                                                         </div>
                                                         <div className='col-md-12' >
@@ -544,10 +604,10 @@ _handleSubmit(e) {
 
                                                     </div>
                                                     <div className='row'>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-11' >
                                                                 <span>Traveler Fee</span>
                                                         </div>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-1' >
                                                                 <span>$<span>10</span></span>
                                                         </div>
                                                         <div className='col-md-12' >
@@ -558,10 +618,10 @@ _handleSubmit(e) {
 
                                                     </div>
                                                     <div className='row'>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-11' >
                                                                 <span>Service Fee</span>
                                                         </div>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-1' >
                                                                 <span>$<span>2</span></span>
                                                         </div>
                                                         <div className='col-md-12' >
@@ -572,10 +632,10 @@ _handleSubmit(e) {
 
                                                     </div>
                                                     <div className='row'>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-11' >
                                                                 <span>Estimated Total</span>
                                                         </div>
-                                                        <div className='col-md-6' >
+                                                        <div className='col-md-1' >
                                                                 <span>$<span>10</span></span>
                                                         </div>
                                                         <div className='col-md-12' >
@@ -594,7 +654,7 @@ _handleSubmit(e) {
                                                     </div>
 
                                                      <div className='form-group'>
-                                                            <button type="button" className="btn getly___btn btn__create-order-next3" onClick={this.gocreatedorder}  >publish my order</button>
+                                                            <button type="button" className="btn getly___btn btn__create-order-next3" onClick={this.createOrder}  >publish my order</button>
                                                       </div>
                                                    
                                                    
@@ -602,12 +662,6 @@ _handleSubmit(e) {
 
                                                     
                                                 </div>
-
-
-                    
-
-
-
 
 
                   </div>

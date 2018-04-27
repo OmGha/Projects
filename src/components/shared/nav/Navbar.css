@@ -4,9 +4,7 @@
     background-color: #ffffff;
     color: #484848;
     border-bottom: 1px solid #eee;
-    
-
-    
+        
 }
 
 .nav-link{
@@ -37,12 +35,4 @@
     height: 50px;
     width: 50px;
     border-radius: 50%;
-}
-
-.login{
-    display: block;
-}
-
-.logout{
-    display: none;
 }

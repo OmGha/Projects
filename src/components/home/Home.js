@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import $ from "jquery";
-import NAVBER from '../shared/nav/Navbar';
-import Footer from '../shared/footer/Footer';
 import Header from './header/Header';
 import WhyGetly from './whyGetly/whyGetly';
 import HowToUse from './howToUse/HowToUse';
@@ -25,7 +23,7 @@ class Home extends Component {
       
         return (
             <div>
-                <NAVBER/>
+              
                 <Header />
                 <WhyGetly />
                 <HowToUse />
@@ -33,7 +31,6 @@ class Home extends Component {
                 <EarnMoney />
                 <CompletedOrders />
                 <Community />
-                <Footer />
 
                 <Login  />
                 <Signup />

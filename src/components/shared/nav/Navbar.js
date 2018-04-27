@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
-import $ from 'jquery'
-import { withRouter } from 'react-router-dom';
-import {Link} from 'react-router-dom';
 import '../nav/Navbar.css';
 import shoppingbag from '../../../Assets/img/shopping-bag.svg';
 import travlerplane from '../../../Assets/img/black-plane.svg';
 import MenueSetting from '../MenuSetting/MenuSetting'
 import Message_notification from '../message/message_notification';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import $ from 'jquery'
+import { withRouter } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+
 
 
 
@@ -18,6 +20,7 @@ class NAVBER extends Component {
         this.showMenu = this.showMenu.bind(this);
         this.showMessage = this.showMessage.bind(this);
 
+      
   }
 
   gocreateorder = () => {
@@ -42,10 +45,17 @@ class NAVBER extends Component {
 
  }
 
+ componentWillMount(){
+   console.log(" componentWillMount nav");
+   
+   console.log(this.props.loged);
+ }
+
+
+
 
     render() {
 
-      var userloged = localStorage.getItem("userloged");
     
         return (
         <nav className="navbar navbar1 navbar-expand-lg navbar-light ">
@@ -69,29 +79,36 @@ class NAVBER extends Component {
                 <li className="nav-item">
                   <Link className="nav-link" to={{pathname: '/travel'}}><img className="navbar__item__img" src={travlerplane} /> Make Money</Link>
                 </li>
-
-                <li className="nav-item " >
-                 <a className= 'nav-link' href="#"  data-toggle="modal" data-target="#SignupModel" >Sign Up</a>
-                </li>
-                <li className="nav-item ">
-                  <a  className= 'nav-link' href="#" data-toggle="modal" data-target="#loginModel" >Log In</a>
-                </li>
-
-                  <li  className="nav-item ">
-               
-                  <a  className= 'nav-link' href="#" onClick={this.showMessage} >Messages</a>
+                {
+                 this.props.loged ? null : <li className="nav-item unloged" >
+                  <a className= 'nav-link' href="#"  data-toggle="modal" data-target="#SignupModel" >Sign Up</a>
+                 </li>
                  
-                </li>
+                }
+
+                  {
+                 this.props.loged ? null :            
+                  <li className="nav-item unloged">
+                   <a  className= 'nav-link' href="#" data-toggle="modal" data-target="#loginModel" >Log In</a>
+                  </li>
+                }
+
+                {this.props.loged? <li  className="nav-item loged">
+                             <a  className= 'nav-link' href="#" onClick={this.showMessage} >Messages</a>
+                            </li>
+                 : null}
+                
                 <li className="nav-item navbar__item__btn">
                   <button type="button" className="btn getly___btn navbar__item__btn-create-oreder" onClick={this.gocreateorder} >Create Order</button>
                 </li>
               
-
-                <li className="nav-item ">
-                  <a className= 'nav-link ' href="#"  onClick={this.showMenu} >
-                    <img className='nav__profile__img' src='https://randomuser.me/api/portraits/men/11.jpg' />
-                  </a>
-                </li>
+                {this.props.loged ?  <li className="nav-item loged">
+                              <a className= 'nav-link ' href="#"  onClick={this.showMenu} >
+                              <img className='nav__profile__img' src='https://randomuser.me/api/portraits/men/11.jpg' />
+                             </a>
+                             </li>
+                 : null}
+               
                 
               </ul>
              
@@ -104,4 +121,10 @@ class NAVBER extends Component {
     }
 }
 
-export default withRouter(NAVBER);
+const mapStateToProps = state =>(
+  {
+      loged: state.loged 
+  }
+)
+
+export default withRouter(connect(mapStateToProps)(NAVBER));

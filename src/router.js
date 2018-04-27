@@ -23,19 +23,21 @@ import OfferState from './components/Deliveries/Offers/OfferState/OfferState';
 import To_Delivers_State from './components/Deliveries/To_Delivers/To_Delivers_State/To_Delivers_State';
 import DeliveredState from './components/Deliveries/Delivered/DeliveredState/DeliveredState';
 import User from './components/User/User';
+import Navbar from './components/shared/nav/Navbar';
+import Footer from './components/shared/footer/Footer';
+      
 
 class Router extends Component {
      
 
     render() {
 
-
-        localStorage.setItem("userloged", false);
-
         return (
 
             <BrowserRouter>
-                <div>
+             <div>
+                <Navbar />
+               
                     <Route exact path="/" component={Home}  />
                     <Route path="/order" component={MakeOrder}   />
                     <Route path="/travel" component={MakeMoney}  />
@@ -59,7 +61,10 @@ class Router extends Component {
                     <Route path="/user" component={User}   />
 
                                                             
+                    <Route path="/ToDeliverState" component={To_Delivers_State}   />
+                    <Footer />
                 </div>
+              
             </BrowserRouter>
 
         );
