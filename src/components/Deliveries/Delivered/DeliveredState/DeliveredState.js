@@ -1,54 +1,22 @@
 import React, { Component } from 'react';
 import Navbar from '../../../shared/nav/Navbar';
 import Footer from '../../../shared/footer/Footer';
-import {withRouter} from 'react-router-dom';
-
-import './OfferState.css';
+import './DeliveredState.css';
 
 
 
-class OffrState extends Component {
-
-    userProfile=()=>{
-        this.props.history.push('/user');
-    }
-
-
+class DeliveredState extends Component {
+    
     render() {
         return (
-        
-            
-
             <div>
                 <Navbar />
-                <div className='CreatedOfferComponent' >
+                <div className='CreatedToDelerStateComponent' >
                     <div className='container' >
-                        <div className='row offer-step'>
-                            <div className='col-md-4'>
-                                <div>
-                                    <img className='offer-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                    <span className='offer-step-text' >Offered</span>
-                                </div>
-                            </div>
-                            <div className='col-md-4'>
-                                <div>
-                                    <img className='offer-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                    <span className='offer-step-text' >Offer Accepted</span>
-                                </div>
-                            </div>
-                            <div className='col-md-4'>
-                                <div>
-                                    <img className='offer-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                    <span className='offer-step-text' >Deliver Item And Get Your Mony</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <hr />
-
+                       
                         <div className='row' >
                             <div className='col-md-12' >
-                                <h1 className='offer__title__h1' >Your order has been posted to our traveler feed and is now awaiting delivery offers.</h1>
+                                <h1 className='ToDelerState__title__h1' >Your order has been posted to our traveler feed and is now awaiting delivery offers.</h1>
                             </div>
                         </div>
                        
@@ -56,9 +24,9 @@ class OffrState extends Component {
                     </div>
                 </div>
 
-                    <div className='offerdetails'>
+                    <div className='ToDelerStatedetails'>
                             <div className='container createOrder__container'>
-                            <div className='offer-details'>
+                            <div className='ToDelerState-details'>
 
                             <div className='row ' >
                             <div className='col-md-3' >
@@ -146,17 +114,17 @@ class OffrState extends Component {
 
                         <div className='row' >
                             <div className='col-md-12' >
-                                 <h3>Shopper Details</h3>
+                                 <h3>Feedback</h3>
                             </div>
                           
                         </div>
 
-                        <div className='offer-details'>
+                        <div className='ToDelerState-details'>
                            
 
                             <div className='row' >
                                 <div className='col-md-6' >
-                                <img className='Order__maker-img' onClick={this.userProfile} src= 'https://randomuser.me/api/portraits/men/88.jpg' /> 
+                                <img className='Order__maker-img' src= 'https://randomuser.me/api/portraits/men/88.jpg' /> 
                                     <span className='Order__maker-Name' >Abdelaleem</span>
                                 </div>
                                 <div className='col-md-6' >
@@ -202,7 +170,7 @@ class OffrState extends Component {
                                       <button type="button" className="btn getly___btn send-message__btn"  >Send Message</button>
                                 </div>
                                 <div className='col-md-6' >
-                                      <button type="button" className="btn getly___btn  edit-offer__btn"  > Edit Offer</button>
+                                      <button type="button" className="btn getly___btn  Update-State__btn"  > Update State</button>
                                 </div>
                             </div>
 
@@ -227,6 +195,6 @@ class OffrState extends Component {
     }
 }
 
-export default withRouter(OffrState) ;
+export default DeliveredState;
 
 

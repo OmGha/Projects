@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import '../Delivered/Delivered.css';
+import { withRouter } from 'react-router-dom';
 
 class Delivered extends Component {
+
+    openDeliverd=()=>{
+        this.props.history.push('/deliveredState');
+
+    }
+
     render() {
         return (
             
-          <div className='Delivered' onClick={this.openOffer} >
+          <div className='Delivered' onClick={this.openDeliverd} >
                 <div className='row' >
                     <div className='col-md-6' >
                        <img className='Delivered__maker-img' src= 'https://randomuser.me/api/portraits/men/88.jpg' /> 
-                        <span className='Delivered__maker-Name' >Ahmed</span>
+                        <span className='Delivered__maker-Name' >Abdelaleem</span>
                     </div>
                     <div className='col-md-6' >
                         <div className='Delivered__time' >
-                            <div >
-                                requested
-                        
-                                <span> 1 hour ago</span>
-                            </div>
+                        <span className='span__color'>State is : </span>
+
+                      <span className='StateDeliveredView'> Accept One</span>
+                            
                       </div>
                     </div>
                 </div>
@@ -72,4 +78,4 @@ class Delivered extends Component {
     }
 }
 
-export default Delivered;
+export default withRouter(Delivered) ;

@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 class To_Delivers extends Component {
 
     openTo_Delivers=()=>{
-        this.props.history.push('/ToDeliverState');
+        this.props.history.push('/toDeliverState');
     }
 
     render() {
@@ -15,15 +15,13 @@ class To_Delivers extends Component {
                 <div className='row' >
                     <div className='col-md-6' >
                        <img className='To_Delivers__maker-img' src= 'https://randomuser.me/api/portraits/men/88.jpg' /> 
-                        <span className='Order__maker-Name' >Ahmed</span>
+                        <span className='Order__maker-Name' >Abdelaleem</span>
                     </div>
                     <div className='col-md-6' >
                         <div className='To_Delivers__time' >
-                            <div >
-                                requested
-                        
-                                <span> 1 hour ago</span>
-                            </div>
+                        <span className='span__color'>State is : </span>
+
+                          <span className='StateToDeliversView'> Bought The Piece</span>
                       </div>
                     </div>
                 </div>

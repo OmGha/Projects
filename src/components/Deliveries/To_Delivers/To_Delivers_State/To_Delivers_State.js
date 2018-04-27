@@ -6,6 +6,7 @@ import './To_Delivers_State.css';
 
 
 class To_Delivers_State extends Component {
+
     render() {
         return (
             <div>
@@ -16,19 +17,19 @@ class To_Delivers_State extends Component {
                             <div className='col-md-3'>
                                 <div>
                                     <img className='ToDelerState-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                    <span className='ToDelerState-step-text' >Order Accepted</span>
+                                    <span className='ToDelerState-step-text' >Offer Accepted</span>
                                 </div>
                             </div>
                             <div className='col-md-3'>
                                 <div>
                                     <img className='ToDelerState-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                    <span className='ToDelerState-step-text' >Receive offers</span>
+                                    <span className='ToDelerState-step-text' >Bought The Piece</span>
                                 </div>
                             </div>
                             <div className='col-md-3'>
                                 <div>
                                     <img className='ToDelerState-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                    <span className='ToDelerState-step-text' >Accept One</span>
+                                    <span className='ToDelerState-step-text' > Take The Plane</span>
                                 </div>
                             </div>
                             <div className='col-md-3'>
@@ -197,28 +198,44 @@ class To_Delivers_State extends Component {
                                       <button type="button" className="btn getly___btn send-message__btn"  >Send Message</button>
                                 </div>
                                 <div className='col-md-6' >
-                                      <button type="button" className="btn getly___btn  Update-State__btn"  > Update State</button>
+                                      <button type="button" className="btn getly___btn  Update-State__btn"   data-toggle="modal" data-target="#updateState" > Update State</button>
                                 </div>
+                                
                             </div>
+                             
+                            <div class="modal fade" id="updateState" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Update State</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <input type="radio" name="S" value="A"/> Offer Accepted<br/>
+                                       <input type="radio" name="S" value="B"/> Bought The Piece<br/>
+                                       <input type="radio" name="S" value="C"/> Take The Plane<br/>
+                                       <input type="radio" name="S" value="D"/> Meet The Shopper<br/>
 
-                           
+                                    </div>
+                                    <button type="button" class="btn btn-primary">Update</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
 
 
 
-                        </div>
-
-
-
-
-
-
-
+                        </div> 
+                        <Footer/>
                     </div>
-                </div>
-
-                <Footer />
-            </div>
+              
+                
         );
+    
     }
 }
 

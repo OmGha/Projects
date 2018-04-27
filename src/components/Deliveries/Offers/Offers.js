@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 class Offers extends Component {
 
     openOffer=()=>{
-        this.props.history.push('/OfferState');
+        this.props.history.push('/offerState');
     }
 
     render() {
@@ -19,11 +19,9 @@ class Offers extends Component {
                     </div>
                     <div className='col-md-6' >
                         <div className='Offer__time' >
-                            <div >
-                                requested
-                        
-                                <span> 3 hour ago</span>
-                            </div>
+                        <span className='span__color'>State is : </span>
+
+                         <span className='StateOfferView'> Offer Accepted</span>
                       </div>
                     </div>
                 </div>

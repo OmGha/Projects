@@ -23,8 +23,7 @@
 }
 .Delivered__time{
     float: right;
-    font-size: 11px;
-    color: gray;
+    font-size: 12px;
     padding-top:10px; 
 }
 .Delivered-image{

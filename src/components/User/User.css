@@ -1,0 +1,38 @@
+.userComponent{
+margin-top: 30px;
+}
+.user__rete{
+    display: inline-block;
+    padding: 5px;
+}
+
+.user__rete img{
+    height: 20px;
+}
+.user-img{
+    border-radius: 50%;
+    float: right;
+  
+}
+.userinfo{
+    height: 45px;
+    background-color: #008489;
+    width: 100%;
+    margin-top: 30px;
+}
+.usernav{
+  width: 100%;
+  margin-top: 15px;
+
+}
+.usernav nav div a{
+    color: black;
+    
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
+    color: #008489;
+}
+.tab-content{
+    background: #eee;
+    padding: 15px;
+}
