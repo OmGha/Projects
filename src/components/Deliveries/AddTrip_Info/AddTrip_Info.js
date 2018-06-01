@@ -18,7 +18,7 @@ class AddTrip_Info extends Component {
     render() {
         return (
             <div >
-                <NAVBER/>
+              
                <div className='row'>
 
                    <div className='Deliveries__Container col-12 row'>

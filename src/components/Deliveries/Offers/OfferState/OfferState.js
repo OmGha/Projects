@@ -20,7 +20,6 @@ class OffrState extends Component {
             
 
             <div>
-                <Navbar />
                 <div className='CreatedOfferComponent' >
                     <div className='container' >
                         <div className='row offer-step'>
