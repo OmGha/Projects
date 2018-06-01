@@ -22,9 +22,8 @@ const muiTheme = getMuiTheme ({
   var itemPrice;
   var Service_fee;
   var Pick_up_location;
-  var Fly_number;
-  var Item_number;
-  var Category_number;
+  var Fly_number="0";
+  var Category_number="";
 
 
 class TravelerOffer extends Component {
@@ -34,6 +33,8 @@ class TravelerOffer extends Component {
     
         this.state = {
             TravelDate: null,
+            ordersData: "",
+            
            
         };
 
@@ -43,6 +44,7 @@ class TravelerOffer extends Component {
      handleChangeTravelDate = (event, date) => {
         this.setState({
             TravelDate: date,
+           
         });
       };
     handlerTravelerfee= ()=>{
@@ -61,7 +63,6 @@ class TravelerOffer extends Component {
             {
   
                 "token": usertoken,
-                "token1":shopperid,
                 "Price_of_object":itemPrice,
                 "Price_of_ship":traverlerFee,
                 "Service_feare":Service_fee,
@@ -69,7 +70,7 @@ class TravelerOffer extends Component {
                 "Delevery_date": TravelDate,
                 "Pick_up_location":Pick_up_location,
                 "Fly_number":Fly_number,
-                "Item_number":Item_number,
+                "Item_number": this.state.ordersData.Item_num,
                 "Category_number":Category_number,
               }
         
@@ -79,6 +80,30 @@ class TravelerOffer extends Component {
         });
 
     }
+
+    componentWillMount(){
+        console.log('componentDidMount');
+        
+        const usertoken =  localStorage.getItem("usertoken");
+        const orderID =  this.props.orderID;
+        console.log(`https://getlynow.herokuapp.com/auth/getitembyid`);
+
+        $.post( "https://getlynow.herokuapp.com/auth/getitembyid", {
+            "token":usertoken,
+            "id":orderID
+        })
+        .done(( data ) => {
+            console.log(data[0]);
+            this.setState({ordersData:data[0]})
+
+            console.log(this.state.ordersData);
+        }
+    );
+
+        
+    }
+
+
 
     render() {
         return (
@@ -107,15 +132,15 @@ class TravelerOffer extends Component {
                                     <div className='trep__details' >
                                     <div className='oreder__details__tfb' >
                                         <div>Deliver to </div>
-                                        <span> Cairo, EG</span>
+                                        <span> {this.state.ordersData.Getly_to}</span>
                                     </div>
                                     <div className='oreder__details__tfb'>
                                         <div>Deliver from </div>
-                                        <span> New York,US </span>
+                                        <span>  {this.state.ordersData.Getly_from}</span>
                                     </div>
                                     <div className='oreder__details__tfb'>
                                         <div>Deliver before </div>
-                                        <span> March 20, 2018</span>
+                                        <span>  {this.state.ordersData.Getly_date}</span>
                                     </div>
                                   </div>
                             </div>
@@ -135,7 +160,7 @@ class TravelerOffer extends Component {
                                     <span className="input-group-text input_doller__char">$</span>
                                 </div>
                                 <input type="number" onChange={this.handlerTravelerfee} className="form-control create-oreder__inputs__price"
-                                 id="traverlerFee" ref='traverlerFee' aria-label="Amount (to the nearest dollar)" value='5' />
+                                 id="traverlerFee" ref='traverlerFee' aria-label="Amount (to the nearest dollar)" value={Math.round(this.state.ordersData.price_of_item*0.15).toString()} />
                              </div>
                              <span>Nulla cillum exercitation fugiat nulla. Reprehenderit tempor Lorem in laborum excepteur mollit veniam deserunt culpa 
                                     </span>
@@ -183,7 +208,7 @@ class TravelerOffer extends Component {
 
                         <div className='row'>
                             <div className='col-md-12'>
-                                  <button type='button' className="btn getly___btn Signup__form__btn" onclick={this.makeOfferHandler} >Make delivery offer</button>
+                                  <button type='button' className="btn getly___btn Signup__form__btn" onClick={this.makeOfferHandler} >Make delivery offer</button>
                             </div>
                         </div>
 
@@ -198,11 +223,11 @@ class TravelerOffer extends Component {
 
                        <div className='row' >
                             <div className='col-md-8' >
-                               <span>  Converse Classic Chucks Shoes</span>
+                               <span>{this.state.ordersData.Item_name}</span>
                             </div>
                             <div className='col-md-4' >
                                <div>
-                                 <img className='Completed-Order__order__img' src='https://images.nike.com/is/image/DotCom/PDP_HERO_ZOOM/M9697_410_A_PREM/converse-chuck-taylor-all-star-low-top-unisex-shoe.jpg' />
+                                 <img className='Completed-Order__order__img' src={this.state.ordersData.Item_photo} />
                                </div>
                             </div>
                         </div> 
@@ -213,7 +238,7 @@ class TravelerOffer extends Component {
                                 <span>Item Price</span>
                             </div>
                             <div className='col-md-4' >
-                                <span>$<span>20</span></span>
+                                <span>$<span>{this.state.ordersData.price_of_item}</span></span>
                             </div>
                         </div>
                         <div className='row' >
@@ -221,7 +246,7 @@ class TravelerOffer extends Component {
                                 <span>Sale tax</span>
                             </div>
                             <div className='col-md-4' >
-                                <span>$<span>3</span></span>
+                                <span>$<span>0</span></span>
                             </div>
                         </div>
                         <div className='row' >
@@ -237,7 +262,7 @@ class TravelerOffer extends Component {
                                 <span>Your delivery fee</span>
                             </div>
                             <div className='col-md-4' >
-                                <span>$<span>5</span></span>
+                                <span>$<span>{Math.round(this.state.ordersData.price_of_item*0.15).toString()}</span></span>
                             </div>
                         </div>
                         <hr />

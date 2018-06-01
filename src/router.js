@@ -11,6 +11,8 @@ import uplodeProfilePic from './components/shared/Signup/uplodeProfilePic/uplode
 import createOrder from './components/createOrder/createOrder';
 import editNavigate from './components/editNavigate/editNavigate';
 import Copouns from './components/Copouns/Copouns';
+import conversations from './components/conversations/conversations';
+import openconversations from './components/conversations/openConversation/openConversation';
 import Deliveries from './components/Deliveries/Deliveries';
 import MakeTravelerOffer from './components/MakeTravelerOffer/MakeTravelerOffer';
 import AddTrip from './components/Deliveries/AddTrip/AddTrip';
@@ -23,6 +25,7 @@ import OfferState from './components/Deliveries/Offers/OfferState/OfferState';
 import To_Delivers_State from './components/Deliveries/To_Delivers/To_Delivers_State/To_Delivers_State';
 import Navbar from './components/shared/nav/Navbar';
 import Footer from './components/shared/footer/Footer';
+import serarchorders from './components/search/serarchorders';
       
 
 class Router extends Component {
@@ -39,12 +42,12 @@ class Router extends Component {
                     <Route exact path="/" component={Home}  />
                     <Route path="/order" component={MakeOrder}   />
                     <Route path="/travel" component={MakeMoney}  />
-                    <Route path="/Orderdetail" component={OpenOrder}    />
+                    <Route path="/Orderdetail/:orderID" component={OpenOrder}    />
                     <Route path="/tripdetail" component={OpenTrip}   />
                     <Route path="/signup" component={uplodeProfilePic}  />
                     <Route path="/createOrder" component={createOrder}   />
                     <Route path="/deliveries" component={Deliveries}   />
-                    <Route path="/makeoffer" component={MakeTravelerOffer}   />
+                    <Route path="/makeoffer/:orderID" component={MakeTravelerOffer}   />
                     <Route path='/getlyrequested' component={CreatedOrderRequested}/>
                     <Route path='/getlyreceived' component={CreatedOrderReceived}/>
                     <Route path='/getlyontheway' component={CreatedOrderOntheway}/>
@@ -53,8 +56,12 @@ class Router extends Component {
                     <Route path="/AddTrip_Info" component={AddTrip_Info}   />
                     <Route path="/requestsorder" component={orders}   />
                     <Route path="/OfferState" component={OfferState}   />
-                    
                     <Route path="/ToDeliverState" component={To_Delivers_State}   />
+                    <Route path="/finditem/:from/:to" component={serarchorders}   />
+                    <Route path="/Copouns" component={Copouns}   />
+                    <Route path="/conversations" component={conversations}   />
+                    <Route path="/openconv/:orderID" component={openconversations}   />
+
                     <Footer />
                 </div>
               

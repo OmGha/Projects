@@ -146,7 +146,6 @@ class AddTrip extends Component {
            
 
             <div>
-                <NAVBER/>
                  <div className='Addtrip__Cont'>
                      <div className='Addtrip__Cont__Icon'><img className="_plane " src={Trip_Image}/> </div>
                      <div className='Addtrip__Cont__tex'>
@@ -205,7 +204,6 @@ class AddTrip extends Component {
                              </form>
                          </div>
                  </div>
-                 <Footer/>
             </div>
         );
     }

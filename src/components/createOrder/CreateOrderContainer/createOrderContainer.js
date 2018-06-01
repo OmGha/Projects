@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import { withRouter } from 'react-router-dom';
+import createHistory from "history/createBrowserHistory"
 import {Link} from 'react-router-dom';
 import AutoComplete from 'material-ui/AutoComplete';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -13,6 +14,7 @@ import './createOrderContainer.css';
 import firebase from 'firebase'
 
 
+const history = createHistory()
 
 
 
@@ -68,7 +70,8 @@ _handleSubmit(e) {
     reader.onloadend = () => {
       this.setState({
         file: file,
-        imagePreviewUrl: reader.result
+        imagePreviewUrl: reader.result,
+        imgUrl: ''
       });
     }
 
@@ -108,7 +111,7 @@ _handleSubmit(e) {
             { "text":value}
 
                  )
-            .done(function( data ) {
+            .done(( data ) => {
 
                 console.log(JSON.parse(data))
 
@@ -139,25 +142,28 @@ _handleSubmit(e) {
     // -----------------------upload img to firebase-------------------------------
 
     tostep2 = () => {
-        console.log('FIRED');
-        const ref = firebase.storage().ref();
-        const file = document.querySelector('#orderIMG').files[0]
-        const name = (+new Date()) + '-' + file.name;
-        const metadata = {
-        contentType: file.type
-        };
-        const task = ref.child(name).put(file, metadata);
-        task.then((snapshot) => {
-        const url = snapshot.downloadURL;
-        this.setState({imgUrl: url});
-        console.log(this.state.imgUrl);
-        }).catch((error) => {
-        console.error(error);
-        });
+            if(this.state.imgUrl == ''){
+            console.log('FIRED');
+            const ref = firebase.storage().ref();
+            const file = document.querySelector('#orderIMG').files[0]
+            const name = (+new Date()) + '-' + file.name;
+            const metadata = {
+            contentType: file.type
+            };
+            const task = ref.child(name).put(file, metadata);
+            task.then((snapshot) => {
+            const url = snapshot.downloadURL;
+            this.setState({imgUrl: url});
+            console.log(this.state.imgUrl);
+            }).catch((error) => {
+            console.error(error);
+            });
 
+        }
 
-        $('.create-order__step1').fadeOut(300); 
-        $('.create-order__step2').fadeIn(300);
+            $('.create-order__step1').fadeOut(300); 
+            $('.create-order__step2').fadeIn(300);
+        
     }
 
 
@@ -175,6 +181,9 @@ _handleSubmit(e) {
             Deliverbefore: date,
         });
       };
+
+
+
 
 
     getItemData =  (e) => {
@@ -196,27 +205,23 @@ _handleSubmit(e) {
                 .done(function( data ) {
                     console.log(  data);
 
-                  
+
                     $('.create__order__link__offline-store').fadeOut(100);
                     $('.create__order__link__online-store').fadeIn(100);
                     $('.form-about-item').fadeIn(300);
-
-                        console.log(data.details);
-                        
-                        var Description = data.details.slice(0, 4);
-                  
-
+                    console.log(data.details); 
+                    var Description = data.details.slice(0, 4);
                     $('#item-name').val( data.title);
                     $('#Description-item').val( Description);
                     $('#itemPrice').val( data.price);
                     $('#vImg').show();
+                    this.setState({imgUrl: data.image});
+                    console.log(this.state.imgUrl);
                     $('#vImg').attr("src",`${data.image}`);
                     console.log(data.url);
-                    
                     $('#itemURL').val(data.url);
                      
-                    
-                });
+                }.bind(this));
             
         }
         else{
@@ -263,6 +268,9 @@ _handleSubmit(e) {
        handleplus = () => {
                  this.setState({ Quantity: this.state.Quantity + 1 });
             }
+
+
+            
     
     
      createOrder = () => {
@@ -279,7 +287,10 @@ _handleSubmit(e) {
         const noteToTraviler =  $('#notr-to-traveler').val();
         const usertoken =  localStorage.getItem("usertoken");
 
-        $.post("https://getlynow.herokuapp.com/CreateItem",
+        console.log(usertoken , itemName , itemDescription , itemeImg, itemURL , itemPrice ,itemQuantity , fromWhereCity ,DeliverToCity ,DeliverBeforeDate, noteToTraviler);
+        
+
+        $.post("https://getlynow.herokuapp.com/auth/CreateItem",
         {
             "token": usertoken,
             "Item_name": itemName,
@@ -287,26 +298,34 @@ _handleSubmit(e) {
             "Getly_from": fromWhereCity,
             "Getly_to": DeliverToCity,
             "Getly_date":DeliverBeforeDate,
-            "Getly_time":1,
+            "Getly_time":"09:39",
             "Description_item": itemDescription,
-            "itemPrice": itemPrice,
-            "itemQuantity": itemQuantity,
+            "price_of_item": itemPrice,
             "noteToTraviler": noteToTraviler,
-            "orderstate": "1"
-
+            "where_to_buy": itemURL,
+         
         }
+
+        
             )
         .done(function( data ) {
 
+            console.log("data "+ data );
             console.log("data sign in :"+ data.success);
-       
+
+            if(data.success){
+                history.push("/getlyrequested");
+                window.location.reload(true);
+   
+            }
+
         });
 
 
         console.log(usertoken , itemName , itemDescription , itemeImg, itemURL , itemPrice ,itemQuantity , fromWhereCity ,DeliverToCity ,DeliverBeforeDate, noteToTraviler);
         
-        this.props.history.push('/getly');
-         window.scrollTo(0, 0);
+        
+
      }
 
         

@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './Header2.css';
 import $ from 'jquery';
 import AutoComplete from 'material-ui/AutoComplete';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { cyan500, red300, white } from 'material-ui/styles/colors';
 
 
 
 
 const muiTheme = getMuiTheme ({
     datePicker: {
-        textColor: white,
+        textColor: '#ffffff',
         pickerHeaderColor: '#008489',
        
 
     },
   });
-
-
-  
 
 
   var predictionss=[];
@@ -33,17 +30,39 @@ class Header extends Component {
         
         this.state={
             dataSource: [],
+            formCity: '',
+            toCity: '',
         };
     }
     
 
-    Serarchsowhandler =()=>{
+    formCITYfun = (value) =>{
+        this.setState({
+            formCity: value,
+        });
 
+        console.log(this.state.formCity);
+
+    }
+
+    toCITYfun = (value) =>{
+        this.setState({
+            toCity: value,
+        });
+
+        console.log(this.state.toCity);
+
+    }
+
+    Serarchsowhandler =()=>{
+        console.log(`/finditem/${this.state.formCity}/${this.state.toCity}`);
+        this.props.history.push(`/finditem/${this.state.formCity}/${this.state.toCity}`);
+        window.scrollTo(0, 0);
     }
     
     handleUpdateInput = (value) => {
 
-       
+        
         var self = this;
         $.post( "https://getlynow.herokuapp.com/scrap/Search_cities",
                         
@@ -117,6 +136,7 @@ class Header extends Component {
                                             fullWidth={true}
                                             openOnFocus={false}
                                             disableFocusRipple={false}
+                                            onNewRequest={this.formCITYfun}
                                                        />
                                            </MuiThemeProvider>
                                     </div>
@@ -133,6 +153,7 @@ class Header extends Component {
                                                  fullWidth={true}
                                                  openOnFocus={false}
                                                  disableFocusRipple={false}
+                                                 onNewRequest={this.toCITYfun}
                                                    />
                                                 </MuiThemeProvider>
                                          </div>
@@ -154,4 +175,6 @@ class Header extends Component {
     }
 }
 
-export default Header;
+
+
+export default withRouter(Header);

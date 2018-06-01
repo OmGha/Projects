@@ -6,7 +6,8 @@ class Community extends Component {
     render() {
         return (
             <section className="community" >
-              <Parallaximg   reduceHeight={0.53} src={require('../../../Assets/img/community.jpg')}></Parallaximg>
+{/*               <Parallaximg   reduceHeight={0.53} src={require('../../../Assets/img/community.jpg')}></Parallaximg>
+ */}              <Parallaximg   reduceHeight={0.53} src={require('../../../Assets/img//267.jpg')}></Parallaximg>
 
               <div className="community__itmes" >
 

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from '../../../shared/nav/Navbar';
-import Footer from '../../../shared/footer/Footer';
 import './To_Delivers_State.css';
 
 
@@ -9,7 +7,6 @@ class To_Delivers_State extends Component {
     render() {
         return (
             <div>
-                <Navbar />
                 <div className='CreatedToDelerStateComponent' >
                     <div className='container' >
                         <div className='row ToDelerState-step'>
@@ -216,7 +213,6 @@ class To_Delivers_State extends Component {
                     </div>
                 </div>
 
-                <Footer />
             </div>
         );
     }

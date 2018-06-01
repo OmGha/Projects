@@ -10,8 +10,6 @@ import {Provider} from "react-redux";
 
 
 
-
-
 const initialState = {
   
              loged: false

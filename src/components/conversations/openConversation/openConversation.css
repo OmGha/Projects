@@ -1,0 +1,92 @@
+.oreder__detailsx{
+    margin-left: 0 !important;
+}
+
+.conversations-boxs{
+    border-radius: 0.25rem;
+    background-color: #fff;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+}
+
+.conversations-sections{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #eee;
+}
+
+.conversations-BOX-date{
+    background-color: #f8f8f8;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-radius: 5px;
+    width: max-content;
+    padding: 5px 10px;
+    color: #8f8f95;
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.sender-img{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.sender-message{
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    max-width: fit-content;
+}
+
+.resever-message-box{
+    direction: rtl;
+}
+.resever-message{
+    background-color: #e5f6fb;
+    border-radius: 5px;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    max-width: fit-content;
+}
+
+.typing-input:focus {
+    color: #495057;
+    background-color: #ffffff;
+    border: 1px solid #ced4da;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0);
+}
+
+.input-type-group{
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.send-massage-btn{
+    width: 100%;
+    background-color: #008489;
+    color: #fff;
+    font-weight: 600;
+}
+
+.conversations-boxs-message{
+    position: relative;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow: hidden;
+    height: 460px;
+    overflow-y: auto;
+    max-height: 100vh;
+
+}

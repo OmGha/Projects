@@ -1,0 +1,16 @@
+    .search-form{
+        margin-top: 30px;
+        display: flex;
+
+    }
+
+    .order-box{
+        background-color: #f1f1f1;
+    }
+
+    .search__form__btn{
+        width: 100%;
+        background-color: #008489;
+        color: #fff;
+        font-weight: 500;
+    }

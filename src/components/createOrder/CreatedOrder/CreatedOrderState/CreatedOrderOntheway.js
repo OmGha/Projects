@@ -9,7 +9,6 @@ class CreatedOrderOntheway extends Component {
     render() {
         return (
             <div>
-            <Navbar />
             <div className='CreatedOrderComponent' >
                 <div className='container' >
                     <div className='row getly-step'>
@@ -197,7 +196,6 @@ class CreatedOrderOntheway extends Component {
                 </div>
             </div>
 
-            <Footer />
         </div>
         );
     }

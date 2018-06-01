@@ -40,6 +40,8 @@ class MenuSetting extends Component {
         $('.Menu__Container').hide();
         localStorage.removeItem("usertoken");
         localStorage.removeItem('loged');
+        this.props.history.push('/');
+
      }
  
 

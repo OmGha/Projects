@@ -38,7 +38,7 @@
     height: auto;
 }
 .Coupon__Conatiner>label{
-    margin: 5px 50px 0 50px;
+    margin: 0px 60px;
     color:#ccc;
 }
 #elementContainer{
@@ -54,4 +54,39 @@
     vertical-align: middle;
     margin: 6px;
     color: #6d6d6d;
+}
+
+.Message__Element{
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #e8e0e0;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin: 6px;
+    color: #000;
+}
+
+.Message__Element p {
+    color: #6d6d6d;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.Message__Element:hover{
+    padding: 12px;
+    background: rgb(241, 241, 241);
+    border: 1px solid #f3f3f3;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin: 6px;
+    color: #000;
+    cursor: pointer;
+}
+
+.Message__Element__body{
+    margin-left: 10px;
+}
+
+.Message__Element__body span{
+    float: right;
 }
