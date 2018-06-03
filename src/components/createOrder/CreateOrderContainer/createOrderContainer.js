@@ -12,6 +12,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { cyan500, red300, white } from 'material-ui/styles/colors';
 import './createOrderContainer.css';
 import firebase from 'firebase'
+import { SyncLoader } from 'react-spinners';
+
 
 
 const history = createHistory()
@@ -46,6 +48,7 @@ class createOrderContainer extends Component {
             fromWhereCity: '',
             DeliverToCity: '',
             imgUrl: '',
+            loading: false,
         };
 
         
@@ -192,6 +195,9 @@ _handleSubmit(e) {
 
         console.log('fetch');
         e.preventDefault();
+
+        $('.sweet-loading').show(200);
+        this.setState({loading:true});
      
         const ApiFetchItemData = 'https://getlynow.herokuapp.com/scrap/product';
 
@@ -204,6 +210,7 @@ _handleSubmit(e) {
                     )
                 .done(function( data ) {
                     console.log(  data);
+
 
 
                     $('.create__order__link__offline-store').fadeOut(100);
@@ -220,6 +227,9 @@ _handleSubmit(e) {
                     $('#vImg').attr("src",`${data.image}`);
                     console.log(data.url);
                     $('#itemURL').val(data.url);
+
+                    $('.sweet-loading').hide(200);
+                    this.setState({loading:false});
                      
                 }.bind(this));
             
@@ -344,6 +354,14 @@ _handleSubmit(e) {
 
         return (
             <div> 
+
+            <div className='sweet-loading'>
+                <SyncLoader
+                color={'#008489'} 
+                loading={this.state.loading} 
+                />
+            </div>
+
            <section className='createOrder__container'>
                <div className='container' >
                     <div className='row'>
@@ -385,12 +403,12 @@ _handleSubmit(e) {
                     </div>
 
                     <div className='row' >
-                        <div className='col-md-9 create-oreder__inputs_col' >
+                        <div className='col-md-8 create-oreder__inputs_col' >
                           <div className="form-group">
                                 <input type="text" className="form-control create-oreder__inputs" id="itemlink" ref='Itemlink'  placeholder="paste a link"/>
                             </div>
                         </div>
-                        <div className='col-md-3'>
+                        <div className='col-md-4'>
                              <button type="button" className="btn getly___btn btn-create-oreder" onClick={this.getItemData} >Create Order</button>
                         </div>
                     </div>

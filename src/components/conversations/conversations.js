@@ -43,6 +43,20 @@ class conversations extends Component{
                                         </div>
                                   </div>
                             </div>
+                            
+                            <div className='Message__Element'>
+                                  <div className="row" >
+                                        <div className="col-1">
+                                        <img className='nav__profile__img' src='https://randomuser.me/api/portraits/men/11.jpg' />
+                                        </div>
+                                        <div className="col-10 Message__Element__body">
+                                        Ahmed Shibob <span>April 6,2018</span>
+                                        <p>Hi, Ahmed, I am traveling to Paris and can bring your grab on August 26, 2018. As soon as you accept my offer I 
+                                            can purchase the item and get it to you on time. Let me know
+                                            if there is anything else you want from Dubai.</p>
+                                        </div>
+                                  </div>
+                            </div>
                            
                            
                         </div>

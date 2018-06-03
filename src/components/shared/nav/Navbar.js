@@ -104,7 +104,7 @@ class NAVBER extends Component {
               
                 {this.props.loged ?  <li className="nav-item loged">
                               <a className= 'nav-link ' href="#"  onClick={this.showMenu} >
-                              <img className='nav__profile__img' src='https://randomuser.me/api/portraits/men/11.jpg' />
+                              <img className='nav__profile__img' src='https://image.flaticon.com/icons/svg/265/265674.svg' />
                              </a>
                              </li>
                  : null}

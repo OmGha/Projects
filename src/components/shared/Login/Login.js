@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import $ from "jquery";
 import { connect } from 'react-redux';
+import { SyncLoader } from 'react-spinners';
 import './Login.css';
 
 var firebase = require('firebase');
@@ -24,6 +25,8 @@ class Login extends Component {
         
         this.state ={
             err: '',
+            loading: false,
+
         }
 
         this.onlogin = this.onlogin.bind(this);
@@ -41,8 +44,11 @@ class Login extends Component {
         console.log( this.props.loged);
     }
 
-    onlogin(event){
+    onlogin =(event) =>{
         
+        $('.sweet-loading').show(200);
+        this.setState({loading:true});
+
       
         //get value of email and password
         const email = this.refs.lognInputEmail1.value;
@@ -54,7 +60,6 @@ class Login extends Component {
         const auth = firebase.auth();
 
         const promise =  auth.signInWithEmailAndPassword(email,passowrd);
-
 
        
         // handle the login error
@@ -69,9 +74,15 @@ class Login extends Component {
 
             console.log(this.state.err);
 
+            $('.sweet-loading').hide(200);
+            this.setState({loading:false});
+
         });
 
         promise.then( ()=> {
+
+            $('.sweet-loading').show(200);
+            this.setState({loading:true});
            
             this.setState({err: ''});
             console.log(this.state.err);
@@ -84,16 +95,22 @@ class Login extends Component {
                       "Password": passowrd 
                      }
                  )
-                .done(function( data ) {
+                .done(( data ) => {
 
                     console.log("data sign in :"+ data.success , data.resulit.token  );
+                    console.log( data.resulit.data[0]   );
 
                     // Store
                    localStorage.setItem("usertoken", data.resulit.token );
+                   localStorage.setItem("UserData", data.resulit.data[0] );
 
                     $('#firefunction').click();
                 
                    $('#closemodel').click();
+                    $('#lognInputEmail1').val('');
+                    $('#loginInputPassword1').val('');
+                   $('.sweet-loading').hide(200);
+                   this.setState({loading:false});
 
                 });
 
@@ -110,6 +127,8 @@ class Login extends Component {
     render() {
         return (
             <div>
+                
+         
                 <button id="firefunction" onClick={this.fun} >hello</button>
 
                 <div className="modal fade" id="loginModel" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"
@@ -122,14 +141,23 @@ class Login extends Component {
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+            <div className='sweet-loading'>
+                <SyncLoader
+                color={'#008489'} 
+                loading={this.state.loading} 
+                />
+            </div>
+
                     <div className="modal-body">
+
+      
                             <div className="container">
-                                <div className="row">
+                                {/* <div className="row">
                                     <button type="button" className="btn getly___btn login__facebook">log in With Facebook</button>
-                                </div>
+                                </div> */}
 
                                 <div className="row">
-                                    <span className='login__text-or' >Or log in with Email</span>
+                                    <span className='login__text-or' >log in with Email</span>
                                 </div>
                                 <div className="row">
                                     <span className='login__massage' >{this.state.err}</span>
