@@ -65,13 +65,22 @@ class UploadProfilePicComponent extends Component {
                 "token":usertoken,
                 "photo":Imagelink,
          })
-        .done(function( data ) {
+        .done(( data ) => {
 
             console.log("DONE :"+ data.success);
+            this.props.history.push('/');
+            window.scrollTo(0, 0);
+
+
        
         });
       }
   
+      Skip=()=>{
+        this.props.history.push('/');
+        window.scrollTo(0, 0);
+      }
+
     render() {
         let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
@@ -104,7 +113,7 @@ class UploadProfilePicComponent extends Component {
                         </div>
                     </div>
                     <div className='upload__img_blocl__skip'>
-                        <a href="#">Skip this step</a>
+                        <a href="#" onClick={this.Skip}>Skip this step</a>
                     </div>
                  </div>
 

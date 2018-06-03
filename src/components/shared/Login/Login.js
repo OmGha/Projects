@@ -117,8 +117,9 @@ class Login extends Component {
                     $('#closemodel').click();
                     $('#lognInputEmail1').val('');
                     $('#loginInputPassword1').val('');
+
                     $('.sweet-loading').hide(200);
-                   this.setState({loading:false});
+                    this.setState({loading:false});
 
                 });
 
