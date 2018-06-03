@@ -112,32 +112,34 @@ class AddTrip extends Component {
           console.log(travilfrom,Travilto,travilDate);
 
          // if(this.state.cityOfTravilingFrom !== '' && this.cityOfTravilingTo !== '' && travilDate !== null ){
- 
-            $.post("https://getlynow.herokuapp.com/auth/Createtrip",
-            {
-             
+            if(this.state.err === '' ){
+                    $.post("https://getlynow.herokuapp.com/auth/Createtrip",
+                                {
+                                
 
-            
-                "token":userToken,
-                "Fly_num":"58073572",
-                "Current_city":travilfrom,
-                "Destination_city":Travilto,
-                "Date":travilDate,
-                "Time":"02:55",
-                "Description":"dfdgfdgfdgfdgf",
-                "Waight":"2"
+                                
+                                    "token":userToken,
+                                    "Fly_num":"58073572",
+                                    "Current_city":travilfrom,
+                                    "Destination_city":Travilto,
+                                    "Date":travilDate,
+                                    "Time":"02:55",
+                                    "Description":"dfdgfdgfdgfdgf",
+                                    "Waight":"2"
+                                }
+                            )
+                        .done(( data )=> {
+
+                            console.log(data.success ,"data add trip :"+  data , 'token : '+ userToken ,'travil from : '+travilfrom,'travil to : '+Travilto);
+
+                                    this.props.history.push('/addTrip_Info');
+
+                                });
+
             }
-        )
-       .done(function( data ) {
-
-           console.log(data.success ,"data add trip :"+  data , 'token : '+ userToken ,'travil from : '+travilfrom,'travil to : '+Travilto);
-
-        
-             });
-
+           
          // }
 
-          this.props.history.push('/addTrip_Info');
 
        }
       

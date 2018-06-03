@@ -85,37 +85,7 @@ class Deliveries extends Component {
                                     </div>
                                 </div>
                         </div>
-                       <div className='Coming__Trip row' onClick={this.openInfo}>
-                           <div className='Place__Info row offset-1 col-11 '>
-                              <div className='Place__Info__From col-4'>
-                                <span className='Place__Info__From1'>Egypt</span><br/>
-                                <span className='Place__Info__From2'>Cairo</span>
-                              </div>
-                              <div className='Place__Info__Arow col-4'><i className="arow fas fa-caret-right"></i></div>
-                              <div className='Place__Info__To col-4'>
-                              <span className='Place__Info__From1'>American</span><br/>
-                              <span className='Place__Info__From2'>New York</span>
-                              </div>
-                           </div>
-                           <div className='Date__Info offset-1 col-10 '>
-                              <span>March 23, 2018</span>
-                           </div>
-                           <div className='More__Info row offset-1 col-10 '>
-                              <div className='More__Info__d col-4'>
-                                  <span className='num'>1</span><br/>
-                                  <span className='tex'>Orders</span>
-                              </div>
-                              <div className=' More__Info__d col-4'>
-                                  <span className='num'>0</span><br/>
-                                  <span className='tex'>Deliver</span>
-                              </div>
-                              <div className=' More__Info__d col-4'>
-                                  <span className='num'>0</span><br/>
-                                  <span className='tex'>$Earnings</span>
-                              </div>
-
-                           </div>
-                    </div>
+                     
                     
                 </div>
             </div>   
