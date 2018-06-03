@@ -109,8 +109,14 @@ class Signup extends Component {
                 $('#firefunSING').click();
                 $('#closeSingupModel').click();
 
+<<<<<<< HEAD
+                 this.props.history.push('/signup');
+                 window.scrollTo(0, 0);
+                        
+=======
                 this.props.history.push('/uploadProfilePic');
                 window.scrollTo(0, 0);
+>>>>>>> ae71894d5d6db9acda9d9ac5ef2112ec4b08fdae
             });
                   
          }
@@ -150,12 +156,12 @@ class Signup extends Component {
                         </div>
                         <div className="modal-body">
                                 <div className="container">
-                                    <div className="row">
+                                   {/*  <div className="row">
                                         <button type="button" className="btn getly___btn Signup__facebook">Continue with Facebook</button>
-                                    </div>
+                                    </div> */}
 
                                     <div className="row">
-                                        <span className='Signup__text-or' >Or Sign Up with Email</span>
+                                        <span className='Signup__text-or' > Sign Up with Email</span>
                                     </div>
                                     <div className="row">
                                         <span className='login__massage' >{this.state.err}</span>

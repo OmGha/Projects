@@ -340,12 +340,12 @@
     border: 0;
 }
 .header__box__create-order__btn{
-    display: block;
-    margin: 15px;
-    margin: 16px -2%;
-    background: #008489;
-    color: #ffffff;
-    font-weight: 500;
+  margin-top: 16px;
+  margin-left: auto;
+  display: block;
+  background: #008489;
+  color: #ffffff;
+  font-weight: 500;
 }
 
 .form-control:focus {

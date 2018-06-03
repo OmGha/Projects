@@ -40,10 +40,10 @@ class Header extends Component {
                             </h1>
                         </div>
                         <div className="header__box__create-order row">
-                          <div  className="col-md-10 header__box__create-order__row">
+                          <div  className="col-md-9 header__box__create-order__row">
                               <input className="form-control form-control-lg header__box__create-order__input" type="text" placeholder="Paste URL or type what you’re looking for" />
                           </div>
-                          <div  className="col-md-2 header__box__create-order__row1">
+                          <div  className="col-md-3 header__box__create-order__row1">
                                <button to={{pathname: '/createOrder'}} onClick={this.crOr} type="button" className="btn getly___btn header__box__create-order__btn">Create Oreder</button>
                           </div>
 

@@ -90,3 +90,8 @@
 .Message__Element__body span{
     float: right;
 }
+
+#inlineFormInputGroup:focus {
+    z-index: 3;
+    border: 1px solid #ced4da;
+}
