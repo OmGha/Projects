@@ -29,7 +29,7 @@ class MenuSetting extends Component {
 
       profile() {
        
-        this.props.history.push('/editNavigate');
+        this.props.history.push('/user');
         window.scrollTo(0, 0);
       
      }
@@ -49,7 +49,7 @@ class MenuSetting extends Component {
         return (
             <div className='Menu__Container'>
                 <div>
-                   <a className='Menu__Profile' onClick={this.profile}><span>Edit Profile</span> <img/> </a>
+                   <a className='Menu__Profile' onClick={this.profile}><span>Profile</span> <img/> </a>
                    <a className='Menu__Profile' onClick={this.goOrder} ><span>Orders</span> <img/> </a>
                    <a className='Menu__Profile'  onClick={this.deliv} ><span>Deliveries</span> <img/> </a>
                    <a className='Menu__Profile'><span>Account Setting</span> <img/> </a>

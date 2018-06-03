@@ -23,10 +23,13 @@ import CreatedOrderReceived from './components/createOrder/CreatedOrder/CreatedO
 import CreatedOrderOntheway from './components/createOrder/CreatedOrder/CreatedOrderState/CreatedOrderOntheway';
 import OfferState from './components/Deliveries/Offers/OfferState/OfferState';
 import To_Delivers_State from './components/Deliveries/To_Delivers/To_Delivers_State/To_Delivers_State';
+import DeliveredState from './components/Deliveries/Delivered/DeliveredState/DeliveredState';
+import User from './components/User/User';
 import Navbar from './components/shared/nav/Navbar';
 import Footer from './components/shared/footer/Footer';
 import serarchorders from './components/search/serarchorders';
-      
+
+import editProfile from './components/editProfile/editProfile';
 
 class Router extends Component {
      
@@ -52,8 +55,8 @@ class Router extends Component {
                     <Route path='/getlyreceived' component={CreatedOrderReceived}/>
                     <Route path='/getlyontheway' component={CreatedOrderOntheway}/>
                     <Route path="/editNavigate" component={editNavigate}   />
-                    <Route path="/AddTrip" component={AddTrip}   />
-                    <Route path="/AddTrip_Info" component={AddTrip_Info}   />
+                    <Route path="/addTrip" component={AddTrip}   />
+                    <Route path="/addTrip_Info" component={AddTrip_Info}   />
                     <Route path="/requestsorder" component={orders}   />
                     <Route path="/OfferState" component={OfferState}   />
                     <Route path="/ToDeliverState" component={To_Delivers_State}   />
@@ -61,6 +64,8 @@ class Router extends Component {
                     <Route path="/Copouns" component={Copouns}   />
                     <Route path="/conversations" component={conversations}   />
                     <Route path="/openconv/:orderID" component={openconversations}   />
+                    <Route path="/user" component={User}   />
+                    <Route path="/editProfile" component={editProfile}   />
 
                     <Footer />
                 </div>

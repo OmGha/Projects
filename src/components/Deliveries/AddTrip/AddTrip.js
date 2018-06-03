@@ -137,7 +137,7 @@ class AddTrip extends Component {
 
          // }
 
-          this.props.history.push('/AddTrip_Info');
+          this.props.history.push('/addTrip_Info');
 
        }
       

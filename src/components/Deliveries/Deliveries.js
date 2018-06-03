@@ -17,12 +17,12 @@ class Deliveries extends Component {
     
       trip() {
        
-         this.props.history.push('/AddTrip');
+         this.props.history.push('/addTrip');
          window.scrollTo(0, 0);
        
       }
       openInfo(){
-        this.props.history.push('/AddTrip_Info');
+        this.props.history.push('/addTrip_Info');
         window.scrollTo(0, 0);
       }
 

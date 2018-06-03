@@ -1,34 +1,44 @@
 import React, { Component } from 'react';
 import Navbar from '../../../shared/nav/Navbar';
 import Footer from '../../../shared/footer/Footer';
+import {withRouter} from 'react-router-dom';
+
 import './OfferState.css';
 
 
 
 class OffrState extends Component {
+
+    userProfile=()=>{
+        this.props.history.push('/user');
+    }
+
+
     render() {
         return (
+        
+            
+
             <div>
-                <Navbar />
                 <div className='CreatedOfferComponent' >
                     <div className='container' >
                         <div className='row offer-step'>
                             <div className='col-md-4'>
                                 <div>
                                     <img className='offer-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                    <span className='offer-step-text' >Order Published</span>
+                                    <span className='offer-step-text' >Offered</span>
                                 </div>
                             </div>
                             <div className='col-md-4'>
                                 <div>
                                     <img className='offer-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                    <span className='offer-step-text' >Receive offers</span>
+                                    <span className='offer-step-text' >Offer Accepted</span>
                                 </div>
                             </div>
                             <div className='col-md-4'>
                                 <div>
                                     <img className='offer-step-img' src={require(`../../../../Assets/img/shopping-bag.svg`)} />
-                                    <span className='offer-step-text' >Accept One</span>
+                                    <span className='offer-step-text' >Deliver Item And Get Your Mony</span>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +155,7 @@ class OffrState extends Component {
 
                             <div className='row' >
                                 <div className='col-md-6' >
-                                <img className='Order__maker-img' src= 'https://randomuser.me/api/portraits/men/88.jpg' /> 
+                                <img className='Order__maker-img' onClick={this.userProfile} src= 'https://randomuser.me/api/portraits/men/88.jpg' /> 
                                     <span className='Order__maker-Name' >Abdelaleem</span>
                                 </div>
                                 <div className='col-md-6' >
@@ -216,6 +226,6 @@ class OffrState extends Component {
     }
 }
 
-export default OffrState;
+export default withRouter(OffrState) ;
 
 

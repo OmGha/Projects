@@ -1,0 +1,71 @@
+.ToDelerState-step-img{
+    height: 50px;
+    display: block;
+    margin: auto;
+}
+.ToDelerState-step-text{
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.ToDelerState-step{
+    margin-top: 50px;
+}
+
+.CreatedToDelerStateComponent{
+    background-color: #fff;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.ToDelerStatedetails{
+    background-color: #eee;
+    padding: 20px;
+}
+
+.ToDelerState-details{
+    background-color: #fff;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.shopper__details {
+    background-color: #eee;
+    border-radius: 4px;
+    padding: 10px 15px;
+    bottom: 0;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 100%;
+}
+
+.ToDelerState__title__h1{
+    text-align: center;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.Update-State__btn{
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: #008489;
+    color: #ffffff;
+    font-weight: 500;
+
+}
+.send-message__btn{
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+
+}
