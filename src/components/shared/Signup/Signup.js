@@ -97,18 +97,20 @@ class Signup extends Component {
                         "Personal_Info":" ",
                         "Gender":" "  
                     }
-                
-                )
-            .done(function( data ) {
 
+                )
+            .done(( data ) =>{
+                console.log(data);
+                
                 console.log("data sign in :"+ data.success , data.auth , data.user);
+                   // Store
+                   localStorage.setItem("usertoken", data.auth );
 
                 $('#firefunSING').click();
                 $('#closeSingupModel').click();
 
-             //    this.props.history.push('/signup');
-             //    window.scrollTo(0, 0);
-                        
+                this.props.history.push('/uploadProfilePic');
+                window.scrollTo(0, 0);
             });
                   
          }
@@ -117,8 +119,8 @@ class Signup extends Component {
         
 
         console.log(this.state.err);
-        
-        
+           
+         
       }
 
 

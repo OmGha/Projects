@@ -28,7 +28,7 @@ import User from './components/User/User';
 import Navbar from './components/shared/nav/Navbar';
 import Footer from './components/shared/footer/Footer';
 import serarchorders from './components/search/serarchorders';
-
+import uploadProfilePic from './components/shared/Signup/uplodeProfilePic/UploadProfilePic/UploadProfilePicComponent'
 import editProfile from './components/editProfile/editProfile';
 
 class Router extends Component {
@@ -66,6 +66,7 @@ class Router extends Component {
                     <Route path="/openconv/:orderID" component={openconversations}   />
                     <Route path="/user" component={User}   />
                     <Route path="/editProfile" component={editProfile}   />
+                    <Route path="/uploadProfilePic" component={uploadProfilePic}   />
 
                     <Footer />
                 </div>
