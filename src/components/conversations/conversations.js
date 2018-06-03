@@ -3,6 +3,13 @@ import Discount from '../../Assets/img/discount.svg';
 import '../Copouns/Copouns.css'
 
 class conversations extends Component{
+
+
+    componentWillMount(){
+        console.log("++++++++++++++++++++++++++");
+        
+    }
+
     render() {
         return (
             <div>
@@ -43,7 +50,7 @@ class conversations extends Component{
                                         </div>
                                   </div>
                             </div>
-                            
+
                             <div className='Message__Element'>
                                   <div className="row" >
                                         <div className="col-1">

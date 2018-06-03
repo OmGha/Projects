@@ -102,14 +102,22 @@ class Login extends Component {
 
                     // Store
                    localStorage.setItem("usertoken", data.resulit.token );
-                   localStorage.setItem("UserData", data.resulit.data[0] );
+                   localStorage.setItem("User-First_name", data.resulit.data[0].First_name );
+                   localStorage.setItem("User-Last_name", data.resulit.data[0].Last_name );
+                   localStorage.setItem("User-Photo", data.resulit.data[0].Photo );
+         //          localStorage.setItem("User-Photo", "https://s3.amazonaws.com/uifaces/faces/twitter/ripplemdk/128.jpg" );
+
+                    var x = localStorage.getItem("User-Photo");
+
+                    console.log(x);
+                                  
 
                     $('#firefunction').click();
                 
-                   $('#closemodel').click();
+                    $('#closemodel').click();
                     $('#lognInputEmail1').val('');
                     $('#loginInputPassword1').val('');
-                   $('.sweet-loading').hide(200);
+                    $('.sweet-loading').hide(200);
                    this.setState({loading:false});
 
                 });
@@ -141,6 +149,7 @@ class Login extends Component {
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+
             <div className='sweet-loading'>
                 <SyncLoader
                 color={'#008489'} 

@@ -86,7 +86,7 @@ class NAVBER extends Component {
                  
                 }
 
-                  {
+                {
                  this.props.loged ? null :            
                   <li className="nav-item unloged">
                    <a  className= 'nav-link' href="#" data-toggle="modal" data-target="#loginModel" >Log In</a>
@@ -102,7 +102,13 @@ class NAVBER extends Component {
                   <button type="button" className="btn getly___btn navbar__item__btn-create-oreder" onClick={this.gocreateorder} >Create Order</button>
                 </li>
               
-                {this.props.loged ?  <li className="nav-item loged">
+                {this.props.loged ? localStorage.getItem("User-Photo") !== "null"  ?  <li className="nav-item loged">
+                              <a className= 'nav-link ' href="#"  onClick={this.showMenu} >
+                              <img className='nav__profile__img' src={localStorage.getItem("User-Photo")} />
+                             </a>
+                             </li>
+                             : 
+                             <li className="nav-item loged">
                               <a className= 'nav-link ' href="#"  onClick={this.showMenu} >
                               <img className='nav__profile__img' src='https://image.flaticon.com/icons/svg/265/265674.svg' />
                              </a>
