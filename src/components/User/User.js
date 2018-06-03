@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
 import Navbar from '../shared/nav/Navbar';
 import Footer from '../shared/footer/Footer';
+import { withRouter } from 'react-router-dom';
 import './User.css';
 
 class User extends Component {
+
+    constructor(props) {
+        super(props);
+       
+            this.editP = this.editP.bind(this);
+
+      }
+
+    editP(){
+        this.props.history.push('/editNavigate');
+        window.scrollTo(0, 0);
+      }
+
     render() {
         return (
             <div >
-                <Navbar/>
                    <div className='row'>
                         <div className='userComponent offset-md-3 col-md-6 offset-md-3 row'>
                                         <div className='userComponent__info col-md-6'>
@@ -34,9 +47,8 @@ class User extends Component {
                                             <img className='user-img' src= 'https://randomuser.me/api/portraits/men/88.jpg' /> 
 
                                         </div>
-                                            <div className='userinfo '>
-                                                                                    
-                                            </div>
+                                        <div onClick={this.editP} className='btn__Div editP' ><a className='btn btn-block space-top-4' href='#'> Edit Profile </a></div>
+
                                             <div className='usernav  '>
                                             <div className='usernav '>
                                                 <nav>
@@ -64,10 +76,9 @@ class User extends Component {
 
                    </div>
                    
-                <Footer/>
             </div>
         );
     }
 }
 
-export default User;
+export default withRouter(User) ;

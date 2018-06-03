@@ -6,7 +6,7 @@ class MakeTravelerOffer extends Component {
         return (
             <div>
                
-                    <TravelerOffer />
+                    <TravelerOffer orderID={this.props.match.params.orderID} />
                
             </div>
         );

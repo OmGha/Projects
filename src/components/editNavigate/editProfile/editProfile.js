@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import sideBar from '../sideBar/sideBar';
+
 import './editProfile.css';
 
 class editProfile extends Component {

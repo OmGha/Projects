@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import NAVBER from '../shared/nav/Navbar';
 import Footer from '../shared/footer/Footer';
-import '../editProfile/editProfile.css';
+import { withRouter } from 'react-router-dom';
+import '../editNavigate/editNavigate.css';
 
 
 class editProfile extends Component {

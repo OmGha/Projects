@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import { withRouter } from 'react-router-dom';
+import createHistory from "history/createBrowserHistory"
 import {Link} from 'react-router-dom';
 import AutoComplete from 'material-ui/AutoComplete';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -13,6 +14,7 @@ import './createOrderContainer.css';
 import firebase from 'firebase'
 
 
+const history = createHistory()
 
 
 
@@ -68,7 +70,8 @@ _handleSubmit(e) {
     reader.onloadend = () => {
       this.setState({
         file: file,
-        imagePreviewUrl: reader.result
+        imagePreviewUrl: reader.result,
+        imgUrl: ''
       });
     }
 
@@ -108,7 +111,7 @@ _handleSubmit(e) {
             { "text":value}
 
                  )
-            .done(function( data ) {
+            .done(( data ) => {
 
                 console.log(JSON.parse(data))
 
@@ -139,25 +142,65 @@ _handleSubmit(e) {
     // -----------------------upload img to firebase-------------------------------
 
     tostep2 = () => {
-        console.log('FIRED');
-        const ref = firebase.storage().ref();
-        const file = document.querySelector('#orderIMG').files[0]
-        const name = (+new Date()) + '-' + file.name;
-        const metadata = {
-        contentType: file.type
-        };
-        const task = ref.child(name).put(file, metadata);
-        task.then((snapshot) => {
-        const url = snapshot.downloadURL;
-        this.setState({imgUrl: url});
-        console.log(this.state.imgUrl);
-        }).catch((error) => {
-        console.error(error);
-        });
+            if(this.state.imgUrl == ''){
+            console.log('FIRED');
+            const ref = firebase.storage().ref();
+            const file = document.querySelector('#orderIMG').files[0]
+            const name = (+new Date()) + '-' + file.name;
+            const metadata = {
+            contentType: file.type
+            };
+            const task = ref.child(name).put(file, metadata);
+            task.then((snapshot) => {
+            const url = snapshot.downloadURL;
+            this.setState({imgUrl: url});
+            console.log(this.state.imgUrl);
+            }).catch((error) => {
+            console.error(error);
+            });
 
+        }
 
-        $('.create-order__step1').fadeOut(300); 
-        $('.create-order__step2').fadeIn(300);
+            $('.create-order__step1').fadeOut(300); 
+            $('.create-order__step2').fadeIn(300);
+
+            //transfer Data
+            const itemName = $('#item-name').val();
+            const itemeImg= this.state.imgUrl;
+            const itemDescription = $('#Description-item').val();
+            const itemURL =  $('#itemURL').val();
+            const itemPrice =  $('#itemPrice').val();
+            const itemQuantity =  this.state.Quantity;
+            const fromWhereCity =  this.state.fromWhereCity;
+            const DeliverToCity =  this.state.DeliverToCity;
+            const DeliverBeforeDate = this.state.Deliverbefore;
+            const noteToTraviler =  $('#notr-to-traveler').val();
+            const usertoken =  localStorage.getItem("usertoken");
+    
+  console.log(usertoken , itemName , itemDescription , itemeImg, itemURL ,
+     itemPrice ,itemQuantity , fromWhereCity ,DeliverToCity ,DeliverBeforeDate, noteToTraviler);
+
+     var toata = (itemPrice)+(itemPrice * 0.15)+ (itemPrice *0.2);
+            
+    this.setState({
+        orderData:{
+            "toata": toata,
+            "token": usertoken,
+            "Item_name": itemName,
+            "Item_photo": itemeImg ,
+            "Getly_from": fromWhereCity,
+            "Getly_to": DeliverToCity,
+            "Getly_date":DeliverBeforeDate,
+            "Getly_time":"09:39",
+            "Description_item": itemDescription,
+            "price_of_item": itemPrice,
+            "noteToTraviler": noteToTraviler,
+            "where_to_buy": itemURL,
+         
+        }
+    
+    })
+            
     }
 
 
@@ -167,6 +210,8 @@ _handleSubmit(e) {
     tostep3 = () => {
         $('.create-order__step2').fadeOut(300); 
         $('.create-order__step3').fadeIn(300);
+
+        
     }
 
 
@@ -175,6 +220,9 @@ _handleSubmit(e) {
             Deliverbefore: date,
         });
       };
+
+
+
 
 
     getItemData =  (e) => {
@@ -196,27 +244,23 @@ _handleSubmit(e) {
                 .done(function( data ) {
                     console.log(  data);
 
-                  
+
                     $('.create__order__link__offline-store').fadeOut(100);
                     $('.create__order__link__online-store').fadeIn(100);
                     $('.form-about-item').fadeIn(300);
-
-                        console.log(data.details);
-                        
-                        var Description = data.details.slice(0, 4);
-                  
-
+                    console.log(data.details); 
+                    var Description = data.details.slice(0, 4);
                     $('#item-name').val( data.title);
                     $('#Description-item').val( Description);
                     $('#itemPrice').val( data.price);
                     $('#vImg').show();
+                    this.setState({imgUrl: data.image});
+                    console.log(this.state.imgUrl);
                     $('#vImg').attr("src",`${data.image}`);
                     console.log(data.url);
-                    
                     $('#itemURL').val(data.url);
                      
-                    
-                });
+                }.bind(this));
             
         }
         else{
@@ -263,6 +307,9 @@ _handleSubmit(e) {
        handleplus = () => {
                  this.setState({ Quantity: this.state.Quantity + 1 });
             }
+
+
+            
     
     
      createOrder = () => {
@@ -279,7 +326,10 @@ _handleSubmit(e) {
         const noteToTraviler =  $('#notr-to-traveler').val();
         const usertoken =  localStorage.getItem("usertoken");
 
-        $.post("https://getlynow.herokuapp.com/CreateItem",
+        console.log(usertoken , itemName , itemDescription , itemeImg, itemURL , itemPrice ,itemQuantity , fromWhereCity ,DeliverToCity ,DeliverBeforeDate, noteToTraviler);
+        
+
+        $.post("https://getlynow.herokuapp.com/auth/CreateItem",
         {
             "token": usertoken,
             "Item_name": itemName,
@@ -287,26 +337,34 @@ _handleSubmit(e) {
             "Getly_from": fromWhereCity,
             "Getly_to": DeliverToCity,
             "Getly_date":DeliverBeforeDate,
-            "Getly_time":1,
+            "Getly_time":"09:39",
             "Description_item": itemDescription,
-            "itemPrice": itemPrice,
-            "itemQuantity": itemQuantity,
+            "price_of_item": itemPrice,
             "noteToTraviler": noteToTraviler,
-            "orderstate": "1"
-
+            "where_to_buy": itemURL,
+         
         }
+
+        
             )
         .done(function( data ) {
 
+            console.log("data "+ data );
             console.log("data sign in :"+ data.success);
-       
+
+            if(data.success){
+                history.push("/getlyrequested");
+                window.location.reload(true);
+   
+            }
+
         });
 
 
         console.log(usertoken , itemName , itemDescription , itemeImg, itemURL , itemPrice ,itemQuantity , fromWhereCity ,DeliverToCity ,DeliverBeforeDate, noteToTraviler);
         
-        this.props.history.push('/getly');
-         window.scrollTo(0, 0);
+        
+
      }
 
         
@@ -540,129 +598,132 @@ _handleSubmit(e) {
 
                        {/*--------checkout&&delivery---------- */}
 
-                                            <div className='create-order__step3' >                
+                                           {
+                                               this.state.orderData!=undefined?
+                                               <div className='create-order__step3' >                
 
-                                                <div className='checkout__form' >
-                                                    <div className='row' >
-                                                         <h3 className='create__order__title__h3' >Almost there! Now, review your details.</h3>  
-                                                    </div>
+                                               <div className='checkout__form' >
+                                                   <div className='row' >
+                                                        <h3 className='create__order__title__h3' >Almost there! Now, review your details.</h3>  
+                                                   </div>
+                                                  
+                                                   <div className='row' >
+                                                       <div className='col-md-5' >
+                                                           <div className='Oreder-image' >
+                                                               <img className='Oreder-image__img' src={this.state.orderData.Item_photo} />
+                                                           </div>
+                                                       </div>
+                                                       <div className='col-md-7' >
+                                                           <div  className='Oreder-name'>{this.state.orderData.Item_name}  </div>
+                                                            <p>
+                                                            {this.state.orderData.Description_item}
+                                                            </p>
+
+                                                           <div className='oreder__details' >
+                                                               <div className='oreder__details__tfb' >
+                                                                   <div>Deliver to </div>
+                                                                   <span> {this.state.DeliverToCity}</span>
+                                                               </div>
+                                                               <div className='oreder__details__tfb'>
+                                                                   <div>Deliver from </div>
+                                                                   <span> {this.state.fromWhereCity} </span>
+                                                               </div>
+                                                               <div className='oreder__details__tfb'>
+                                                                   <div>Deliver before </div>
+                                                                   <span> </span>
+                                                               </div>
+
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                   <div className='row'>
+                                                       <p>Below is the Estimated  price summary for your order delivery</p>
+                                                   </div>
+                                                   <hr/>
+                                                  
+                                                   <div className='row'>
+                                                       <div className='col-md-11' >
+                                                               <span className='order__d'>Item price</span>
+                                                       </div>
+                                                       <div className='col-md-1' >
+                                                               <span>$<span>{this.state.orderData.price_of_item}</span></span>
+                                                       </div>
+                                                   </div>
+                                                   <div className='row'>
+                                                       <div className='col-md-11' >
+                                                               <span className='order__d'>Sales Tax (estimated)</span>
+                                                       </div>
+                                                       <div className='col-md-1' >
+                                                               <span>$<span>0</span></span>
+                                                       </div>
+                                                       <div className='col-md-12' >
+                                                       <span>
+                                                          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                                                       </span>
+                                                     </div>
+
+                                                   </div>
+                                                   <div className='row'>
+                                                       <div className='col-md-11' >
+                                                               <span className='order__d'>Traveler Fee</span>
+                                                       </div>
+                                                       <div className='col-md-1' >
+                                                               <span>$<span>{Math.round((this.state.orderData.price_of_item*0.15).toString())}</span></span>
+                                                       </div>
+                                                       <div className='col-md-12' >
+                                                       <span>
+                                                          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                                                       </span>
+                                                     </div>
+
+                                                   </div>
+                                                   <div className='row'>
+                                                       <div className='col-md-11' >
+                                                               <span className='order__d'>Service Fee</span>
+                                                       </div>
+                                                       <div className='col-md-1' >
+                                                               <span>$<span>{Math.round((this.state.orderData.price_of_item*0.2).toString())}</span></span>
+                                                       </div>
+                                                       <div className='col-md-12' >
+                                                       <span>
+                                                          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                                                       </span>
+                                                     </div>
+
+                                                   </div>
+                                                   <div className='row'>
+                                                       <div className='col-md-11' >
+                                                               <span className='order__d'>Estimated Total</span>
+                                                       </div>
+                                                       <div className='col-md-1' >
+                                                               <span>$<span>{Math.round(this.state.orderData.toata).toString()}</span></span>
+                                                       </div>
+                                                       <div className='col-md-12' >
+                                                       <span>
+                                                          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                                                          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                                                       </span>
+                                                     </div>
+
+                                                   </div>
+
+                                                   <hr/>
+
+                                                   <div className='row' >
+                                                       <span className='col-md-12'>By publishing my order, I agree to <a href='#' > Getly's terms and conditions</a> </span>
+                                                   </div>
+
+                                                    <div className='form-group'>
+                                                           <button type="button" className="btn getly___btn btn__create-order-next3" onClick={this.createOrder}  >publish my order</button>
+                                                     </div>
+                                                  
+                                                  
+                                               </div>
+
                                                    
-                                                    <div className='row' >
-                                                        <div className='col-md-5' >
-                                                            <div className='Oreder-image' >
-                                                                <img className='Oreder-image__img' src={require('../../../Assets/img/iphone6s.jpg')} />
-                                                            </div>
-                                                        </div>
-                                                        <div className='col-md-7' >
-                                                            <div  className='Oreder-name'> Iphone 7s plus</div>
-                                                             <p>
-                                                             What's the best approach for developing an application with JavaScript?
-                                                             </p>
-
-                                                            <div className='oreder__details' >
-                                                                <div className='oreder__details__tfb' >
-                                                                    <div>Deliver to </div>
-                                                                    <span> Cairo, EG</span>
-                                                                </div>
-                                                                <div className='oreder__details__tfb'>
-                                                                    <div>Deliver from </div>
-                                                                    <span> New York,US </span>
-                                                                </div>
-                                                                <div className='oreder__details__tfb'>
-                                                                    <div>Deliver before </div>
-                                                                    <span> March 20, 2018</span>
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div className='row'>
-                                                        <p>Below is the Estimated  price summary for your order delivery</p>
-                                                    </div>
-                                                    <hr/>
-                                                   
-                                                    <div className='row'>
-                                                        <div className='col-md-11' >
-                                                                <span>Item price</span>
-                                                        </div>
-                                                        <div className='col-md-1' >
-                                                                <span>$<span>6</span></span>
-                                                        </div>
-                                                    </div>
-                                                    <div className='row'>
-                                                        <div className='col-md-11' >
-                                                                <span>Sales Tax (estimated)</span>
-                                                        </div>
-                                                        <div className='col-md-1' >
-                                                                <span>$<span>0</span></span>
-                                                        </div>
-                                                        <div className='col-md-12' >
-                                                        <span>
-                                                           It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                                                        </span>
-                                                      </div>
-
-                                                    </div>
-                                                    <div className='row'>
-                                                        <div className='col-md-11' >
-                                                                <span>Traveler Fee</span>
-                                                        </div>
-                                                        <div className='col-md-1' >
-                                                                <span>$<span>10</span></span>
-                                                        </div>
-                                                        <div className='col-md-12' >
-                                                        <span>
-                                                           It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                                                        </span>
-                                                      </div>
-
-                                                    </div>
-                                                    <div className='row'>
-                                                        <div className='col-md-11' >
-                                                                <span>Service Fee</span>
-                                                        </div>
-                                                        <div className='col-md-1' >
-                                                                <span>$<span>2</span></span>
-                                                        </div>
-                                                        <div className='col-md-12' >
-                                                        <span>
-                                                           It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                                                        </span>
-                                                      </div>
-
-                                                    </div>
-                                                    <div className='row'>
-                                                        <div className='col-md-11' >
-                                                                <span>Estimated Total</span>
-                                                        </div>
-                                                        <div className='col-md-1' >
-                                                                <span>$<span>10</span></span>
-                                                        </div>
-                                                        <div className='col-md-12' >
-                                                        <span>
-                                                           It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                                                           It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                                                        </span>
-                                                      </div>
-
-                                                    </div>
-
-                                                    <hr/>
-
-                                                    <div className='row' >
-                                                        <span>By publishing my order, I agree to <a href='#' > Getly's terms and conditions</a> </span>
-                                                    </div>
-
-                                                     <div className='form-group'>
-                                                            <button type="button" className="btn getly___btn btn__create-order-next3" onClick={this.createOrder}  >publish my order</button>
-                                                      </div>
-                                                   
-                                                   
-                                                </div>
-
-                                                    
-                                                </div>
-
+                                               </div>
+                                                  :""
+                                           }
 
                   </div>
             </section>

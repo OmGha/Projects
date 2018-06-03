@@ -32,11 +32,12 @@ class Deliveries extends Component {
                              
                 <div className='Deliveries__Container'>
                 <div  className='Deliveries__Container2'>
-                <div className='row'>
-                     <div className='Deliveries__Container__Elment offset-lg-2 col-lg-4'>Deliveries</div>
-                    <button type='button' onClick={this.trip} className='Deliveries__Container__btn getly___btn col-lg-4 '>Add Trip</button>
-                </div>
-                   
+                <div className="container">
+                    <div className='row'>
+                        <div className='Deliveries__Container__Elment offset-lg-2 col-lg-4'>Deliveries</div>
+                        <button type='button' onClick={this.trip} className='Deliveries__Container__btn getly___btn col-lg-4 '>Add Trip</button>
+                    </div>
+                </div>                   
                 </div>
                  
             </div>   
