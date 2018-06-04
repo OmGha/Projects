@@ -44,6 +44,8 @@ class CreatedOrderRequested extends Component {
         $.post( "https://getlynow.herokuapp.com/auth/getDeals", {
             "token":usertoken,
             "state":"pendding",
+            "item_id": orderID
+
         })
         .done(( data ) => {
             console.log(data);

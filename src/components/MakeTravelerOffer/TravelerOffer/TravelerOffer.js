@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery'; 
+import { withRouter } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DatePicker from 'material-ui/DatePicker';
 import moment from 'moment';
@@ -80,7 +81,11 @@ class TravelerOffer extends Component {
         .done(function( data ) {
 
             console.log( data);
-            console.log("data sign in :"+ data.success);
+            console.log("data sign in :"+ data);
+
+            this.props.history.push(`/offerState`);
+            window.scrollTo(0, 0);
+
         });
 
     }
@@ -291,4 +296,4 @@ class TravelerOffer extends Component {
     }
 }
 
-export default TravelerOffer;
+export default withRouter(TravelerOffer);
