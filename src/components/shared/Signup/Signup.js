@@ -109,14 +109,8 @@ class Signup extends Component {
                 $('#firefunSING').click();
                 $('#closeSingupModel').click();
 
-<<<<<<< HEAD
-                 this.props.history.push('/signup');
-                 window.scrollTo(0, 0);
-                        
-=======
                 this.props.history.push('/uploadProfilePic');
                 window.scrollTo(0, 0);
->>>>>>> ae71894d5d6db9acda9d9ac5ef2112ec4b08fdae
             });
                   
          }

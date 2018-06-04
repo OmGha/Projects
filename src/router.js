@@ -51,7 +51,7 @@ class Router extends Component {
                     <Route path="/createOrder" component={createOrder}   />
                     <Route path="/deliveries" component={Deliveries}   />
                     <Route path="/makeoffer/:orderID" component={MakeTravelerOffer}   />
-                    <Route path='/getlyrequested' component={CreatedOrderRequested}/>
+                    <Route path='/getlyrequested/:orderID' component={CreatedOrderRequested}/>
                     <Route path='/getlyreceived' component={CreatedOrderReceived}/>
                     <Route path='/getlyontheway' component={CreatedOrderOntheway}/>
                     <Route path="/editNavigate" component={editNavigate}   />
