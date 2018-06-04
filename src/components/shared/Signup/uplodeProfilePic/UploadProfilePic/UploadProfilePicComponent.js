@@ -48,6 +48,7 @@ class UploadProfilePicComponent extends Component {
         const url = snapshot.downloadURL;
         this.setState({imgUrl: url});
         console.log(this.state.imgUrl);
+        localStorage.setItem("User-Photo",this.state.imgUrl);
         }).catch((error) => {
         console.error(error);
         });

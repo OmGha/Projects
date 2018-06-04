@@ -105,7 +105,7 @@ class Login extends Component {
                    localStorage.setItem("User-First_name", data.resulit.data[0].First_name );
                    localStorage.setItem("User-Last_name", data.resulit.data[0].Last_name );
                    localStorage.setItem("User-Photo", data.resulit.data[0].Photo );
-         //          localStorage.setItem("User-Photo", "https://s3.amazonaws.com/uifaces/faces/twitter/ripplemdk/128.jpg" );
+         //        localStorage.setItem("User-Photo", "https://s3.amazonaws.com/uifaces/faces/twitter/ripplemdk/128.jpg" );
 
                     var x = localStorage.getItem("User-Photo");
 

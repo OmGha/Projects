@@ -9,6 +9,7 @@ import moment from 'moment';
 import './Signup.css';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { cyan500, red300, white } from 'material-ui/styles/colors';
+import { SyncLoader } from 'react-spinners';
 
 var firebase = require('firebase');
 
@@ -35,6 +36,7 @@ class Signup extends Component {
         this.state = {
             BirthdayDate: null,
             err: '',
+            loading: false
         };
 
         this.signUp = this.signUp.bind(this);
@@ -47,6 +49,9 @@ class Signup extends Component {
      }
 
       signUp(){
+   
+        $('.sweet-loading').show(200);
+        this.setState({loading:true});
 
         var FirstName = this.refs.SignupInputFirstname.value;
         var lastName = this.refs.SignupInputLastname.value;
@@ -108,15 +113,13 @@ class Signup extends Component {
 
                 $('#firefunSING').click();
                 $('#closeSingupModel').click();
-
-<<<<<<< HEAD
-                 this.props.history.push('/signup');
-                 window.scrollTo(0, 0);
-                        
-=======
+              
+                $('.sweet-loading').hide(200);
+                this.setState({loading:false});
+                localStorage.setItem("User-Photo","null");
+ 
                 this.props.history.push('/uploadProfilePic');
                 window.scrollTo(0, 0);
->>>>>>> ae71894d5d6db9acda9d9ac5ef2112ec4b08fdae
             });
                   
          }
@@ -154,6 +157,14 @@ class Signup extends Component {
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+
+                    <div className='sweet-loading'>
+                        <SyncLoader
+                        color={'#008489'} 
+                        loading={this.state.loading} 
+                        />
+                    </div>
+                    
                         <div className="modal-body">
                                 <div className="container">
                                    {/*  <div className="row">

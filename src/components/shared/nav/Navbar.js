@@ -33,7 +33,7 @@ class NAVBER extends Component {
        
     $('.Message__Notify').toggle();
     $('.Menu__Container').hide();
-
+   
   
  }
 
@@ -94,7 +94,7 @@ class NAVBER extends Component {
                 }
 
                 {this.props.loged? <li  className="nav-item loged">
-                             <a  className= 'nav-link' href="#" onClick={this.showMessage} >Messages</a>
+                             <a  className= 'nav-link message' href="#" onClick={this.showMessage} >Messages</a>
                             </li>
                  : null}
                 
