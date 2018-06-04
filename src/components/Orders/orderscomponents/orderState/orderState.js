@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import { withRouter } from 'react-router-dom';
 import './orderState.css';
 
 class orderState extends Component {
 
+    constructor(props, context) {
+        super(props, context);
+        
+        this.state={
+            pendding: [],
+            accept: [],
+
+        };
+     
+    }
 
   
 
-      getlyrequested = ()=> {
-          this.props.history.push(`/getlyrequested`);
+      getlyrequested = (Item_num )=> {
+          this.props.history.push(`/getlyrequested/${Item_num}`);
            window.scrollTo(0, 0);
      }
       getlyOntheway = ()=> {
@@ -20,7 +31,44 @@ class orderState extends Component {
            window.scrollTo(0, 0);
      }
 
+    componentWillMount(){
+        console.log("++++++++++++++++++++++++++");
 
+        const usertoken =  localStorage.getItem("usertoken");
+        console.log(`https://getlynow.herokuapp.com/auth/GetUserItemsBasedOnState`, usertoken );
+
+        $.post( "https://getlynow.herokuapp.com/auth/GetUserItemsBasedOnState", {
+            "token": usertoken,
+            "state":"pendding"
+            
+            })
+        .done(( data ) => {
+            console.log(data);
+            this.setState({pendding:data})
+            console.log(this.state.pendding);
+          
+              
+
+        }
+    );
+
+
+        $.post( "https://getlynow.herokuapp.com/auth/GetUserItemsBasedOnState", {
+            "token": usertoken,
+            "state":"accept"
+            
+            })
+        .done(( data ) => {
+            console.log(data);
+            this.setState({accept:data})
+            console.log(this.state.accept);
+          
+              
+
+        }
+    );
+
+    }
 
 
     render() {
@@ -30,7 +78,7 @@ class orderState extends Component {
                     <nav>
                         <div className="nav nav-tabs" id="nav-tab" role="tablist">
                             <a className="nav-item nav-link active" id="nav-Requested-tab" data-toggle="tab" href="#nav-Requested" role="tab" aria-controls="nav-Requested" aria-selected="true">                
-                        <span>1</span> Requested
+                        <span>{this.state.pendding.length}</span> Requested
                             </a>
                             <a className="nav-item nav-link" id="nav-Ontheway-tab" data-toggle="tab" href="#nav-Ontheway" role="tab" aria-controls="nav-Ontheway" aria-selected="false">
                             <span>1</span> On the way to you</a>
@@ -46,18 +94,25 @@ class orderState extends Component {
                                     <div className='tap__container' >
                                       <div className='row' > 
                                             <div className='col-md-12 ' >
-                                                        <div  className='getly-details' onClick={this.getlyrequested} >
+
+
+
+
+                                     {
+                                                this.state.pendding.length > 0
+                                                    ? this.state.pendding.map(order =>           
+                                                    
+                                                        <div  key={order.Item_num} className='getly-details' onClick={() =>{this.getlyrequested(order.Item_num)}} >
 
                                                         <div className='row ' >
                                                             <div className='col-md-3' >
                                                                 <div className='Oreder-image' >
-                                                                    <img className='Oreder-image__img' src={require('../../../../Assets/img/iphone6s.jpg')} />
+                                                                    <img className='Oreder-image__img' src={order.Item_photo} />
                                                                 </div>
                                                             </div>
                                                             <div className='col-md-9' >
-                                                                <div  className='Oreder-name'> Iphone 7s plus</div>
-                                                                <span>Koloa Surf(tm) Text Logo Classic Crewneck Sweatshirt.  it’s a real value.. 
-                                                                    Printed with Koloa(tm) Printed on front of Sweatshirt</span>
+                                                                <div  className='Oreder-name'>{order.Item_name}</div>
+                                                                <span> {order.Description_item}</span>
 
 
                                                             </div>
@@ -69,15 +124,15 @@ class orderState extends Component {
                                                             <div className='oreder__details' >
                                                                     <div className='oreder__details__tfb' >
                                                                         <div>Deliver to </div>
-                                                                        <span> Cairo, EG</span>
+                                                                        <span>{order.Getly_to}</span>
                                                                     </div>
                                                                     <div className='oreder__details__tfb'>
                                                                         <div>Deliver from </div>
-                                                                        <span> New York,US </span>
+                                                                        <span> {order.Getly_from} </span>
                                                                     </div>
                                                                     <div className='oreder__details__tfb'>
                                                                         <div>Deliver before </div>
-                                                                        <span> March 20, 2018</span>
+                                                                        <span>{order.Getly_date}</span>
                                                                     </div>
 
                                                                 </div>
@@ -90,7 +145,7 @@ class orderState extends Component {
                                                                     <span>Offers</span>
                                                                 </div>
                                                                 <div className='col-md-2' >
-                                                                    <span>3</span>
+                                                                    <span>1</span>
                                                                 </div>
                                                             </div>
                                                        
@@ -100,11 +155,18 @@ class orderState extends Component {
                                                                     <span>Item Price</span>
                                                                 </div>
                                                                 <div className='col-md-2' >
-                                                                    <span>$<span>208</span></span>
+                                                                    <span>$<span>{order.price_of_item}</span></span>
                                                                 </div>
                                                             </div>
 
                                                             </div>
+
+                                               )
+                                                    : 'no order requested!'
+                                            }
+
+
+
 
                                                 </div>
                                     

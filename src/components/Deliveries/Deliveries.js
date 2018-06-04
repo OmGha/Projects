@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import $ from 'jquery'
 import { withRouter } from 'react-router-dom';
@@ -10,20 +11,45 @@ class Deliveries extends Component {
     constructor(props) {
         super(props);
        
+        this.state={
+            Trips: [],
+
+        };
+
             this.trip = this.trip.bind(this);
             this.openInfo=this.openInfo.bind(this);
 
       }
     
-      trip() {
+      trip() { 
        
          this.props.history.push('/addTrip');
          window.scrollTo(0, 0);
        
       }
-      openInfo(){
+      openInfo = () => {
         this.props.history.push('/addTrip_Info');
         window.scrollTo(0, 0);
+      }
+
+
+      componentWillMount(){
+
+        const usertoken =  localStorage.getItem("usertoken");
+        console.log("https://getlynow.herokuapp.com/auth/GetUserTrips", usertoken );
+
+        $.post( "https://getlynow.herokuapp.com/auth/GetUserTrips", {
+            "token":usertoken,
+        })
+        .done(( data ) => {
+            console.log(data);
+            this.setState({Trips:data})
+            console.log(this.state.Trips);
+          
+              
+
+        }
+    );
       }
 
     render() {
@@ -48,44 +74,55 @@ class Deliveries extends Component {
                           <div className='typeOfTrips__Cont__UpcomingTitle'>
                               <span>Upcoming Trips</span>
                           </div>
-                            <div className='a 'onClick={this.openInfo} >
-                                <div className='Upcoming__Cont row'>
-                                    <div className='Upcoming__Cont__Photo col-4'></div>
-                                    <div className='Upcoming__Cont__Content col-8 '>
-                                        <div className='Upcoming__Cont__Content__Info'>
-                                            <div className='Upcoming__Cont__Content__Info__Place'>
-                                                <span title='Cairo'>Cairo -</span>
-                                                <span title='New York'>New York</span>
-                                            </div>
-                                            <div className='Upcoming__Cont__Content__Info__Date'><span>March 23, 2018</span></div>
-                                        </div>
-                                        <div className='Upcoming__Cont__Content__Details  '>
-                                         <hr/>
-                                         <div className='Upcoming__Cont__Content__Details__Divs row'>
-                                             <div className='Upcoming__Cont__Content__Details__Divs__Div1 col-4'>
-                                                 <div className='Upcoming__Cont__Content__Details__Divs__Div2__Orders'>
-                                                     <div className='num'><span>1</span></div>
-                                                     <div className='tex'><span>Orders</span></div>
-                                                 </div>
-                                             </div>
-                                             <div className='Upcoming__Cont__Content__Details__Divs__Div2 col-4'>
-                                                <div className='Upcoming__Cont__Content__Details__Divs__Div2__ToDeliver'>
-                                                        <div className='num'><span>0</span></div>
-                                                        <div className='tex'><span>To Deliver</span></div>
-                                                    </div>
+
+                                            {
+                                                this.state.Trips.length > 0
+                                                    ? this.state.Trips.map(Trip =>           
+                                                    
+                                                        <div key={Trip.ID} className='a' onClick={() => { this.openInfo(Trip) }} >
+                                                        <div className='Upcoming__Cont row'>
+                                                            <div className='Upcoming__Cont__Photo col-4'></div>
+                                                            <div className='Upcoming__Cont__Content col-8 '>
+                                                                <div className='Upcoming__Cont__Content__Info'>
+                                                                    <div className='Upcoming__Cont__Content__Info__Place'>
+                                                                        <span title='Cairo'>{Trip.Current_city} -</span>
+                                                                        <span title='New York'>{Trip.Destination_city}</span>
+                                                                    </div>
+                                                                    <div className='Upcoming__Cont__Content__Info__Date'><span>{Trip.Date}</span></div>
+                                                                </div>
+                                                                <div className='Upcoming__Cont__Content__Details  '>
+                                                                 <hr/>
+                                                                 <div className='Upcoming__Cont__Content__Details__Divs row'>
+                                                                     <div className='Upcoming__Cont__Content__Details__Divs__Div1 col-4'>
+                                                                         <div className='Upcoming__Cont__Content__Details__Divs__Div2__Orders'>
+                                                                             <div className='num'><span></span></div>
+                                                                             <div className='tex'><span>Orders</span></div>
+                                                                         </div>
+                                                                     </div>
+                                                                     <div className='Upcoming__Cont__Content__Details__Divs__Div2 col-4'>
+                                                                        <div className='Upcoming__Cont__Content__Details__Divs__Div2__ToDeliver'>
+                                                                                <div className='num'><span></span></div>
+                                                                                <div className='tex'><span>To Deliver</span></div>
+                                                                            </div>
+                                                                        </div>
+                                                                     <div className='Upcoming__Cont__Content__Details__Divs__Div3 col-4'>
+                                                                        <div className='Upcoming__Cont__Content__Details__Divs__Div2__Earnings'>
+                                                                                <div className='num'><span></span></div>
+                                                                                <div className='tex'><span>Earnings</span></div>
+                                                                            </div>
+                                                                     </div>
+                                                                 </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                 </div>
-                                             <div className='Upcoming__Cont__Content__Details__Divs__Div3 col-4'>
-                                                <div className='Upcoming__Cont__Content__Details__Divs__Div2__Earnings'>
-                                                        <div className='num'><span>$ 0</span></div>
-                                                        <div className='tex'><span>Earnings</span></div>
-                                                    </div>
-                                             </div>
-                                         </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                     
+                                               )
+                                                    : 'no Trips!'
+                                            }
+
+
+
+         
                     
                 </div>
             </div>   
@@ -98,4 +135,3 @@ class Deliveries extends Component {
 }
 
 export default withRouter(Deliveries) ;
-

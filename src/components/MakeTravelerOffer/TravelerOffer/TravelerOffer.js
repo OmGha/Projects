@@ -20,9 +20,9 @@ const muiTheme = getMuiTheme ({
 
   var shopperid;
   var itemPrice;
-  var Service_fee;
-  var Pick_up_location;
-  var Fly_number="0";
+  var Service_fee ;
+  var Pick_up_location = "";
+  var Fly_number="58232";
   var Category_number="";
 
 
@@ -46,6 +46,8 @@ class TravelerOffer extends Component {
             TravelDate: date,
            
         });
+        console.log(this.state.TravelDate);
+        
       };
     handlerTravelerfee= ()=>{
     }
@@ -63,9 +65,9 @@ class TravelerOffer extends Component {
             {
   
                 "token": usertoken,
-                "Price_of_object":itemPrice,
-                "Price_of_ship":traverlerFee,
-                "Service_feare":Service_fee,
+                "Price_of_object": this.state.ordersData.price_of_item,
+                "Price_of_ship":this.state.ordersData.price_of_item*0.15,
+                "Service_feare":this.state.ordersData.price_of_item*0.2,
                 "Tax":Coustomtax,
                 "Delevery_date": TravelDate,
                 "Pick_up_location":Pick_up_location,
@@ -76,6 +78,8 @@ class TravelerOffer extends Component {
         
             )
         .done(function( data ) {
+
+            console.log( data);
             console.log("data sign in :"+ data.success);
         });
 
@@ -160,9 +164,9 @@ class TravelerOffer extends Component {
                                     <span className="input-group-text input_doller__char">$</span>
                                 </div>
                                 <input type="number" onChange={this.handlerTravelerfee} className="form-control create-oreder__inputs__price"
-                                 id="traverlerFee" ref='traverlerFee' aria-label="Amount (to the nearest dollar)" value={Math.round(this.state.ordersData.price_of_item*0.15).toString()} />
+                                 id="traverlerFee" ref='traverlerFee' aria-label="Amount (to the nearest dollar)"  />
                              </div>
-                             <span>Nulla cillum exercitation fugiat nulla. Reprehenderit tempor Lorem in laborum excepteur mollit veniam deserunt culpa 
+                             <span>Using recommended delivery fee of $ {Math.round(this.state.ordersData.price_of_item*0.15).toString()} increases your changes of having your offer accepted.However you can propose an alternative bid of your chioce.
                                     </span>
                             </div>
                         </div>
@@ -175,9 +179,9 @@ class TravelerOffer extends Component {
                                     <span className="input-group-text input_doller__char">$</span>
                                 </div>
                                 <input type="number" onChange={this.Coustomtax} className="form-control create-oreder__inputs__price"
-                                 id="Coustomtax" ref='Coustomtax' aria-label="Amount (to the nearest dollar)" value='0' />
+                                 id="Coustomtax" ref='Coustomtax' aria-label="Amount (to the nearest dollar)"  />
                              </div>
-                             <span>Nulla cillum exercitation fugiat nulla. Reprehenderit tempor Lorem in laborum excepteur m culpa irure
+                             <span>if there Sales tax
                                     </span>
                             </div>
                         </div>

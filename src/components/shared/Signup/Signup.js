@@ -118,6 +118,7 @@ class Signup extends Component {
                 this.setState({loading:false});
                 localStorage.setItem("User-Photo","null");
  
+
                 this.props.history.push('/uploadProfilePic');
                 window.scrollTo(0, 0);
             });

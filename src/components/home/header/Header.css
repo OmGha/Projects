@@ -326,6 +326,7 @@
     background-color: #fff;
     border-radius: 4px;
     margin-top: 40px;
+    display: inline-block
 }
 .header__box__create-order__row{
     padding: 0;

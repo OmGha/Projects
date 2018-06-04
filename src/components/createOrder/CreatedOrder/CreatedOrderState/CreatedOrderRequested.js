@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import './CreatedOrder.css';
 import Navbar from '../../../shared/nav/Navbar';
 import Footer from '../../../shared/footer/Footer';
@@ -7,6 +8,53 @@ import Footer from '../../../shared/footer/Footer';
 
 
 class CreatedOrderRequested extends Component {
+
+    constructor(props, context) {
+        super(props, context);
+        
+        this.state={
+            ordersData: [],
+            DealsData: [],
+            
+
+        };
+     
+    }
+
+    componentWillMount(){
+        console.log('componentDidMount');
+        
+        const usertoken =  localStorage.getItem("usertoken");
+        const orderID =  this.props.match.params.orderID ;
+        console.log(`https://getlynow.herokuapp.com/auth/message`, usertoken , orderID);
+
+
+        $.post( "https://getlynow.herokuapp.com/auth/getitembyid", {
+            "token":usertoken,
+            "id":orderID
+        })
+        .done(( data ) => {
+            console.log(data);
+            this.setState({ordersData:data})
+
+            console.log(this.state.ordersData);
+        }
+      );
+
+        $.post( "https://getlynow.herokuapp.com/auth/getDeals", {
+            "token":usertoken,
+            "state":"pendding",
+        })
+        .done(( data ) => {
+            console.log(data);
+            this.setState({DealsData:data})
+
+            console.log(this.state.DealsData);
+        }
+      );
+
+    }
+
     render() {
         return (
             <div>
@@ -47,91 +95,95 @@ class CreatedOrderRequested extends Component {
 
                     <div className='orederdetails'>
                             <div className='container createOrder__container'>
-                            <div className='getly-details'>
 
-                            <div className='row ' >
-                            <div className='col-md-3' >
-                                <div className='Oreder-image' >
-                                    <img className='Oreder-image__img' src={require('../../../../Assets/img/iphone6s.jpg')} />
-                                </div>
-                            </div>
-                            <div className='col-md-9' >
-                                <div  className='Oreder-name'> Iphone 7s plus</div>
-                                 <span>Koloa Surf(tm) Text Logo Classic Crewneck Sweatshirt.  it’s a real value.. 
-                                     Printed with Koloa(tm) Printed on front of Sweatshirt</span>
 
-                                <div className='oreder__details' >
-                                    <div className='oreder__details__tfb' >
-                                        <div>Deliver to </div>
-                                        <span> Cairo, EG</span>
-                                    </div>
-                                    <div className='oreder__details__tfb'>
-                                        <div>Deliver from </div>
-                                        <span> New York,US </span>
-                                    </div>
-                                    <div className='oreder__details__tfb'>
-                                        <div>Deliver before </div>
-                                        <span> March 20, 2018</span>
-                                    </div>
+                                                                    {
+                                                this.state.ordersData.length > 0
+                                                    ? this.state.ordersData.map(order =>           
+                                                        
+                                                        <div key={order.Item_num} className='getly-details'>
 
-                                </div>
+                                                        <div className='row ' >
+                                                        <div className='col-md-3' >
+                                                            <div className='Oreder-image' >
+                                                                <img className='Oreder-image__img' src={order.Item_photo} />
+                                                            </div>
+                                                        </div>
+                                                        <div className='col-md-9' >
+                                                            <div  className='Oreder-name'> {order.Item_name}</div>
+                                                             <span>{order.Description_item}</span>
+                            
+                                                            <div className='oreder__details' >
+                                                                <div className='oreder__details__tfb' >
+                                                                    <div>Deliver to </div>
+                                                                    <span> {order.Getly_to}</span>
+                                                                </div>
+                                                                <div className='oreder__details__tfb'>
+                                                                    <div>Deliver from </div>
+                                                                    <span> {order.Getly_from} </span>
+                                                                </div>
+                                                                <div className='oreder__details__tfb'>
+                                                                    <div>Deliver before </div>
+                                                                    <span> {order.Getly_date}</span>
+                                                                </div>
+                            
+                                                            </div>
+                            
+                                                        </div>
+                                                    </div>
+                                                    <hr/>
+                                                    <div className='row'>
+                                                        <div className='col-md-12' >
+                                                            <span>Estimated total</span>
+                                                        </div>
+                            
+                                                        <div className='col-md-12' >
+                                                            <p>Final price will be calculated based on your traveler's requested delivery fee.</p>
+                                                        </div>
+                                                    </div>
+                            
+                                                        <div className='row' >
+                                                            <div className='col-md-11' >
+                                                                <span>Item Price</span>
+                                                            </div>
+                                                            <div className='col-md-1' >
+                                                                <span>$<span>{order.price_of_item}</span></span>
+                                                            </div>
+                                                        </div>
+                                                        <div className='row' >
+                                                            <div className='col-md-11' >
+                                                                <span>Sale tax</span>
+                                                            </div>
+                                                            <div className='col-md-1' >
+                                                                <span>$<span>0</span></span>
+                                                            </div>
+                                                        </div>
+                                                        <div className='row' >
+                                                            <div className='col-md-11' >
+                                                                <span>Coustom tax</span>
+                                                            </div>
+                                                            <div className='col-md-1' >
+                                                                <span>$<span>0</span></span>
+                                                            </div>
+                                                        </div>
+                                                      
+                                                        <hr />
+                                                        <div className='row' >
+                                                            <div className='col-md-11' >
+                                                                <span>Total</span>
+                                                            </div>
+                                                            <div className='col-md-1' >
+                                                                <span>$<span>{order.price_of_item}</span></span>
+                                                            </div>
+                                                        </div>
+                            
+                                                    </div>
+                                                 
+                                                    )
+                                                    : 'no order!'
+                                            }
 
-                            </div>
-                        </div>
-                        <hr/>
-                        <div className='row'>
-                            <div className='col-md-12' >
-                                <span>Estimated total</span>
-                            </div>
 
-                            <div className='col-md-12' >
-                                <p>Final price will be calculated based on your traveler's requested delivery fee.</p>
-                            </div>
-                        </div>
-
-                            <div className='row' >
-                                <div className='col-md-11' >
-                                    <span>Item Price</span>
-                                </div>
-                                <div className='col-md-1' >
-                                    <span>$<span>20</span></span>
-                                </div>
-                            </div>
-                            <div className='row' >
-                                <div className='col-md-11' >
-                                    <span>Sale tax</span>
-                                </div>
-                                <div className='col-md-1' >
-                                    <span>$<span>3</span></span>
-                                </div>
-                            </div>
-                            <div className='row' >
-                                <div className='col-md-11' >
-                                    <span>Coustom tax</span>
-                                </div>
-                                <div className='col-md-1' >
-                                    <span>$<span>0</span></span>
-                                </div>
-                            </div>
-                            <div className='row' >
-                                <div className='col-md-11' >
-                                    <span>Your delivery fee</span>
-                                </div>
-                                <div className='col-md-1' >
-                                    <span>$<span>5</span></span>
-                                </div>
-                            </div>
-                            <hr />
-                            <div className='row' >
-                                <div className='col-md-11' >
-                                    <span>Total</span>
-                                </div>
-                                <div className='col-md-1' >
-                                    <span>$<span>28</span></span>
-                                </div>
-                            </div>
-
-                        </div>
 
                         <div className='row' >
                             <div className='col-md-12' >
@@ -140,63 +192,78 @@ class CreatedOrderRequested extends Component {
                           
                         </div>
 
-                        <div className='getly-details'>
+
+                        
+                        {
+                                                this.state.DealsData.length > 0
+                                                    ? this.state.DealsData.map(Deal =>           
+                                                    
+                                                        <div className='getly-details'>
                            
 
-                            <div className='row' >
-                                <div className='col-md-6' >
-                                <img className='Order__maker-img' src= 'https://randomuser.me/api/portraits/men/88.jpg' /> 
-                                    <span className='Order__maker-Name' >Ahmed</span>
-                                </div>
-                                <div className='col-md-6' >
-                                    <div className='Order__time' >
-                                        <div >
-                                            <h1><span>$</span>68</h1>
-                                        </div>
-                                </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                        <div className="trip__traveler__rete" >
-                                            <img src={require('../../../../Assets/img/star.svg')}/>
-                                            <img src={require('../../../../Assets/img/star.svg')}/>
-                                            <img src={require('../../../../Assets/img/star.svg')}/>
-                                            <img src={require('../../../../Assets/img/star.svg')}/>
-                                            <img src={require('../../../../Assets/img/star.svg')}/>
-                                           
-                                        </div>
-                            </div>
-                            <hr />
+                                                        <div className='row' >
+                                                            <div className='col-md-6' >
+                                                            <img className='Order__maker-img' src= 'https://randomuser.me/api/portraits/men/88.jpg' /> 
+                                                                <span className='Order__maker-Name' >Ahmed</span>
+                                                            </div>
+                                                            <div className='col-md-6' >
+                                                                <div className='Order__time' >
+                                                                    <div >
+                                                                        <h1><span>$</span>68</h1>
+                                                                    </div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="row">
+                                                                    <div className="trip__traveler__rete" >
+                                                                        <img src={require('../../../../Assets/img/star.svg')}/>
+                                                                        <img src={require('../../../../Assets/img/star.svg')}/>
+                                                                        <img src={require('../../../../Assets/img/star.svg')}/>
+                                                                        <img src={require('../../../../Assets/img/star.svg')}/>
+                                                                        <img src={require('../../../../Assets/img/star.svg')}/>
+                                                                       
+                                                                    </div>
+                                                        </div>
+                                                        <hr />
+                            
+                                                        <div className='row' >
+                                                          <div className='traveler__details' >
+                                                                <div className='oreder__details__tfb' >
+                                                                    <div>Deliver to </div>
+                                                                    <span> Cairo, EG</span>
+                                                                </div>
+                                                                <div className='oreder__details__tfb'>
+                                                                    <div>Deliver from </div>
+                                                                    <span> New York,US </span>
+                                                                </div>
+                                                                <div className='oreder__details__tfb'>
+                                                                    <div>Deliver before </div>
+                                                                    <span> March 20, 2018</span>
+                                                                </div>
+                            
+                                                            </div>
+                                                        </div>
+                            
+                                                        <div className='row' >
+                                                            <div className='col-md-6' >
+                                                                  <button type="button" className="btn getly___btn send-message__btn"  >Send Message</button>
+                                                            </div>
+                                                            <div className='col-md-6' >
+                                                                  <button type="button" className="btn getly___btn  accept-offer__btn"  > Accept Offer</button>
+                                                            </div>
+                                                        </div>
+                            
+                                                       
+                                                    </div>
+                                            
+                                               )
+                                                    : 'no Offers!'
+                                            }
 
-                            <div className='row' >
-                              <div className='traveler__details' >
-                                    <div className='oreder__details__tfb' >
-                                        <div>Deliver to </div>
-                                        <span> Cairo, EG</span>
-                                    </div>
-                                    <div className='oreder__details__tfb'>
-                                        <div>Deliver from </div>
-                                        <span> New York,US </span>
-                                    </div>
-                                    <div className='oreder__details__tfb'>
-                                        <div>Deliver before </div>
-                                        <span> March 20, 2018</span>
-                                    </div>
 
-                                </div>
-                            </div>
 
-                            <div className='row' >
-                                <div className='col-md-6' >
-                                      <button type="button" className="btn getly___btn send-message__btn"  >Send Message</button>
-                                </div>
-                                <div className='col-md-6' >
-                                      <button type="button" className="btn getly___btn  accept-offer__btn"  > Accept Offer</button>
-                                </div>
-                            </div>
 
-                           
-                        </div>
+
 
 
                     </div>

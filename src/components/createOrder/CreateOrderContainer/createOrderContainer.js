@@ -359,11 +359,11 @@ _handleSubmit(e) {
             )
         .done(function( data ) {
 
-            console.log("data "+ data );
+            console.log( data );
             console.log("data sign in :"+ data.success);
 
             if(data.success){
-                history.push("/getlyrequested");
+                history.push("/requestsorder");
                 window.location.reload(true);
    
             }

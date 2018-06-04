@@ -1,12 +1,47 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import Discount from '../../Assets/img/discount.svg';
 import '../Copouns/Copouns.css'
 
 class conversations extends Component{
 
+    constructor(props, context) {
+        super(props, context);
+        
+        this.state={
+            Messages: [],
+
+        };
+     
+    }
+
+
+
+    openConv = (Item_num) =>{
+        this.props.history.push(`/openconv/${Item_num}`);
+        window.scrollTo(0, 0);
+    }
+
+      
 
     componentWillMount(){
         console.log("++++++++++++++++++++++++++");
+
+        const usertoken =  localStorage.getItem("usertoken");
+        console.log(`https://getlynow.herokuapp.com/auth/listMessage`, usertoken );
+
+        $.post( "https://getlynow.herokuapp.com/auth/listMessage", {
+            "token":usertoken,
+        })
+        .done(( data ) => {
+            console.log(data);
+            this.setState({Messages:data})
+            console.log(this.state.Messages);
+          
+              
+
+        }
+    );
         
     }
 
@@ -37,33 +72,30 @@ class conversations extends Component{
                         </div>
                         <label>6 CONVERSATIONS</label>
                         <div className='Coupon__Section' id='elementContainer'>
-                            <div className='Message__Element'>
-                                  <div className="row" >
-                                        <div className="col-1">
-                                        <img className='nav__profile__img' src='https://randomuser.me/api/portraits/men/11.jpg' />
-                                        </div>
-                                        <div className="col-10 Message__Element__body">
-                                        Ahmed Shibob <span>April 6,2018</span>
-                                        <p>Hi, Ahmed, I am traveling to Paris and can bring your grab on August 26, 2018. As soon as you accept my offer I 
-                                            can purchase the item and get it to you on time. Let me know
-                                            if there is anything else you want from Dubai.</p>
-                                        </div>
-                                  </div>
-                            </div>
 
-                            <div className='Message__Element'>
-                                  <div className="row" >
-                                        <div className="col-1">
-                                        <img className='nav__profile__img' src='https://randomuser.me/api/portraits/men/11.jpg' />
-                                        </div>
-                                        <div className="col-10 Message__Element__body">
-                                        Ahmed Shibob <span>April 6,2018</span>
-                                        <p>Hi, Ahmed, I am traveling to Paris and can bring your grab on August 26, 2018. As soon as you accept my offer I 
-                                            can purchase the item and get it to you on time. Let me know
-                                            if there is anything else you want from Dubai.</p>
-                                        </div>
-                                  </div>
-                            </div>
+
+                                        {
+                                                this.state.Messages.length > 0
+                                                    ? this.state.Messages.map(Message =>           
+                                                    
+                                                    <div key={Message.Item_num} className='Message__Element' onClick={() => { this.openConv(Message.Item_num) }}  >
+                                                    <div className="row" >
+                                                          <div className="col-1">
+                                                          <img className='nav__profile__img' src="https://image.flaticon.com/icons/svg/265/265674.svg"  />
+                                                          </div>
+                                                          <div className="col-10 Message__Element__body">
+                                                          {Message.First_name}  {Message.Last_name}  <span>{Message.created_at}</span>
+                                                          <p>{Message.message}</p>
+                                                          </div>
+                                                       </div>
+                                                 </div> 
+                                               )
+                                                    : 'no Messages!'
+                                            }
+
+ 
+
+
                            
                            
                         </div>
